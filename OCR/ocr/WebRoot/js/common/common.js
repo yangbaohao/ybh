@@ -42,7 +42,11 @@ function getCurrencyArray() {
     return curs;
 }
 
+
 console.log('common');
+
+console.log('abcd')
+
 function initCurCode(curname) {
     var CurArys = getCurrencyArray();
     for (var i = 0; i < CurArys.length; i++) {
