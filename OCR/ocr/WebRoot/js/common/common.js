@@ -42,6 +42,8 @@ function getCurrencyArray() {
     return curs;
 }
 
+
+console.log('common1')
 console.log('common');
 
 function initCurCode(curname) {
