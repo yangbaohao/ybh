@@ -1,0 +1,91 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="rcpt-expense">
+  	<div class="row p-b-20">
+		<div class="col-md-12 p-r-0">
+			<div class="float-right p-l-20">
+				<button type="button" id="addrcpt-btn" style="margin-left:20px;"
+					class="btn btn-success float-right addbtn" data-btn="fms:receipt:create">
+					<span class="btn-label"><i class="ion-plus-round"></i> </span>新增发票
+				</button>
+				<button type="button" id="importrcpt-btn"  style="margin-left:20px;"
+					class="btn btn-success float-right addbtn " data-btn="fms:receipt:create">
+					<span class="btn-label"><i class="ion-plus-round"></i> </span>导入
+				</button>
+				<button type="button" id="downloadrcpt-btn"
+					class="btn btn-success float-right addbtn " data-btn="fms:receipt:create">
+					<span class="btn-label"><i class="ion-plus-round"></i> </span>下载模板
+				</button>
+			</div>
+			<div class="float-left">
+				<button class="btn btn-success wd100 searchBtn" type="button" id="rcpt-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索</button>
+			</div>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-20" id="receipt-show" style="display:none"> 
+	 	<div class="row p-t-10" >
+	 		<div class="col-md-4">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-3">发票号码</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="rcpt-num">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="rcpt-Grid"></div>
+    </div>
+    
+    <!-- 导入 -->
+    <div id="receipt-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12 m-top"></div>
+							<div class="col-md-12" id="receipt-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/receipt.js";
+		$.loadScript(js, function() {
+			var receiptMgt = new ReceiptMgt();
+				receiptMgt.initInput();
+		});
+	});
+</script>

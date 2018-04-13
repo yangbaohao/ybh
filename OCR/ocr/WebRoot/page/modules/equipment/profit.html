@@ -1,0 +1,287 @@
+<meta charset="utf-8">
+<div class="content p-20" id="profitTable">
+	<div class="row">
+		<div class="form-group p-t-30 p-l-r-20">
+			<label class="control-label col-sm-1"
+				style="color: black; text-align: right; padding-top: 10px;" id="profit-searchDate">日期</label>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-daterange input-group" id="date-range">
+								<input type="text" class="float-left m-l-15 form-control" name="form-company-Booked-Date" id="profit-time">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-1 p-0">
+				<button class="btn btn-success wd100 float-right" type="button" id="profit-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+				</button>
+			</div>
+			<div class="float-right">
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right" id="profit-out">导&nbsp;&nbsp;&nbsp;出</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="profit-sendEmail">发邮件</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="profit-print">打&nbsp;&nbsp;&nbsp;印</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="m-l-r-20">
+		<div class="row m-l-r-20">
+			<div class="card-box bg-white">
+				<!-- 表头 -->
+				<div class="row card-box p-b-0 m-b-0">
+					<div class="col-md-3 p-l-20" style="padding-top: 60px;">
+						<div class="row">
+							<span id="profit_comname"></span>
+						</div>
+					</div>
+					<div class="col-md-6 text-center">
+						<div class="row">
+							<h3 id="profit-headMsg">利润表</h3>
+						</div>
+						<div class="row p-t-10">
+							<span id="profit_nowDate"></span>
+						</div>
+					</div>
+					<div class="col-md-3 p-t-30 text-right p-r-20">
+						<div class="row">
+							<span id="profit-table02">会小企02表</span>
+						</div>
+						<div class="row p-t-15">
+							<span id="profit-unit">单位:元</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-20">
+					<table class="table table-bordered td2-text-center td3-text-right td4-text-right text-indent-6em" id="profitDataTable">
+						<thead>
+							<tr>
+								<th class="bbmt" style="width:50%">项<span style="width:100px;display:inline-block"></span>目</th>
+								<th class="bbmt" style="width:10%">行次</th>
+								
+								<th class="bbmt" style="width:20%">本年累计金额</th>
+								<th class="bbmt" style="width:20%">本月金额</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="p-l-0">一、营业收入:</td>
+								<td>1</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>减：营业成本</td>
+								<td>2</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">营业税金及附加</td>
+								<td>3</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;"> 其中：消费税</td>
+								<td>4</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">营业税</td>
+								<td>5</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">城市维护建设税</td>
+								<td>6</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">资源税</td>
+								<td>7</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">土地增值税</td>
+								<td>8</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">城镇土地使用税、房产税、车船税、印花税</td>
+								<td>9</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">教育费附加、矿产资源补偿税、排污费</td>
+								<td>10</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">销售费用</b></td>
+								<td>11</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">其中：商品维修费</td>
+								<td>12</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">广告费和业务宣传费</td>
+								<td>13</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">管理费用</td>
+								<td>14</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">其中：开办费</td>
+								<td>15</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">业务招待费</td>
+								<td>16</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">研究费用</td>
+								<td>17</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">财务费用</b></td>
+								<td>18</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">其中：利息费用（收入以“-”号填列）</td>
+								<td>19</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">加：投资收益（损失以“-”号填列）</td>
+								<td>20</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="p-l-0"><b>二、营业利润（亏损以“-”号填列）</b></td>
+								<td>21</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>加：营业外收入</td>
+								<td>22</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">其中：政府补助</td>
+								<td>23</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>减：营业外支出</td>
+								<td>24</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 8em !important;">其中：坏账损失</td>
+								<td>25</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">无法收回的长期债券投资损失</td>
+								<td>26</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">无法收回的长期股权投资损失</td>
+								<td>27</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">自然灾害等不可抗力因素造成的损失</td>
+								<td>28</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 10em !important;">税收滞纳金</td>
+								<td>29</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="p-l-0"><b>三、利润总额（亏损总额以“-”号填列）</b></td>
+								<td>30</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>减：所得税费用</td>
+								<td>31</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="p-l-0"><b>四：净利润（净亏损以“-”号填列）</b></td>
+								<td>32</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/profit.js";
+		$.loadScript(
+					js,
+					function(){
+						var profitMgt = new ProfitMgt();
+						profitMgt.initInput();
+						
+				    	var profitBindModel = new ProfitBindModle(profitMgt);
+				    	profitBindModel.unbindAll();
+				    	profitBindModel.bind();
+					});
+	});
+</script>

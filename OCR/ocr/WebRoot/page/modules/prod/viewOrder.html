@@ -1,0 +1,101 @@
+<meta charset="UTF-8">
+<div class="content orderDetailsPage" id="orderDetailsPage">
+	<div id="" class="container">
+		
+		<div class="row card-box m-b-0 p-b-0">			
+			
+		</div>
+		
+		<div class="row card-box m-b-0 p-b-0">
+			<lable class="control-label"
+					style="font-size: 18px;float:left; font-weight: bold;">
+				<span>订单号：</span><span id="orderDetailsCode"></span>
+				</lable>		
+				<lable class="control-label"
+					style="font-size: 18px;float:right; font-weight: bold; padding-right: 70px;">
+				<!-- <span>公司名称：</span> -->
+				<span id="orderDetailsCompanyName"></span></lable>	
+		</div>
+	
+		<div class="row card-box m-b-0 p-b-0">
+			<div id="orderDetailsList" class="row">
+				
+			</div>
+		</div>
+
+		<div class="row card-box m-b-0 p-b-0">
+
+			<div class="col-md-6">
+				
+			</div>
+			<div class="col-md-6">
+				<lable class="control-label"
+					style="font-size: 18px;float:right; font-weight: bold;">
+				<span>合计总额：￥</span>
+				<span id="orderDetailsSum"></span></lable>				
+			</div>
+
+		</div>
+		
+		<div class="row card-box m-b-0 p-b-0 orderDetails-bar">
+			<div class="col-sm-8">
+				<label class="control-label float-left p-t-10">使用线下优惠券</label>
+				
+				<div class="col-sm-4">
+					<input type="text" class="form-control" placeHolder="请输入优惠券号码"
+						id="orderDetails-code">
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-success wd100" type="button"
+						id="orderDetails-search">验码</button>
+				</div>
+				
+			</div>
+			<button class="btn btn-success float-right" id=orderDetailsBtn>立即支付</button>
+			<!-- <div class="col-md-6">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-3">使用线下优惠券</label>
+						<div class="col-sm-5">
+							<input type="text" class="form-control" placeHolder="输入优惠券号码" id="orderDetails-code">
+						</div>
+						<div class="col-sm-4">
+							<button class="btn btn-success wd100" type="button"
+								id="orderDetails-search">验码</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+							
+			</div> -->
+
+		</div>
+
+		<div class="row p-t-20">
+			<div class="myAccountBar">
+				<span id="orderDetails-title">可用优惠券</span> 
+			</div>
+		</div>
+
+		<div class="row p-t-20 myAccountList" id="orderDetailsMyAccountList"></div>
+
+		<div class="row card-box m-b-0 p-b-0">
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+					
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/prod/viewOrder.js";
+		$.loadScript(js, function() {
+			var vo = new VoMgt();
+			vo.init();
+		});
+	});
+</script>

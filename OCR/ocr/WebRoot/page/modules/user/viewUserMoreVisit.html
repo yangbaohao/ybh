@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<div class="content p-20 p-t-0" id="viewUserPage">
+	<div class="row p-20">
+		<span id="viewUserMoreVisit-username"></span>/
+		<span id="viewUserMoreVisit-company"></span>
+	</div>
+
+    <div class="row">
+        <div class="col-md-12" id="viewUserMoreVisit"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/viewUserMoreVisit.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewMoreMgt = new ViewMoreMgt();
+						viewMoreMgt.initInput();
+				    	
+				    	var viewMoreBindModel = new ViewMoreBindModle(viewMoreMgt);
+				    	viewMoreBindModel.unbindAll();
+				    	viewMoreBindModel.bind();
+					});
+	});
+</script>

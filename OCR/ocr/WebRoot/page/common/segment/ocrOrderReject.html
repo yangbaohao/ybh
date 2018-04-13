@@ -1,0 +1,105 @@
+
+<meta charset="UTF-8">
+<div id="ocrOrderReject" class="modal " tabindex="-1"
+	role="dialog" aria-labelledby="full-width-modalLabel"
+	aria-hidden="true" style="display: none;" data-backdrop="static">
+	<div class="modal-dialog wd700">
+		<div class="modal-content">
+			<!--模态框头部-->
+			<div class="modal-header">
+				<div class="quotation-nav">
+					<div class="row">
+						<div class="quotation-nav-left" style="">
+							<span style="margin-left: 20px;">选择驳回理由</span>
+						</div>
+						<div class="quotation-nav-right">
+							<button type="button" class="close-modal btn-r"
+								data-dismiss="modal" aria-hidden="true">
+								×
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框body-->
+			<div class="modal-body">
+				<div class="row container">
+					<div class="col-sm-12">
+						<div class="fixed-table-container " style="padding-bottom: 0px;">
+							<div class="row card-box nopadding">
+								<div class="col-md-10 p-t-20 m-l-40">
+							       	<div class="radio radio-info radio-inline" style=" height:30px;">
+										<input type="radio"  value="option1" name="radioInline1" data-type="kfRejectFont" id="unkownWriting" >
+										<label for="unkownWriting" id="unkownWritingLabel">很抱歉，智能转换过程中无法识别您的笔记</label>
+									 </div>
+									 <div class="radio radio-info radio-inline" style="margin-left:0!important; height:30px;">
+										<input type="radio"  value="option1" name="radioInline1" data-type="kfRejectInfo" id="unkownInformation">
+										<label for="unkownInformation" id="unkownInformationLabel">很抱歉，智能转换过程中产品信息不全</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框脚页-->
+			<div class="modal-footer" style="padding: 20px;">
+				<button type="button" class="btn btn-success m-r-20" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-success" id="saveRejectReason"
+					data-dismiss="modal">确定</button>
+			</div>
+		</div>
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<script>
+	
+	$('#saveRejectReason').off('click').on('click', function() {
+		var dataType = '';
+		if($('#unkownWriting')[0].checked){
+			dataType = $('#unkownWriting').data('type');
+		}else if($('#unkownInformation')[0].checked){
+			dataType = $('#unkownInformation').data('type');
+		}
+		
+		var rejectObj = {
+			uuid : $('#unkownWriting').data('uuid'),
+			remark : dataType
+		}
+		console.log(rejectObj);
+		
+		if(dataType == ''){
+			Core.alert({message:'至少选择一项您驳回的理由!'});
+			return false;
+		}
+		
+		if(rejectObj.uuid == undefined ) {
+			Core.alert({message:'参数错误!'});
+			return false;
+		}
+		
+		timeOut(function(){
+			Core.AjaxRequest({            
+		        url:_global_settings.service.url+'/overview/kfReject',
+				type: "POST",
+				params: rejectObj,
+				/* showMsg:false, */
+		        callback: function(res) {
+		        	$('#unkownInformation').data('uuid', '');
+		        	$('#unkownWriting').data('uuid', '');
+		        	
+		        	$('#ocrOrderReject').modal('hide');
+		        	$.closeTab();
+		        	$('#userInformationGrid').jqxGrid('updatebounddata', 'cells');
+		        },
+				failure:function(e){
+					var err=JSON.parse(e.responseText);
+					Core.alert({
+						message: err.errorMsg
+					});
+				}
+		    });
+		},500);
+	});
+</script>

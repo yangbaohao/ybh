@@ -1,0 +1,329 @@
+<meta charset="utf-8">
+<style>
+#cashFlowTable input.input {
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	border: 1px solid #E3E3E3;
+	border-radius: 4px;
+	color: #565656;
+	box-shadow: none;
+	transition: all 300ms linear;
+}
+/* #cashFlowTable input.editInput_m{
+    background-color: #f1f1f1;
+} */
+#cashFlowTable input.input[readonly] {
+	/* background-color: #FFFFFF; */
+	border: none;
+}
+
+#cashFlowTable .input {
+	text-align: right;
+}
+
+#cashFlowTable input:focus {
+	outline: 0 !important;
+}
+
+#cashFlowTable .p-r-l-10 {
+	padding: 0 10px;
+}
+</style>
+<div class="content p-20" id="cashFlowTable">
+	<div class="row">
+		<div class="form-group p-t-30 p-l-r-20">
+			<label class="control-label col-sm-1"
+				style="color: black; text-align: right; padding-top: 10px;">日期</label>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div readonly class="input-daterange input-group" id="date-range">
+								<input type="text" class="float-left m-l-15 form-control"
+									name="form-company-Booked-Date" id="cashflow-time">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-1 p-0">
+				<button class="btn btn-success wd100 float-right searchBtn"
+					type="button" id="cashflow-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索</button>
+			</div>
+
+			<div class="float-right">
+				<button type="button" class="btn btn-success float-right"
+					id="cashflow-out">导&nbsp;&nbsp;&nbsp;出</button>
+				<button type="button"
+					class="btn btn-success float-right m-r-15 hide"
+					id="cashflow-sendEmail">发邮件</button>
+				<button type="button" class="btn btn-success float-right m-r-15 "
+					id="cashflow-print">打&nbsp;&nbsp;&nbsp;印</button>
+				<button type="button" class="btn btn-success float-right m-r-15 "
+					id="cashflow-refresh">刷&nbsp;&nbsp;&nbsp;新</button>
+				<button type="button" class="btn btn-success float-right m-r-15 hide"
+					id="">调&nbsp;&nbsp;&nbsp;整</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="m-l-r-20">
+
+		<div class="row m-l-r-20">
+			<div class="card-box bg-white">
+				<!-- 表头 -->
+				<div class="row card-box p-b-0 m-b-0">
+					<div class="col-md-3 p-l-20" style="padding-top: 60px;">
+						<div class="row"></div>
+						<div class="row">
+							<span id="cashflow_comname"></span>
+						</div>
+					</div>
+					<div class="col-md-6 text-center">
+						<div class="row">
+							<h3 id="cashFlow-headMsg">现金流量表</h3>
+						</div>
+						<div class="row p-t-10">
+							<span id="cashFlow_nowDate"></span>
+						</div>
+					</div>
+					<div class="col-md-3 p-t-30 text-right p-r-20">
+						<div class="row">
+							<span>会小企03表</span>
+						</div>
+						<div class="row p-t-15">
+							<span id="cashFlow-unit">单位:元</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-20">
+					<table
+						class="table table-bordered td2-text-center td3-text-right td4-text-right text-indent-4em"
+						id="cashFlowDataTable">
+						<thead>
+							<tr>
+								<th class="text-797979" style="width: 50%">项<span
+									style="width: 100px; display: inline-block"></span>目
+								</th>
+								<th class="text-797979" style="width: 10%">行次</th>
+								<th class="text-797979" style="width: 20%">本年累计金额<a
+									class="md-rate-review"  id="cashflow-update-y" title="调整"
+									style="position: absolute; padding: 3px; font-size: 16px;"></a></th>
+								<th class="text-797979" style="width: 20%">本月金额<a
+									class="md-rate-review" id="cashflow-update-m" title="保存"
+									style="position: absolute; padding: 3px; font-size: 16px;"></a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="text-indent: 2em;"><b>一、经营活动产生的现金流量:</b></td>
+								<td>-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr id="1">
+								<td>销售产成品、商品、提供劳务收到的现金</td>
+								<td>1</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_1" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_1" type="text" /></td>
+							</tr>
+							<tr id="2">
+								<td>收到的其他与经营活动有关的现金</td>
+								<td>2</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_2" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_2" type="text" /></td>
+							</tr>
+							<tr id="3">
+								<td>购买原材料、商品、接受劳务支付的现金</td>
+								<td>3</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_3" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_3" type="text" /></td>
+							</tr>
+							<tr id="4">
+								<td>支付的职工薪酬</td>
+								<td>4</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_4" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_4" type="text" /></td>
+							</tr>
+							<tr id="5">
+								<td>支付的税费</td>
+								<td>5</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_5" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_5" type="text" /></td>
+							</tr>
+							<tr id="6">
+								<td>支付其他与经营活动有关的现金</td>
+								<td>6</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_6" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_6" type="text" /></td>
+							</tr>
+							<tr id="7">
+								<td><b>经营活动产生的现金流量净额</b></td>
+								<td>7</td>
+								<td readonly class="input editInput_y" id="cf_input_y_7"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_7"></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 2em;"><b>二、投资活动产生的现金流量:</b></td>
+								<td>-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr id="8">
+								<td>收回短期投资、长期债券投资和长期股权投资收到的现金</td>
+								<td>8</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_8" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_8" type="text" /></td>
+							</tr>
+							<tr id="9">
+								<td>取得投资收益收到的现金</td>
+								<td>9</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_9" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_9" type="text" /></td>
+							</tr>
+							<tr id="10">
+								<td>处置固定资产、无形资产和其他非流动资产收回的现金净额</td>
+								<td>10</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_10" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_10" type="text" /></td>
+							</tr>
+							<tr id="11">
+								<td>短期投资、长期债券投资和长期股权投资支付的现金</td>
+								<td>11</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_11" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_11" type="text" /></td>
+							</tr>
+							<tr id="12">
+								<td>购建固定资产、无形资产和其他长期资产所支付的现金</td>
+								<td>12</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_12" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_12" type="text" /></td>
+							</tr>
+							<tr id="13">
+								<td><b>投资活动产生的现金流量净额</b></td>
+								<td>13</td>
+								<td readonly class="input editInput_y" id="cf_input_y_13"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_13"></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 2em;"><b>三、筹资活动产生的现金流量:</b></td>
+								<td>-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr id="14">
+								<td>取得借款收到的现金</td>
+								<td>14</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_14" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_14" type="text" /></td>
+							</tr>
+							<tr id="15">
+								<td>吸收投资者投资收到的现金</td>
+								<td>15</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_15" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_15" type="text" /></td>
+							</tr>
+							<tr id="16">
+								<td>偿还借款本金支付的现金</td>
+								<td>16</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_16" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_16" type="text" /></td>
+							</tr>
+							<tr id="17">
+								<td>偿还借款利息支付的现金</td>
+								<td>17</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_17" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_17" type="text" /></td>
+							</tr>
+							<tr id="18">
+								<td>分配利润支付的现金</td>
+								<td>18</td>
+								<td class="p-r-l-10"><input readonly class="input editInput_y"
+									id="cf_input_y_18" type="text" /></td>
+								<td class="p-r-l-10"><input readonly
+									class="input editInput_m" id="cf_input_m_18" type="text" /></td>
+							</tr>
+							<tr id="19">
+								<td><b>筹资活动产生的现金流量净额</b></td>
+								<td>19</td>
+								<td readonly class="input editInput_y" id="cf_input_y_19"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_19"></td>
+							</tr>
+							<tr id="20">
+								<td style="text-indent: 2em;"><b>四、现金净增加额</b></td>
+								<td>20</td>
+								<td readonly class="input editInput_y" id="cf_input_y_20"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_20"></td>
+							</tr>
+							<tr id="21">
+								<td><b>加:期初现金余额</b></td>
+								<td>21</td>
+								<td readonly class="input editInput_y" id="cf_input_y_21"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_21"></td>
+							</tr>
+							<tr id="22">
+								<td style="text-indent: 2em;"><b>五、期末现金余额</b></td>
+								<td>22</td>
+								<td readonly class="input editInput_y" id="cf_input_y_22"></td>
+								<td readonly class="input editInput_m" id="cf_input_m_22"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/cashFlow.js";
+		$.loadScript(js, function() {
+			var cashflowMgt = new CashflowMgt();
+			cashflowMgt.initInput();
+
+			var cashflowBindModel = new CashflowBindModle(cashflowMgt);
+			cashflowBindModel.unbindAll();
+			cashflowBindModel.bind();
+		});
+	});
+</script>
+
+
+
+
+

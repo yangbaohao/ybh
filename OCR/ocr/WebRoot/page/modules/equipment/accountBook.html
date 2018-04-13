@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<div class="content">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="images/common/moneyDetail.png" alt="" style="width: 100%;">
+				</div>
+				<div class="col-md-8">
+					<h4>
+						<a class="color-1193C5 hoverspan viewbtn" data-btn="fms:accountbook:detailedaccount" id="moneyDetail_table">明细账</a>
+					</h4>
+					<p id="moneyDetail-msg">按明细分类账户登记的账簿叫做明细分类账,简称“明细账”。也称明细分类账，是根据总账科目所属的明细科目设置的，
+					用于分类登记某一类经济业务事项，提供有关明细核算资料。</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-4">
+						<img src="images/common/generalLedger.png" alt=""
+							style="width: 100%;">
+					</div>
+					<div class="col-md-8">
+						<h4>
+							<a class="color-1193C5 hoverspan viewabtn reportView"
+								data-btn="fms:accountbook:detailedaccount"
+								id="generalLedger_table" data-type="billing:product:ordinary">总账</a>
+						</h4>
+						<p id="generalLedger-msg">根据总分类科目开设账户，用来登记全部经济业务，进行总分类核算，提供总括核算资料的分类账簿。总分类账所提供的核算资料，是编制会计报表的主要依据。</p>
+					</div>
+				</div>
+			</div>
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="images/common/subjectBal.png" alt="" style="width: 100%;">
+				</div>
+				<div class="col-md-8">
+					<h4>
+						<a class="color-1193C5 hoverspan viewbtn" data-btn="fms:accountbook:coamonthsum" id="subjectBal_table">科目余额表</a>
+					</h4>
+					<p id="subjectBal-msg">亦称“总账余额汇总表”，它是按照总账科目余额编制的。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/accountBook.js";
+		$.loadScript(
+					js,
+					function(){
+						var accountBookMgt = new AccountBookMgt();
+						accountBookMgt.initInput();
+						
+				    	var accountBookBindModel = new AccountBookBindModle(accountBookMgt);
+				    	accountBookBindModel.unbindAll();
+				    	accountBookBindModel.bind();
+					});
+	});
+</script>

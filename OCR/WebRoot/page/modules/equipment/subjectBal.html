@@ -1,0 +1,114 @@
+<meta charset="utf-8">
+<div class="content p-20" id="subjectBalance_table">
+	<div class="row">
+		<div class="form-group p-t-30 p-l-r-20">
+			<label class="control-label col-sm-1" id="subjectBal-searchdate"
+				style="color: black; text-align: right; padding-top: 10px;">日期</label>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-daterange input-group" id="date-range">
+								<input type="text" class="float-left m-l-15 form-control" name="form-company-Booked-Date" id="subjectBal-time">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-1 p-0">
+				<button class="btn btn-success wd100 float-right" type="button" id="subjectBal-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+				</button>
+			</div>
+
+			<div class="float-right">
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right" id="subjectBal-out">导&nbsp;&nbsp;&nbsp;出</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="subjectBal-sendEmail">发邮件</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="subjectBal-print">打&nbsp;&nbsp;&nbsp;印</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="m-l-r-20">
+		<div class="row m-l-r-20">
+			<div class="card-box bg-white">
+				<!-- 表头 -->
+				<div class="row card-box p-b-0">
+					<div class="col-md-3 p-l-20" style="padding-top: 60px;" id="subjectbal_comname">
+						
+						</div>
+					<div class="col-md-6 text-center">
+						<div class="row">
+							<h3 id="subjectBal-headMsg">科目余额表</h3>
+						</div>
+						<div class="row p-t-10">
+							<span id="subjectBal_nowDate"></span>
+						</div>
+					</div>
+					<div id="subjectBal-unit" class="col-md-3 text-right p-r-20" style="padding-top: 60px;">
+						单位：元</div>
+				</div>
+				<div class="row p-t-20">
+					<table class="table table-bordered" id="subjectBalDataTable">
+						<thead>
+							<tr>
+								<th class="text-797979" rowspan='2' style="width:15%;">
+									<div class="dropdown">
+										<div class="dropdown-toggle" data-toggle="dropdown" id="subjectBal_dropdownMenu1" style="cursor: pointer"><span id="subjectBal_dropdownMenuCode">科目代码&nbsp;&nbsp;&nbsp;</span><span class="caret"></span>
+										</div>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="subjectBal_dropdownMenu1">
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="javascript:void(0)" id="show_two">展开二级</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="javascript:void(0)" id="show_three">展开二级和三级</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="javascript:void(0)" id="show_four">全部展开</a>
+											</li>
+											<li role="presentation" class="divider"></li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="javascript:void(0)" id="show_one">收起</a>
+											</li>
+										</ul>
+									</div>
+								</th>
+								<th class="text-797979" rowspan='2' style="width:20%;">科目名称</th>
+								<th class="text-797979" rowspan='2' style="width:15%;">期初余额</th>
+								<th class="text-797979" colspan='2' style="width:25%;">本期发生额</th>
+								<th class="text-797979" rowspan='2' style="width:15%;">期末余额</th>
+							</tr>
+							<tr>
+								<th class="text-797979" style="width:10%;text-align:center">借方</th>
+								<th class="text-797979" style="width:10%;text-align:center">贷方</th>
+							</tr>
+						</thead>
+						<tbody id="subjectBalTbody">
+							
+						</tbody>
+					</table>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/subjectBal.js";
+		$.loadScript(
+					js,
+					function(){
+						var bssSubjectBalMgt = new BssSubjectBalMgt();
+						bssSubjectBalMgt.initInput();
+						
+				    	var bssSubjectBalBindModel = new BssSubjectBalBindModle(bssSubjectBalMgt);
+				    	bssSubjectBalBindModel.unbindAll();
+				    	bssSubjectBalBindModel.bind();
+					});
+	});
+</script>
+
+

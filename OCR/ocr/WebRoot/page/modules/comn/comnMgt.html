@@ -1,0 +1,95 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="userMgt">
+  	<div class="row">
+	  	<div class="col-md-12 p-r-0">
+			<button type="button" id="comn-btn" class="btn btn-success float-right">
+				<span class="btn-label"><i class="ion-plus-round"></i> </span>提取佣金
+			</button>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<span style="font-size:16px;font-weight:600">应提佣金:￥</span>
+		<span id="smnComn" class="m-r-20"></span>
+		<span style="font-size:16px;font-weight:600" class="m-l-15">已提佣金:￥</span>
+		<span id="hmnComn" class="m-r-20"></span>
+		<span style="font-size:16px;font-weight:600" class="m-l-15">佣金余额:￥</span>
+		<span id="balComn"></span>
+	</div>
+	
+	<div style="display:none">
+		<div id="comnMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>提取佣金
+			</div>
+			<div id="comnMgtForm" >
+				<div class="modal-body">
+					<div class="row">
+						<div class="row p-20">
+							<table class="table table-bordered" id="comnTable">
+								<tr>
+									<th class="text-797979" style="width:3%"><input type="checkbox" class="selectAll"></th>
+									<th class="text-797979" style="width:32%">购买金额</th>
+									<th class="text-797979" style="width:32%">应提佣金</th>
+									<th class="text-797979" style="width:33%">本次提取</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="padding-top:80px">
+					<button class="btn btn-success" id="addComnMgtBtn">保存</button>
+					<button class="btn btn-success" id="cancelComnMgtBtn">返回</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="comnMgtViewWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>查看审批记录
+			</div>
+			<div id="comnMgtViewForm" >
+				<div class="modal-body">
+					<div class="row">
+						<div class="row p-20">
+							<table class="table table-bordered" id="comnViewTable">
+								<tr>
+									<th class="text-797979" style="width:24.5%">审批时间</th>
+									<th class="text-797979" style="width:24.5%">审批人</th>
+									<th class="text-797979" style="width:24.5%">审批结果</th>
+									<th class="text-797979" style="width:24.5%">备注</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" style="padding-top:80px">
+					<button class="btn btn-success" id="cancelComnMgtViewBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="comnMgtGrid"></div>
+    </div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/comn/comnMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var comnMgt = new ComnMgt();
+						comnMgt.initInput();
+				    	
+				    	var comnBindModel = new ComnBindModle(comnMgt);
+				    	comnBindModel.unbindAll();
+				    	comnBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,144 @@
+<meta charset="UTF-8">
+<div id="user_addLabel" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog ">
+		<div class="modal-content">
+			<!--模态框头部-->
+			<div class="modal-header">
+				<div class="quotation-nav">
+					<div class="row">
+						<div class="quotation-nav-left" style="">
+							<b id="label_span" style="margin-left: 20px;">新增标签</b>
+						</div>
+						<div class="quotation-nav-right">
+							<button type="button" class="close-modal btn-success"
+								data-dismiss="modal" aria-hidden="true">
+								<i class="glyphicon glyphicon-remove close-btn" style="padding: 0;"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框body-->
+			<div class="modal-body">
+				<div class="row container">
+					<input type="text" id="label_num" class="hide"/>
+					<input type="text" id="label_type" class="hide"/>
+					<input type="text" id="user_id" class="hide"/>
+					<div class="col-sm-12 p-t-30">
+						<div class="row">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-6 col-sm-offset-3">
+										<div id="user_edit" class="hide"></div>
+										<table class="table" id="user_label">
+											<tbody><!-- <tr><td><input type="text" class="form-control"></td></tr> --></tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 5px; padding-left: 10%;">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+									<div class="col-sm-9"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框脚页-->
+			<div class="modal-footer" style="padding: 20px;">
+				<button type="button" class="btn btn-success close-btn" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal"
+					id='save_AddLabelBtn'>保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+	//保存
+	$('#save_AddLabelBtn').on('click',function(){
+		var _url='ownerlebal';
+		var _type=$('#label_type').val();
+		
+		if(_type=='agentLabel'){//代理商标签
+			_url='salesagentlebal';
+		}
+		
+		//新增
+		if($('#user_id').val()==''){
+			var arr = [];
+			var row = $('#user_label').find('tbody').children();
+			$.each(row,function(){
+				var obj = {};
+				var lebal = $(this).find('input').val();
+				if(lebal!=''){
+					obj.lebal = lebal;
+					arr.push(obj);
+				}
+			});
+			console.log(arr);
+			
+			Core.AjaxRequest({
+				url:_global_settings.service.url+'/'+_url,
+				type:'POST',
+				async:false,
+				params:arr,
+				callback:function(){
+					ComboBoxSources.load('label');
+					ComboBoxSources.load('agentLabel');
+					try{
+						$('#userMgtGrid').jqxGrid('updatebounddata','cells');	
+					}catch(e){}
+					try{
+						$('#agentGrid').jqxGrid('updatebounddata','cells');	
+					}catch(e){}
+					setTimeout(function(){
+						try{
+							$('#user-ulabel').comboBox({
+								source:ComboBoxSources.getRecords('label'),
+								width:'100%'
+							});
+						}catch(e){}
+					},30);
+					
+					setTimeout(function(){
+						try{
+							$('#agent-lebal').comboBox({
+								source:ComboBoxSources.getRecords('agentLabel'),
+								width:'100%'
+							});
+						}catch(e){}	
+					},30);
+				},
+				failure:function(){
+					
+				}
+			});
+		}else{ //修改
+			var lebal = $('#user_edit').val();
+			Core.AjaxRequest({
+				url:_global_settings.service.url+'/'+_url+'/'+$('#user_id').val(),
+				type:'PUT',
+				async:false,
+				params:{lebal:lebal},
+				callback:function(){
+					ComboBoxSources.load('label');
+					ComboBoxSources.load('agentLabel');
+					try{
+						$('#userMgtGrid').jqxGrid('updatebounddata','cells');	
+					}catch(e){}
+					try{
+						$('#agentGrid').jqxGrid('updatebounddata','cells');	
+					}catch(e){}
+				},
+				failure:function(){}
+			});
+		}
+		
+		$('#user_addLabel').modal('hide');
+	});
+</script>

@@ -1,0 +1,164 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="agentDaily">
+  	<!-- <div class="row p-b-20">
+  		  	<div class="col-md-12 p-r-0">
+  				<button class="btn btn-success wd100 float-right" type="button" id="agentDaily-search">
+  					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+  				</button>
+  			</div>
+  		</div>
+  		<div class="row card-box m-b-0 p-b-0" id="agentDaily-show">
+  			<div class="row">
+  				<div class="col-md-4">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<label class="control-label col-sm-3">用户名</label>
+  								<div class="col-sm-8">
+  									<div id=""></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  				
+  				<div class="col-md-4">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<label class="control-label col-sm-3">公司名称</label>
+  								<div class="col-sm-8">
+  									<div id=""></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  				
+  				<div class="col-md-4">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<label class="control-label col-sm-3">访问模块</label>
+  								<div class="col-sm-8">
+  									<div id=""></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  				
+  				
+  				<div class="col-md-3">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<label class="control-label col-sm-3">联系电话</label>
+  								<div class="col-sm-8">
+  									<div id="agent-date"></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  	
+  				<div class="col-md-3">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<div class="col-sm-5">
+  									<div id="agent-sDate"></div>
+  								</div>
+  								<span class="float-left m-t-10">至</span>
+  								<div class="col-sm-5">
+  									<div id="agent-eDate"></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  				
+  				<div class="col-md-3">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<label class="control-label col-sm-3">注册时间</label>
+  								<div class="col-sm-8">
+  									<div id="agent-number"></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  	
+  				<div class="col-md-3">
+  					<div class="row">
+  						<form action="#" class="form-horizontal">
+  							<div class="form-group">
+  								<div class="col-sm-5">
+  									<div id="agent-sNumber"></div>
+  								</div>
+  								<span class="float-left m-t-10">至</span>
+  								<div class="col-sm-5">
+  									<div id="agent-eNumber"></div>
+  								</div>
+  							</div>
+  						</form>
+  					</div>
+  				</div>
+  			</div>
+  			
+  			<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+  		</div>
+  		
+  		<div id="agentDailySpWin">
+  			<div style="font-size: 18px;">
+  				<i class="icon-plus-3"></i>审批处理
+  			</div>
+  			<div id="agentDailySpForm" >
+  				<div class="modal-body">
+  					<div class="row p-t-20" id="agentDailySpGrid"></div>
+  					<div class="row p-t-20">
+  						<div class="col-md-12">
+  							<form action="#" class="form-horizontal">
+  								<div class="form-group">
+  									<label class="col-sm-1 control-label p-r-0">审批意见</label>
+  									<div class="col-sm-11">
+  										<textarea class="form-control" id="agentDailySpAdvice"></textarea>
+  									</div>
+  								</div>
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  				<div class="modal-footer">
+  					<button class="btn btn-success" id="agentDailySpPassBtn">通过</button>
+  					<button class="btn btn-success" id="agentDailySpRejectBtn">拒绝</button>
+  					<button class="btn btn-success" id="agentDailySpBackBtn">返回</button>
+  				</div>
+  			</div>
+  		</div> -->
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="agentDailyGrid-valid"></div>
+    </div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/daily/validUser.js";
+		$.loadScript(
+					js,
+					function(){
+						var vadMgt = new VadMgt();
+						vadMgt.initInput();
+				    	
+				    	/* var apyBindModel = new ApyBindModle(valMgt); */
+				    	/* apyBindModel.unbindAll();
+				    	apyBindModel.bind(); */
+					});
+	});
+</script>

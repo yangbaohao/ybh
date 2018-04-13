@@ -1,0 +1,94 @@
+<meta charset="UTF-8">
+<style>
+.colorModalImgCell {
+	width: 150pt;
+	height: 100pt;
+	margin: 0 auto;
+	border: 4px solid #eee;
+	position: relative;
+}
+
+.prod_hide_input {
+	width: 99%;
+	height: 33px;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+
+.prod_specCheck {
+	width: 10%;
+	/* height: 33px; */
+	text-align: center;
+	border: none;
+	outline: none;
+}
+
+.prod_specText {
+	width: 52%;
+	height: 33px;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+
+.prod_specNum {
+	width: 32%;
+	height: 33px;
+	text-align: center;
+	border: none;
+	outline: none;
+}
+</style>
+<div id="specModal2" class="modal " tabindex="-1" role="dialog"
+	aria-labelledby="full-width-modalLabel" aria-hidden="true">
+	<div class="modal-dialog " style="width: 1000px">
+		<div class="modal-content">
+			<!--模态框头部-->
+			<div class="modal-header">
+				<div class="quotation-nav">
+					<div class="row">
+						<div class="quotation-nav-left" style="">
+							<span style="margin-left: 20px;">选择规格型号</span>
+						</div>
+						<div class="quotation-nav-right">
+							<button type="button" class="close-modal btn-r"
+								data-dismiss="modal" aria-hidden="true">
+								×
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框body-->
+			<div class="modal-body">
+				<input id='colorModal_id' type="text" style='display: none;' />
+				<div class="row container">
+					<div class="col-md-4"></div>
+					<div class="col-md-12  p-r-20 p-b-20">
+						<button type="button" id='specModal2_saveBtn' data-gridName=""
+							class="btn btn-success pull-right" style="width: 75px;float: right;">确认</button>
+					</div>
+					
+				</div>
+
+				<div class="row container">
+
+					<div class="col-md-3 text-center" id="specModelAddBtn">
+						<div class="m-t-10 relative"
+							style="max-width: 200px; min-width: 170px; margin: 0 auto;">
+							<img src="images/common/detailimg/prodspecadd.png" title="新增规格型号"
+								alt="新增规格型号" style="width: 100%; height: 44px;">
+						</div>
+					</div>
+					<div class="specModal2List"></div>
+				</div>
+			</div>
+			<!--模态框脚页-->
+			<div class="modal-footer p-t-10" style="padding: 20px;">
+				
+			</div>
+		</div>
+	</div>
+	<!-- /.modal-dialog -->
+</div>

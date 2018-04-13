@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>Apache CXF的Restful Web Service配置</description>
+
+	<!-- jax-rs endpoint定义 -->
+	<jaxrs:server id="serviceContainer" address="/rs">
+		<jaxrs:serviceBeans>
+			<ref bean="remoteCodeService" />
+			<ref bean="remoteResourceService" />
+			<ref bean="remoteUserService" />
+			<ref bean="remoteRoleService" />
+			<ref bean="remoteOrganizationService" />
+			<ref bean="remoteOwnerService" />
+			<ref bean="remoteAddressService" />
+			<ref bean="remoteCommonService" />
+			<ref bean="remotePromotionalCopyService" />
+
+			<ref bean="remoteAccountProductService" />
+			<ref bean="remoteAgentRevenueService" />
+			<ref bean="remotePotentialService" />
+			<ref bean="remotePotentialTrackService" />
+			<ref bean="remoteSalesAgentService" />
+			<ref bean="remotePotentialCustomersService" />
+			<ref bean="remoteShortMessageService" />
+			<ref bean="remotePotentialCustomersTrackService" />
+			<ref bean="remoteImportLogService" />
+			
+			<ref bean="remoteOwnerLebalService" />
+		
+			<ref bean="remoteAccountOrderPayService" />
+			<ref bean="remoteAccountOrderService" />
+			<ref bean="remoteAccountReceiptService" />
+			<ref bean="remoteAccountService" />
+			<ref bean="remoteAgentRequestPayService" />
+			<ref bean="remoteBillingProductPermissionService" />
+			<ref bean="remoteBillingRecordService" />
+			<ref bean="remoteVoucherService" />
+			<ref bean="remoteCouponService" />
+			<ref bean="remotePriceStrategyService" />
+			
+			<ref bean="remoteInformationLogsService" />
+			<ref bean="remoteAcService" />
+			
+			<ref bean="remoteChartOfAccountService"/>
+			<ref bean="remoteAgentCouponService"/>
+			<ref bean="remoteSalesAgentLebalService"/>
+			<ref bean="remoteApplyLoanService"/>
+			<ref bean="remoteUserSalerService"/>
+			<ref bean="remoteCustomerLogServiceImpl"/>
+			<ref bean="remoteReceiptService"/>
+			<ref bean="remoteOverviewService"/>
+			<ref bean="remoteOCRMsgService" />
+			<ref bean="remoteReportService" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider">
+				<property name="mapper">
+					<ref bean="objectMapper" />
+				</property>
+			</bean>
+			<bean class="com.zqw.bss.framework.exception.InvokeFaultExceptionMapper" />
+		</jaxrs:providers>
+
+
+	</jaxrs:server>
+
+
+
+
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+		<property name="dateFormat">
+			<ref bean="simpleDateFormat" />
+		</property>
+
+		<property name="serializationInclusion">
+			<value>NON_NULL</value>
+		</property>
+
+	</bean>
+
+	<bean id="simpleDateFormat" class="com.zqw.bss.util.AccountingSimpleDateFormat">
+		<constructor-arg>
+			<value>yyyy-MM-dd HH:mm:ss</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- WebService的实现Bean定义 -->
+	<bean id="remoteReportService"
+		class="com.zqw.bss.service.remote.biz.impl.RemoteReportServiceImpl" />
+	<bean id="remoteAccountProductService"
+		class="com.zqw.bss.service.remote.mkt.impl.RemoteAccountProductServiceImpl" />	
+	<bean id="remoteUserService"
+		class="com.zqw.bss.service.remote.sys.impl.RemoteUserServiceImpl" />
+	<bean id="remoteResourceService"
+		class="com.zqw.bss.service.remote.sys.impl.RemoteResourceServiceImpl" />
+	<bean id="remoteRoleService"
+		class="com.zqw.bss.service.remote.sys.impl.RemoteRoleServiceImpl" />
+	<bean id="remoteOrganizationService"
+		class="com.zqw.bss.service.remote.sys.impl.RemoteOrganizationServiceImpl" />
+
+	<bean id="remoteAgentRevenueService"
+		class="com.zqw.bss.service.remote.sale.impl.RemoteAgentRevenueServiceImpl" />
+	<bean id="remoteCodeService"
+		class="com.zqw.bss.service.remote.sys.impl.RemoteCodeServiceImpl" />
+
+	<bean id="remoteOwnerService"
+		class="com.zqw.bss.service.remote.crm.impl.RemoteOwnerServiceImpl" />
+	<bean id="remoteAddressService"
+		class="com.zqw.bss.service.remote.crm.impl.RemoteAddressServiceImpl" />
+	<bean id="remoteCommonService"
+		class="com.zqw.bss.service.remote.common.impl.RemoteCommonServiceImpl" />
+	<bean id="remotePromotionalCopyService"
+		class="com.zqw.bss.service.remote.sale.impl.RemotePromotionalCopyServiceImpl" />
+
+	<bean id="remoteAcService"
+		class="com.zqw.bss.service.remote.toxs.impl.RemoteXsServiceImpl" />
+
+	<bean id="remotePotentialService"
+		class="com.zqw.bss.service.remote.sale.impl.RemotePotentialServiceImpl" />
+	<bean id="remotePotentialTrackService"
+		class="com.zqw.bss.service.remote.sale.impl.RemotePotentialTrackServiceImpl" />
+	<bean id="remoteSalesAgentService"
+		class="com.zqw.bss.service.remote.sale.impl.RemoteSalesAgentServiceImpl" />
+	<bean id="remotePotentialCustomersService"
+		class="com.zqw.bss.service.remote.sale.impl.RemotePotentialCustomersServiceImpl" />
+	<bean id="remoteShortMessageService"
+		class="com.zqw.bss.service.remote.sale.impl.RemoteShortMessageServiceImpl" />	
+	<bean id="remotePotentialCustomersTrackService"
+		class="com.zqw.bss.service.remote.sale.impl.RemotePotentialCustomersTrackServiceImpl" />	
+	<bean id="remoteImportLogService"
+		class="com.zqw.bss.service.remote.sale.impl.RemoteImportLogServiceImpl" />			
+
+	<bean id="remoteAccountOrderPayService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteAccountOrderPayServiceImpl" />
+	<bean id="remoteAccountOrderService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteAccountOrderServiceImpl" />
+	<bean id="remoteAccountReceiptService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteAccountReceiptServiceImpl" />
+	<bean id="remoteAccountService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteAccountServiceImpl" />
+	<bean id="remoteAgentRequestPayService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteAgentRequestPayServiceImpl" />
+	<bean id="remoteBillingProductPermissionService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteBillingProductPermissionServiceImpl" />
+	<bean id="remoteBillingRecordService"
+		class="com.zqw.bss.service.remote.billing.impl.RemoteBillingRecordServiceImpl" />
+	<bean id="remotePriceStrategyService"
+		class="com.zqw.bss.service.remote.billing.impl.RemotePriceStrategyServiceImpl" />
+	<bean id="remoteVoucherService"
+		class="com.zqw.bss.service.remote.mkt.voucher.impl.RemoteVoucherServiceImpl"></bean>
+	<bean id="remoteCouponService"
+		class="com.zqw.bss.service.remote.mkt.coupon.impl.RemoteCouponServiceImpl"></bean>
+		
+		<bean id="remoteOwnerLebalService"
+		class="com.zqw.bss.service.remote.crm.impl.RemoteOwnerLebalServiceImpl"></bean>
+		
+	<bean id="remoteChartOfAccountService"
+	class="com.zqw.bss.service.remote.fms.impl.RemoteChartOfAccountServiceImpl"></bean>
+	
+	<bean id="remoteSalesAgentLebalService"
+	class="com.zqw.bss.service.remote.sale.impl.RemoteSalesAgentLebalServiceImpl"></bean>
+	<bean id="remoteAgentCouponService"
+	class="com.zqw.bss.service.remote.mkt.coupon.impl.RemoteAgentCouponServiceImpl"></bean>		
+	<bean id="remoteInformationLogsService"
+	class="com.zqw.bss.service.remote.sys.impl.RemoteInformationLogsServiceImpl"></bean>
+	<bean id="remoteApplyLoanService"
+	class="com.zqw.bss.service.remote.biz.impl.RemoteApplyLoanServiceImpl"></bean>		
+		<bean id="remoteUserSalerService"
+	class="com.zqw.bss.service.remote.sale.impl.RemoteUserSalerServiceImpl"></bean>	
+	<bean id="remoteCustomerLogServiceImpl"
+	class="com.zqw.bss.service.remote.sale.impl.RemoteCustomerLogServiceImpl"></bean>	
+	<bean id="remoteReceiptService"
+	class="com.zqw.bss.service.remote.fms.impl.RemoteReceiptServiceImpl"></bean>	
+	<bean id="remoteOverviewService"
+	class="com.zqw.bss.service.remote.biz.impl.RemoteOverviewServiceImpl"></bean>	
+	<bean id="remoteOCRMsgService"
+		class="com.zqw.bss.service.remote.msg.impl.RemoteOCRMsgServiceImpl" />			
+</beans>
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<meta charset="UTF-8">
+<div class="content p-20 p-b-0" id="">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="agentDailyTest-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="agentDailyTest-show"> 	 
+		<div class="col-md-3">
+				<div class="row">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">联系电话</label>
+							<div class="col-sm-8">
+								<input id="agentDailyTest-telphone" class="form-control">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+    <!-- 用户界面table  -->
+    <div class="row" >
+		<div class="row" id="agentDailyGrid-test"></div>
+	</div>
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/daily/testUser.js";
+		$.loadScript(
+					js,
+					function(){
+						var testMgt = new TestMgt();
+							testMgt.initInput();
+				    	
+				    	var testBindModel = new TestBindModle(testMgt);
+					    	testBindModel.unbindAll();
+					    	testBindModel.bind();
+					});
+	});
+</script>

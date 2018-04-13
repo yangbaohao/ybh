@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<bean class="com.zqw.bss.util.SpringContextHolder" lazy-init="false" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="${jdbc.maxActive}"/>  
+        <property name="minIdle" value="${jdbc.minIdle}"/>  
+        <property name="maxIdle" value="${jdbc.maxIdle}"/>  
+        <property name="initialSize" value="${jdbc.initialSize}"/>  
+        <property name="logAbandoned"  value="${jdbc.removeAbandoned}"/>  
+        <property name="removeAbandoned"  value="${jdbc.removeAbandoned}"/>  
+        <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}"/>  
+        <property name="maxWait" value="${jdbc.maxWait}"/>  
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>  
+        <property name="numTestsPerEvictionRun" value="${jdbc.numTestsPerEvictionRun}"/>  
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>
+        <property name="testOnBorrow" value="true"/>
+   		<property name="testOnReturn" value="true"/>
+   		<property name="testWhileIdle" value="true"/>
+   		<property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
+	</bean>
+
+
+
+	<!-- 配置Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.zqw.bss.model</value>
+				<value>com.zqw.bss.framework.model</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<context:mbean-export />
+
+
+
+	<bean id="dao" class="com.zqw.bss.framework.dao.BaseDAOHibernate"
+		autowire="byName">
+	</bean>
+
+	
+
+	
+
+	<!--Record exceptions -->
+	<bean id="exceptionHandler" class="com.zqw.bss.framework.exception.ExceptionHandler" />
+
+	<!--Record time cost -->
+	<bean id="timeHandler" class="com.zqw.bss.framework.log.TimeHandler" />
+
+	<bean id="proxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*DAO</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>exceptionHandler</value>
+				<value>timeHandler</value>
+			</list>
+		</property>
+	</bean>
+
+	
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.zqw.bss.service">
+	</context:component-scan>
+
+	<context:component-scan base-package="com.zqw.bss.util.security.shiro">
+	</context:component-scan>
+
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+	
+</beans>

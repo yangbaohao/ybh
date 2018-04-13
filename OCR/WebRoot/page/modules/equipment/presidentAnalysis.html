@@ -1,0 +1,446 @@
+<meta charset="utf-8">
+<div class="content p-20" id="presidentAnalysisTable">
+	<div class="row">
+		<div class="form-group p-t-30 p-l-r-20">
+			<label id="president-searchdate" class="control-label col-sm-1"
+				style="color: black; text-align: right; padding-top: 10px;">日期</label>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-daterange input-group" id="date-range">
+								<input type="text" class="float-left m-l-15 form-control" name="form-company-Booked-Date" id="presidentAnalysis-time">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-1 p-0">
+				<button class="btn btn-success wd100 float-right searchBtn" type="button" id="presidentAnalysis-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+				</button>
+			</div>
+			<div class="float-right">
+				<button type="button" class="btn btn-success  float-right" id="presidentAnalysis-out">导&nbsp;&nbsp;&nbsp;出</button>
+				<button type="button" style="display:none;" class="btn btn-success  float-right m-r-15 hide" id="presidentAnalysis-sendEmail">发邮件</button>
+				<button type="button" class="btn btn-success  float-right m-r-15" id="presidentAnalysis-print">打&nbsp;&nbsp;&nbsp;印</button>
+				<button type="button" class="btn btn-success  float-right m-r-15" id="presidentAnalysis-refresh">刷&nbsp;&nbsp;&nbsp;新</button>			
+			</div>
+		</div>
+	</div>
+
+	<div class="m-l-r-20">
+		<div class="row m-l-r-20">
+			<div class="card-box bg-white">
+				<!-- 表头 -->
+				<div class="row card-box p-b-0 m-b-0">
+					<div class="col-md-3 p-l-20" style="padding-top: 60px;">
+						<div class="row">
+							<span id="presidentAnalysis_comname"></span>
+						</div>
+					</div>
+					<div class="col-md-6 text-center">
+						<div class="row">
+							<h3 id="presidentAnalysis-headMsg">运营分析</h3>
+						</div>
+						<div class="row p-t-10">
+							<span id="presidentAnalysis_nowDate"></span>
+						</div>
+					</div>
+					<div class="col-md-3 p-t-30 text-right p-r-20">
+						<div class="row">
+							<span></span>
+						</div>
+						<div class="row p-t-15">
+							<span id="presidentAnalysis-unit">单位:元</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-20">
+					<table class="table table-bordered td2-text-center td3-text-right td4-text-right text-indent-6em" id="presidentAnalysisDataTable">
+						<thead>
+							<tr>
+								<th class="text-797979 text-center" style="width:25%" colspan="2">分析项目</th>
+								
+								<th class="text-797979" style="width:12.5%">行次</th>
+								<th class="text-797979" style="width:12.5%">本期金额/比率</th>
+								<th class="text-797979" style="width:12.5%">上期金额/比率</th>
+								<th class="text-797979" style="width:12.5%">与上期比较</th>
+								<th class="text-797979" style="width:12.5%">与上期比例</th>
+								<th class="text-797979" style="width:12.5%">财务分析及建议</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-left" style="" colspan="8"><b>资金运转</b></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">收入</td>
+								<td class="sort">1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">支出</td>
+								<td class="sort">2</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">净收入（负数为净支出）</td>
+								<td class="sort">3</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" style="" colspan="8"><b>利润盈亏</b></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">收入</td>
+								
+								<td class="sort">4</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">成本</td>
+								
+								<td class="sort">5</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">净利润（负数为净亏损）</td>
+								
+								<td class="sort">6</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" style="" colspan="8"><b>短期偿债能力比率</b></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">营运资金</td>
+								
+								<td class="sort">7</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">流动比率</b></td>
+							
+								<td class="sortb">8</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">速动比率</td>
+								
+								<td class="sortb">9</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">现金比率</td>
+							
+								<td class="sortb">10</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+							   <td class="text-left" style="" colspan="8"><b>长期偿债能力比率</b></td>
+
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">资产负债率</td>
+						
+								<td class="sortb">11</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">产权比率</td>
+								
+								<td class="sortb">12</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">权益乘数</td>
+							
+								<td class="sort">13</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">长期资本负债率</b></td>
+							
+								<td class="sortb">14</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" style="" colspan="8"><b>营运能力比率</b></td>
+							</tr>
+							<tr>
+								<td rowspan="3">应收账款周转率</td>
+								<td>应收账款周转次数</td>
+								<td class="sort">15</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收账款周转天数</td>
+								<td class="sortc">16</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收账款与收入比</td>
+								<td class="sortb">17</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td rowspan="3">存货周转率</td>
+								<td>存货周转次数</td>
+								<td class="sort">18</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>存货周转天数</td>
+								<td class="sortc">19</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>存货与收入比</td>
+								<td class="sortb">20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td rowspan="3">流动资产周转率</td>
+								<td>流动资产周转次数</td>
+								<td class="sort">21</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>流动资产周转天数</td>
+								<td class="sortc">22</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>流动资产与收入比</td>
+								<td class="sortb">23</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td rowspan="3">非流动资产周转率</td>
+								<td>非流动资产周转次数</td>
+								<td class="sort">24</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>非流动资产周转天数</td>
+								<td class="sortc">25</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>非流动资产与收入比</td>
+								<td class="sortb">26</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td rowspan="3">总资产资产周转率</td>
+								<td>总资产周转次数</td>
+								<td class="sort">27</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>总资产周转天数</td>
+								<td class="sortc">28</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>总资产与收入比</td>
+								<td class="sortb">29</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" style="" colspan="8"><b>盈利能力比率</b></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">销售净利率</td>
+								<td class="sortb">30</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">总资产净利率</td>
+								<td class="sortb">31</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="text-left" colspan="2">权益净利率</td>
+								<td class="sortb">32</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="alertDet" class="modal fade"
+		tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog ">
+			<div class="modal-content" style="margin-top: 140px;">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">						
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body text-center m-t-20" style="font-size:18px;">
+				   <p id="alertDet-msg"><b>资深财务专家等待为您提供咨询服务，请拨打 400-7788-966 转 1</b></p>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">					
+					<button type="button" id='presidentAnalysis-confirm'
+						class="btn btn-success" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/presidentAnalysis.js";
+		$.loadScript(
+					js,
+					function(){
+						var presidentAnalysisMgt = new PresidentAnalysisMgt();
+						presidentAnalysisMgt.initInput();
+						
+				    	var presidentAnalysisBindModel = new PresidentAnalysisBindModle(presidentAnalysisMgt);
+				    	presidentAnalysisBindModel.unbindAll();
+				    	presidentAnalysisBindModel.bind();
+					});
+	});
+</script>

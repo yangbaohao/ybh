@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewCustMgt">
+	<div class="row">
+		<div class="col-md-4">
+			<label class="control-label col-sm-3"></label>
+		</div>	
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="custDetailGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/custDetail.js";
+		$.loadScript(
+					js,
+					function(){
+						var custDetailMgt = new CustDetailMgt();
+						custDetailMgt.initInput();
+				    	
+				    	var custDetailBindModel = new CustDetailBindModle(custDetailMgt);
+				    	custDetailBindModel.unbindAll();
+				    	custDetailBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<div class="content p-20" id="decGoodsMgtPage">
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<label class="control-label" id="decGoods-company"></label>
+			<label class="control-label" id="decGoods-tax"></label>
+			<label class="control-label" >，纳税人识别号</label>
+			<label class="control-label" id="decGoods-taxCode"></label>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12" id="decGoodsMgtGrid"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/decGoodsMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var decGoodsMgt = new DecGoodsMgt();
+						decGoodsMgt.initInput();
+				    	
+				    	var decGoodsBindModel = new DecGoodsBindModle(decGoodsMgt);
+				    	decGoodsBindModel.unbindAll();
+				    	decGoodsBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,228 @@
+<meta charset="UTF-8">
+<!-- Start content -->
+<div class="content p-20">
+	<!--查询条件区和按钮组件 start-->
+	<div class="row p-0 p-b-20">
+		<div class="col-md-4 p-l-0">
+			<div class="pull-left">
+				<div class="input-group">
+					<input type="text" class="form-control input-md"
+						id="search-decusername" placeholder="输入用户名查找" /> <span
+						class="input-group-addon btn btn-success" id="searchDecUserBtn"><i
+						class="  fa fa-search  text-white"></i></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 p-r-0">
+			<div class="pull-right">
+				<div>
+					<button type="button" id="addDecUserBtn"
+						class="btn btn-success float-right">
+						<span class="btn-label"><i class="ion-plus-round"></i> </span>添加员工
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--查询条件区和按钮组件 end-->
+
+	<div class="row">
+		<div class="col-md-12" id="decUserGridMgt"></div>
+
+	</div>
+
+	<div style="display:none">
+		<div id="addDecUserWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>添加员工
+			</div>
+			<div class='form-horizontal' id="addDecUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-username"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="adddec-employeeCode" class="col-sm-2 control-label">员工号</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-employeeCode"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="adddec-password"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="adddec-password" class="col-sm-2 control-label">确认密码</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="adddec-passwordcheck"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">姓名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-name"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">性别</label>
+						<div class="col-sm-9">
+							<div id="adddec-salutation"></div>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">手机号码</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-mobile"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">电子邮箱</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-email"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职位</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="adddec-title"/>
+						</div>
+					</div>
+				</div>
+				<div style='float: right;'>
+					<button class="btn btn-success" id="addDecUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="cancelAddDecUserBtn">返回</button>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="editDecUserInfoWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑员工
+			</div>
+			<div class='form-horizontal' id="editDecUserInfoForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" readonly="true" id="editdecuser-username"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">员工号</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" readonly="true" id="editdecuser-employeeCode"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">密码</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="editdecuser-password"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label">确认密码</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="editdecuser-passwordcheck"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">姓名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editdecuser-name"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">性别</label>
+						<div class="col-sm-9">
+							<div id="editdecuser-salutation"></div>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">手机号码</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editdecuser-mobile"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">电子邮箱</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editdecuser-email"/>
+						</div>
+					</div>
+	
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职位</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editdecuser-title"/>
+						</div>
+					</div>
+				</div>
+				<div style='float: right;'>
+					<button class="btn btn-success" id="editDecUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="cancelEditDecUserBtn">返回</button>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="disableUserWin">
+			<div font-size: 18px;">
+				<i class="icon-plus-3"></i>禁用
+			</div>
+			<div id="disableUserForm" >
+				<div class="modal-body">
+					<div class="row form-horizontal p-t-20">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">用户名</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" readonly="true" id="disable-username">
+							</div>
+						</div>
+						<div class="form-group p-t-10">
+							<label class="col-sm-3 control-label">是否禁用</label>
+							<div class="col-sm-7">
+								<div id="disabled-locked"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="disableUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="cancelDisableUserBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/decUserMgt.js";
+		$.loadScript(js, function() {
+			var durMgt = new DurMgt();
+			durMgt.initInput();
+
+			var durBindModel = new DurBindModle(durMgt);
+			durBindModel.unbindAll();
+			durBindModel.bind();
+		});
+	});
+</script>

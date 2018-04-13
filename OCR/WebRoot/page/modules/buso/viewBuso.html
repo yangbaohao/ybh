@@ -1,0 +1,198 @@
+<meta charset="utf-8">
+<div class="content p-20" id="viewBuso">
+	<div class="row p-b-20">
+		<div class="col-md-12">
+			<button class="btn btn-success float-right" type="button" id="editBusoBtn">
+				编辑
+			</button>		
+		</div>
+	</div>
+
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">潜在客户</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-cust" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">代理商</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-agent" readonly type="text" class="form-control"/>
+							<!-- <div id="viewBuso-agent"></div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+		
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">公司名称</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-compName" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">销售负责人/客服</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-sales" readonly type="text" class="form-control"/>
+							<!-- <div id="viewBuso-sales"></div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">预计成交日期</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-date" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">联系电话</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-phone" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">邮箱</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-email" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">职位</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-work" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">微信</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-wx" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">qq</label>
+						<div class="col-sm-7">
+							<input id="viewBuso-qq" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10" style="margin-left:3.5%">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-1 p-t-0">备注</label>
+						<div class="col-sm-10">
+							<textarea id="viewBuso-remark" readonly class="form-control" style="width:99.4%"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">地址：</label>
+						<div class="col-sm-9 p-t-10">
+							<table class="table" id="viewBuso-address">
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/viewBuso.js";
+		$.loadScript(js,function(){
+				var viewBusoMgt = new ViewBusoMgt();
+				viewBusoMgt.initInput();
+		    	
+		    	var viewBusoBindModel = new ViewBusoBindModle(viewBusoMgt);
+		    	viewBusoBindModel.unbindAll();
+		    	viewBusoBindModel.bind();
+			});
+	});
+</script>

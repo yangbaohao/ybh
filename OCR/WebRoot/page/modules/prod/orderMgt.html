@@ -1,0 +1,136 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="orderMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-l-0">
+	  		
+			<button class="btn btn-success wd100 float-left searchBtn" type="button" id="order-search">
+				搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="order-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入用户名查找" id="order-username">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入公司名称查找" id="order-compName">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">订单号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入订单号查找" id="order-number">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="order-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="order-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="order-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">订单模块</label>
+							<div class="col-sm-8">
+								<div id="order-module"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">状态</label>
+							<div class="col-sm-8">
+								<div id="order-status"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="orderMgtGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/prod/orderMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var orderMgt = new OrderMgt();
+						orderMgt.initInput();
+				    	
+				    	var orderBindModel = new OrderBindModle(orderMgt);
+				    	orderBindModel.unbindAll();
+				    	orderBindModel.bind();
+					});
+	});
+</script>

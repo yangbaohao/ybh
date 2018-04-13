@@ -1,0 +1,125 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewOwnPaidUser">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="viewOwnPaidUser-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+			<span id="viewOwnPaidUserName" class="float-left" style="font-size: 20px; line-height: 33px;"></span>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="viewOwnPaidUser-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-2" id="viewOwnPaidUserTm">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="viewOwnPaidUser-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4" id="viewOwnPaidUserChoTm">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="viewOwnPaidUser-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="viewOwnPaidUser-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3" id="viewOwnPaidUserName">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label id="viewOwnPaidUserNameLabel" class="control-label col-sm-3 p-r-0">用户名</label>
+							<div class="col-sm-8 p-r-0">
+								<div id="viewOwnPaidUser-name"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3 ">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">电话号码</label>
+							<div class="col-sm-8 p-r-0">
+								<input type="text" class="form-control" id="viewOwnPaidUser-phone" placeholder="请输入电话号码查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="viewOwnPaidUserGrid"></div>
+    </div>
+    
+    <div id="viewOwnPaidUserRemarkWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>查看备注
+			</div>
+			<div id="addOwnPaidUserRemakForm">
+				<div class="modal-body">
+					<div class="row">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+								<div id="ownPaidUserRemarkTbody"></div>
+									<!-- <table class="table table-bordered">
+										<tr>
+											<th class="text-797979" style="width:30%">更新时间</th>
+											<th class="text-797979" style="width:70%">备注</th>
+										</tr>
+										<tbody id="ownPaidUserRemarkTbody"></tbody>
+									</table> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button class="btn btn-success" id="SuccessPaidUserRemarkSaveBtn">确定</button> -->
+					<button class="btn btn-success" id="ownPaidUserRemarkCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+        
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/spm/viewOwnPaidUser.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewOwnPaidUser = new ViewOwnPaidUser();
+						viewOwnPaidUser.initInput();
+				    	
+				    	var viewOwnPaidUserBindModel = new ViewOwnPaidUserBindModle(viewOwnPaidUser);
+				    	viewOwnPaidUserBindModel.unbindAll();
+				    	viewOwnPaidUserBindModel.bind();
+					});
+	});
+</script>

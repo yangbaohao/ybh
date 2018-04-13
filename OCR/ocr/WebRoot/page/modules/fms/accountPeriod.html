@@ -1,0 +1,139 @@
+<meta charset="UTF-8">
+<div class="content">
+	<div class="container p-top"></div>
+	<!--筛选框-->
+	<div class="container">
+		<div class="row row-vp m-b-15">
+			<div class="">
+				<label
+					class="control-label float-left text-34495E text-center p-t-10">会计日期</label>
+				<div class="col-md-2">
+					<!-- <div class="input-daterange input-group"> -->
+						<input type="text" class="form-control" id="acpd-datetime" name="" >
+					<!-- </div> -->
+				</div>
+				<div class="col-md-5">
+					<!-- <span class="f-20 p-l-20 float-left p-t-10">上次结账至：2016-3，
+						凭证已录入至：2016-5</span> -->
+				</div>
+				<div style="float: right;">
+					<button type="button" class="btn btn-success"  id="acpd-cknow">马上检查</button>
+					<button type="button" class="btn btn-success" id="acpd-goon">继续结账</button>
+					<button type="button" class="btn btn-success" id="acpd-goback">反结账</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script type="text/javascript">
+		function jiancha() {
+			if ($("#jiancha").html() == '马上检查') {
+				$("#jiancha").html("继续结账");
+				$(".zkk").trigger("click");
+				$(".weijiancha")
+						.html(
+								"<a class='hoverspan' style='color:#169ad0;' href='javascript:void(0)'  onclick='addTab(107,'凭证','#')'>(共有5项——其中2项会有危险)</a>");
+				$(".weijiancha1")
+						.html(
+								"<a class='hoverspan' style='color:#169ad0;' href='javascript:void(0)'  onclick='addTab(107,'凭证','#')'>(共有30项——其中2项会有危险)</a>");
+				$(".weijiancha2")
+						.html(
+								"<a class='hoverspan' style='color:#169ad0;' href='javascript:void(0)'  onclick='addTab(107,'凭证','#')'>(共有1项——其中1项会有危险)</a>");
+			} else if ($("#jiancha").html() == "继续结账") {
+				$("#jiancha").html("已结账");
+				$(".zkk").trigger("click");
+			} else if ($("#jiancha").html() == "已结账") {
+				$(".weijiancha").html("（此条尚未检查）");
+				$("#jiancha").html("马上检查");
+				$(".weijiancha").html("");
+				$(".weijiancha1").html("");
+				$(".weijiancha2").html("");
+			}
+		}
+	</script> -->
+	<!-- container -->
+	<div class="container" id="accountPeriodmoderlist">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel-group" id="acpd-check1">
+					<div class="panel panel-default">
+						<div class="panel-heading" data-toggle="collapse"
+							data-parent="#accordion-test-2zf1" href="#acpd-finalTransaction"
+							aria-expanded="false">
+							<h4 class="panel-title">
+								<a class="zkk collapsed"><span class="acpd-num">1</span>.期末结转</a><span class="weijiancha"><a
+									class="hoverspan acpd-label1" style="color: #169ad0;"
+									href="javascript:void(0)"></a></span>
+
+							</h4>
+						</div>
+						<div id="acpd-finalTransaction" class="panel-collapse collapse"
+							aria-expanded="false" style="height: 0px;">
+							<div class="panel-body">
+								<div class="card-box" style="background: #ffffff;">
+									<!-- <div class="row">
+										<a class="hoverspan" style="color: #169ad0;"
+											href="javascript:void(0)" onclick="addTab(107,'凭证','#')">共有5项——其中2项会有危险</a>
+									</div> -->
+									<div class="row">
+										<div class="table-responsive">
+											<table class="table m-0 tablewhite">
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" data-toggle="collapse"
+							data-parent="#accordion-test-2" aria-expanded="false"
+							href="#acpd-reportform">
+							<h4 class="panel-title">
+								<a class="zkk collapsed"><span class="acpd-num">2</span>.报表结平</a><span class="weijiancha2"><a
+									class="hoverspan acpd-label2" style="color: #169ad0;"
+									href="javascript:void(0)"></a></span>
+							</h4>
+						</div>
+						<div id="acpd-reportform" class="panel-collapse collapse"
+							aria-expanded="false" style="height: 0px;">
+							<div class="panel-body">
+								<div class="card-box" style="background: #ffffff;">
+
+									<div class="row">
+										<div class="table-responsive">
+											<table class="table m-0 tablewhite">
+												<tbody>
+
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" data-toggle="collapse"
+						data-parent="#accordion-test-5" href="#acpd-closeprev"
+						aria-expanded="false">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="collapsed"><span class="acpd-num">3</span>.关闭上月账期</a>
+								<span class="weijiancha2"><a
+									class="hoverspan acpd-label3" style="color: #169ad0;"
+									href="javascript:void(0)"></a></span>
+							</h4>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="js/modules/fms/accountPeriod.js"></script>

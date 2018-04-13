@@ -1,0 +1,429 @@
+<meta charset="UTF-8">
+<style>
+.jornalBox {
+	border: 1px solid #E3E3E3;
+	padding-top: 20px;
+	border-radius: 4px;
+	padding-bottom: 20px;
+}
+
+.jornalBox_title {
+	font-size: 17px;
+}
+</style>
+<div class="content" id="JournalDetail_Page">
+	<div class="container">
+		<div class="row p-t-40">
+			<div class="col-md-3">
+				<div class="row">
+
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-5">匹配通用单据</label>
+
+							<div class="col-sm-6">
+								<div id="JournalDetail_type"></div>
+								<!-- <select id='JournalDetailCurrency'
+								class="form-control select2 col-sm-8">
+								<option value="RMB">人民币</option>
+								<option value="AK">美金</option>
+										<option value="HI">欧元</option>
+										<option value="CA">港币</option>
+										<option value="NV">韩币</option>
+										<option value="OR"></option>
+										<option value="WA"></option>
+							</select> -->
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+
+				<div class="row">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-4">日期</label>
+
+							<div class="col-sm-6">
+								<div id="datepicker"></div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">记字第</label>
+
+							<div class="col-sm-6">
+								<input type="text" id='journalDetailNumber' readonly="readonly"
+									class="form-control" placeholder="单号">
+							</div>
+							<label class="control-label col-sm-3" style="text-align: left;">号</label>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">附单</label>
+
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="journalnoteNumber"
+									placeholder="0">
+							</div>
+							<label class="control-label col-sm-3" style="text-align: left;">页</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card-box table-responsive">
+					<div class="bootstrap-table">
+						<div class="fixed-table-toolbar"></div>
+						<div class="fixed-table-container" style="padding-bottom: 0px;">
+							<div class="fixed-table-header" style="display: none;">
+								<table></table>
+							</div>
+							<div class="fixed-table-body">
+								<!-- <div class="fixed-table-loading" style="top: 37px;">Loading,
+										please wait...</div> -->
+								<table class="table  user-table table-hover" data-toggle="table"
+									id="JournalDetailTable">
+									<thead>
+										<tr>
+											<th style="width: 15%;"><div class="th-inner ">摘要</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 40%;"><div class="th-inner ">会计科目</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">借方金额</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">贷方金额</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 15%;"><div
+													class="th-inner category1_name  p-l-30" style="float: left">分类一</div>
+												<div class="col-sm-1 p-0 p-t-10">
+													<a href="javascript:void(0)" data="category1"
+														id="JournalDetail-addCategory1Btn" style="color: white">
+														<i class="icon-plus"></i>
+													</a>
+												</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 15%;"><div
+													class="th-inner category2_name  p-l-30" style="float: left">分类二</div>
+												<div class="col-sm-1 p-0 p-t-10" style="color: white">
+													<a href="javascript:void(0)" data="category2"
+														id="JournalDetail-addCategory2Btn" style="color: white">
+														<i class="icon-plus"></i>
+													</a>
+												</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">删除</div>
+												<div class="fht-cell"></div></th>
+										</tr>
+
+									</thead>
+
+									<tbody style="background-color: #ffffff">
+
+									</tbody>
+									<tfoot>
+
+										<tr style="background: #56C5F0; color: #ffffff">
+											<td>合计：</td>
+											<td id='JournalDetailNumSumCn'></td>
+											<td><b id='JournalDetailNumSum1'>0</b></td>
+											<td><b id='JournalDetailNumSum2'>0</b></td>
+											<td colspan="3"></td>
+										</tr>
+
+									</tfoot>
+								</table>
+							</div>
+							<div class="fixed-table-footer" style="display: none;">
+								<table>
+									<tbody>
+										<tr></tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="fixed-table-pagination" style="display: none;"></div>
+						</div>
+					</div>
+					<div class="clearfix" style="background-color: #FFFFFF"></div>
+					<div class="row p-t-20 p-r-20">
+						<!-- 	<div class="col-md-9"></div> -->
+
+
+						<div class="col-md-6">
+							<div class="col-md-6">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">制单人</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='JournalDetailcreateby'
+													class="form-control" value="" readonly="readonly">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 jornalBox hide" id="JournalDetail_pipi">
+							<div class="col-md-12 p-b-20">
+								<span class="control-label  jornalBox_title"
+									style="float: left;">请完善单据信息：</span>
+								<div class="col-md-6">
+									<div class="row m-l-r-10 p-t-5">
+										<div action="#" class="form-horizontal">
+											<div class="">
+												<label class="col-sm-1"> <input
+													id="JournalDetail_returnFlag" type="checkbox">
+												</label>
+												<div class="col-sm-7">
+													<label for="JournalDetail_returnFlag"
+														class="pointer JournalDetail_returnFlag">供应商退款</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-md-6 hide" style="float: left" id="pipiallclient">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">公司名称</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetail_allclient'></div>
+											</div>
+											<label class="mustword">*</label>
+										</div>
+									</form>
+								</div>
+							</div> -->
+							<div class="col-md-6 hide" style="float: left" id="pipiclinet">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">客户</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetail_clinet'></div>
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" style="float: left" id="pipivendor">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">供应商</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetail_vendor'></div>
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" style="float: left" id="pipitermValue">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">账期</label>
+
+											<div class="col-sm-8">
+												<input type="text" id="JournalDetail_termValue"
+													class="form-control" value="">
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" id="pipiusers">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">员工</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetailusers'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide" id="pipiusers_mon">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">预支金额</label>
+
+											<div class="col-sm-8">
+												<!-- <div id='JournalDetailusers_mon'></div> -->
+												<input type="text" disabled="disabled"
+													id='JournalDetailusers_mon' class="form-control" value="">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipi">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">发票类型</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetail_receiptType'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipi JournalDetail_receiptType_show" style="display:none;">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">税率</label>
+
+											<div class="col-sm-8">
+
+												<div id='JournalDetail_tax'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipi JournalDetail_receiptType_show" style="display:none;">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">发票号码</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='JournalDetail_receiptNum'
+													class="form-control" value="">
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- <div class="col-md-6 hide pipi">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">发票金额</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='JournalDetail_receiptmon'
+													class="form-control" value="" readonly="readonly">
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div> -->
+
+							<!-- <div class="col-md-6" style="float: right">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">凭证制单人</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='' class="form-control" value=""
+													readonly="readonly">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div> -->
+							<div class="col-md-6 hide" id="pipicreateby">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">单据制单人</label>
+
+											<div class="col-sm-8">
+												<div id='JournalDetail_ordercreateby'></div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row p-t-20 p-r-20 hide">
+			<div class="col-md-6"></div>
+		</div>
+		<!--备注打印部分-->
+		<div class="row card-box">
+			<div class="col-md-6">
+				<h4>备注：（打印时显示）</h4>
+				<textarea class="form-control" id='JournalDetailRemark' rows="3"></textarea>
+			</div>
+			<div class="col-md-6">
+				<h4>备注：（打印时不显示）</h4>
+				<textarea class="form-control" id='JournalDetailRemarkPrint'
+					rows="3"></textarea>
+			</div>
+		</div>
+		<div class="row row-vp card-box" id="JournalDetailattachment"></div>
+
+		<!--底部-->
+		<div class="container">
+			<div class="card-box row p-r-0">
+				<div class="col-md-10 col-md-push-2">
+					<!-- <button type="button"
+					class="btn btn-success float-right mg10 probtn" data-btn="Journal"
+					id="JournalDetailTableAddAndSubmit">提交</button> -->
+					<button type="button" class="btn btn-success float-right mg10"
+						id='JournalDetailTableAdd'>保存</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/JournalDetail.js";
+		//$.getScript( js,function(){
+		$.loadScript(js, function() {
+		});
+	});
+</script>

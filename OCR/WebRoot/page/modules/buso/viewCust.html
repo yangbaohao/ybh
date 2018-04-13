@@ -1,0 +1,164 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewCustMgt">
+	<div class="row p-b-10">
+		<span >导入时间</span>
+		<span class="m-r-15" id="viewCustTime"></span>
+		<span >客户主题</span>
+		<span id="viewCustZt"></span>
+	</div>
+
+	<div style="display:none">
+		<div id="viewCustMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>添加备注
+			</div>
+			<div id="viewCustMgtForm">
+				<div class="modal-body">
+					<div class="row">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div id="viewCustRemarkTbody"></div>	
+									<!-- <table class="table table-bordered">
+										<tr>
+											<th class="text-797979" style="width:50%">更新时间</th>
+											<th class="text-797979" style="width:50%">备注</th>
+										</tr>
+										<tbody id="viewCustRemarkTbody"></tbody>
+									</table> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-1 p-t-0">备注</label>
+								<div class="col-sm-10">
+									<textarea id="viewCustRemark" type="text" class="form-control" placeholder="100字以内" style="resize:none;width:99.4%"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="viewCustMgtSaveBtn">保存</button>
+					<button class="btn btn-success" id="viewCustMgtCancleBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="mesEditCustWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑客户信息
+			</div>
+			<div id="mesEditCustForm">
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">潜在客户</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="meseditwin-editcust"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+					
+					<div class="row p-t-20">		
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">联系电话</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="meseditwin-editphone"/>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="saveMesEditCustBtn">保存</button>
+					<button class="btn btn-success" id="cancelMesEditCustBtn">取消</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="mesCustSendWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>发送短信
+			</div>
+			<div id="mesCustSendForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">编号</label>
+									<div class="col-sm-7">
+										<input type="text" readonly="readonly" class="form-control" id="messendwin-code"/>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">短信主题</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="messendwin-zt"/>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row col-md-offset-1">
+						<div class="col-md-10 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">短信内容</label>
+									<textarea id="messendwin-mes" class="form-control" style="resize:none;width:85%;margin-left:17.5%" phaceholder="编辑内容"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="saveCustSendBtn">发送</button>
+					<button class="btn btn-success" id="cancelCustSendBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="viewCustGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/viewCust.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewCustMgt = new ViewCustMgt();
+						viewCustMgt.initInput();
+				    	
+				    	var viewCustBindModel = new ViewCustBindModle(viewCustMgt);
+				    	viewCustBindModel.unbindAll();
+				    	viewCustBindModel.bind();
+					});
+	});
+</script>

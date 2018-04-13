@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="gridtest">
+	<div class="row">
+		<div class="col-md-12" id="grid"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div id="grid_box"></div>
+		</div>
+	</div>
+	<div class=row>
+		<button class="btn btn-success" id="grid_render">刷新数据</button>
+		<button class="btn btn-success" id="grid_saleTotal">销售总价</button>
+		<button class="btn btn-success" id="grid_purchaseTotal">采购总价</button>
+		<button class="btn btn-success" id="grid_getdata">获取数据</button>
+		<button class="btn btn-success" id="grid_chufa">触发事件</button>
+	</div>
+	<div class="row">
+		<div id="grid_comboBox"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<input class="form-control" id="grid_input"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" id="grid_html"></div>
+	</div>
+	
+	<div class="row" id="grid_img">
+		<img class="gridimg" src="images/phone/logo.png" width="48" height="32">
+		<img class="gridimg" src="images/test/abc.jpg" width="48" height="32">
+		<img class="gridimg" src="images/test/test1.png" width="48" height="32">
+	</div>
+</div>
+<script>
+	(function(){
+		/* var num=0;
+		for(var i=0;i<10000000;i++){
+			num++;
+		}
+		console.log(num); */
+		var id=document.getElementById('grid_render');
+		var tid=document.getElementById('grid_saleTotal');
+		console.error(id);
+		id.innerHTML='刷新';
+		/* tid.style.display='none'; */
+	})();
+</script>
+<script type="text/javascript" src="js/modules/sys/grid.js"></script>

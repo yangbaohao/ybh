@@ -1,0 +1,1 @@
+!function(){(function(){var n=function(){return $.ajax({type:"get",url:"js/modules/sys/data.txt",success:function(n){}})},t=$.Deferred();return setTimeout(function(){n().always(function(){t.resolve()})},0),t})().then(function(n){})}();

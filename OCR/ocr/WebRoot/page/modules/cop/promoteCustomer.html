@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" ;content="IE=edge, chrome=1">
+<title>用户推广</title>
+<base href="../../../" />
+
+<link rel="shortcut icon" href="images/common/favicon_1.png"
+	mce_href="images/common/favicon_1.png">
+	
+<link rel="stylesheet"
+	href="styles/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="styles/bootstrap/core.css" />
+<link rel="stylesheet" href="styles/bootstrap/icons.css" />
+<link rel="stylesheet" href="styles/bootstrap/core.css" />
+<link rel="stylesheet" href="styles/bootstrap/me.css" />
+
+<script type="text/javascript" src="js/common/jquery-1.11.1.min.js"></script>
+<style>
+	body{
+		background:white;
+		font-size:16px!important;
+		color:#555;
+		line-height:2.0;
+	}
+	p{
+		line-height:2.0;
+	}
+	.wd{
+		width:100%;
+	}
+	.bgw{
+		 color:rgb(63, 63, 63);
+		 font-weight:600;
+	}
+	.bgr{
+		color:rgb(243, 25, 14);
+		font-weight:600;
+		background-color:rgb(212, 250, 0);
+		font-size:18px;
+	}
+	.cb{
+		font-weight:600;
+		font-size:18px;
+	}
+	.cr{
+		color:rgb(243, 25, 14);
+		font-size:18px;
+	}
+	.crc{
+		color:rgb(243, 25, 14);
+		font-weight:600;
+		font-size:18px;
+	}
+	/* @media only screen and (max-width: 1024px){
+		body{
+			font-size:16px!important;
+		}
+		.cr{
+			font-size:16px!important;
+			line-height:1.6;
+		}
+		h2{
+			font-size:18px!important;
+			line-height:1.6;
+		}
+		#imgs{
+			 width:15em;
+		}
+	} */
+	.doubleDorder{
+		display: inline-block;
+		padding: 2px;
+		border: 1px solid rgb(141, 132, 29);
+		word-wrap: break-word !important;
+		margin-top:20px;
+	}
+	.inner_doubleDorder{
+		display: inline-block;
+		padding: 0.1em 1em;
+		border: 1px dashed rgb(141, 132, 29);
+	}
+	.leftBorderWrap{
+	    border-left-width: 3px;
+	    border-left-style: solid;
+	    border-left-color: rgb(141, 132, 29);
+	}
+	.leftBorder{
+		margin-left: 2px;
+	    padding: 0.6em;
+	    max-width: 100%;
+	    min-height: 1em;
+	    text-align: left;
+	    border-left-width: 1px;
+	    border-left-style: solid;
+	    border-color: rgb(141, 132, 29);
+	    line-height: 2em;
+	    box-sizing: border-box !important;
+	    word-wrap: break-word !important;
+	}
+	.radiusBorder{
+	    border: 1px dashed rgb(141, 132, 29);
+	    border-radius: 20px;
+	    text-align: center;
+	}
+	.triangle{
+		margin-right: auto;
+	    margin-left: auto;
+	    max-width: 100%;
+	    box-sizing: border-box;
+	    width: 0px;
+	    height: 0px;
+	    border-width: 15px;
+	    border-style: solid;
+	    border-color: rgb(141, 132, 29) transparent transparent;
+	    word-wrap: break-word !important;
+	}
+	.highlightBg{
+		color: rgb(255, 41, 65);
+    	background-color: rgb(255, 251, 0);
+	}
+	.line_boreder{
+	    padding-top: 2px;
+	    padding-bottom: 2px;
+	    max-width: 100%;
+	    box-sizing: border-box;
+	    border-top-width: 1px;
+	    border-top-style: solid;
+	    border-top-color: rgb(141, 132, 29);
+	    color: inherit;
+	    border-bottom-width: 1px;
+	    border-bottom-style: solid;
+	    border-bottom-color: rgb(141, 132, 29);
+	    word-wrap: break-word !important;
+	}
+	.bg_title{
+		margin-right: 30px;
+	    margin-left: 30px;
+	    padding: 5px 10px;
+	    max-width: 100%;
+	    box-sizing: border-box;
+	    display: inline-block;
+	    word-wrap: break-word !important;
+	    background-color: rgb(254, 254, 254);
+	}
+	.qr_code_pc{
+		position: absolute;
+	    right: -140px;
+	    top: 0;
+	    width: 140px;
+	    padding: 16px 20px 6px 20px;
+	    border: 1px solid #d9dadc;
+	    background-color: #fff;
+	    word-wrap: break-word;
+	    word-break: break-all;
+	}
+	.qr_code_pc_inner {
+	    position: relative;
+	    width: 583px;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+	.qr_code_pc_outer {
+	    display: none!important;
+	    position: fixed;
+	    left: 0;
+	    right: 0;
+	    top: 20px;
+	    color: #717375;
+	    text-align: center;
+	}
+	@media screen and (min-width: 1025px){
+		.qr_code_pc_outer {
+		    display: block!important;
+		}
+	}
+</style>
+
+</head>
+<body>
+
+<div class='container'>
+	<div class="content">
+		<div class="row p-20">
+			<div class="row p-20 text-left" id="promotePage">
+				<h2 style="font-weight: 600;font-size: 24px;">
+	                                        秒账商户版
+	            </h2>
+	            <hr style="border-top:1px solid black">
+	            <div class="p-t-10">
+	            	<span>2017-06-22 账哥 秒账</span>
+	            </div>
+	            
+	            <div>
+	            	<div class="p-t-20">
+		            	<p class="p-t-10">今年3月份，张雪艳介绍了一个女人，她当时只有800个好友，然后利用朋友圈推一款针对于商户的智能管理软件，月销售额过竟然也近十万。</p>
+		            	<p class="p-t-10">因为无需一分钱代理费用，只需在朋友圈转发推广。抱着尝试的心态雪艳也加入代理，利用朋友圈推广【秒账商户版】商铺销售软件，开始第一个月赚了小几千，后来推广起来后月销售额6万，自己不花一分钱也能获得几万的薪酬。</p>
+		            	<p class="p-t-10">我还听到了另外一个传闻，智能财务业务管理软件行业有一个人靠自己研发软件，一年销售了6000万，可见行业的疯狂性，因为中国商户太多了，需求的人也太多了。</p>
+		            	<p class="p-t-10">这让我对智能财务业务管理行业非常的好奇，于是我了解到了一个人：</p>
+		            </div>
+	            
+	            	<div class=" p-t-20 text-center">
+		            	<img class="wd" src="images/phone/BSS23.jpg">
+		            	<section class="doubleDorder" >
+			            	<section class=" inner_doubleDorder">
+			            		<span>
+			            			<strong style="font-size:18px; color:#8d841d;">王斌</strong>
+			            		</span>
+			            	</section>
+		            	</section>
+		            </div>
+		            
+		            <div class="p-t-20">
+		            	<section class="leftBorderWrap">
+		            		<section class="leftBorder">
+				            	<p style="color:rgb(141, 132, 29);">王斌最初是主管新加坡陆路支付ERP系统开发以及政府机构的软件系统为主的工作，个人在19岁时考取了新加坡教育部全额奖学金，保送新加坡南洋理工大学，考获工程学士学位。对于软件研发抱有极大的抱负，后来给投资人一分析，投资人说可以做，就这样——秒账，进入了中国市场。</p>
+		            		</section>
+		            	</section>
+		            	<p class="p-t-20">这还要从头说起，王斌有一个梦想，他希望成为一个有情怀有责任心的企业家，希望自己的企业能成为行业的领导者，能和BAT相媲美，他能实现自己的梦想吗？百度可搜索CCTV《文明中华》栏目对他以及秒账创始人翁浦益先生进行的专题采访报道。</p>
+		            </div>
+		            
+	            	<div class=" p-t-40  text-center">
+		            	<img class="wd" src="images/phone/BSS24.jpg">
+		            	<p class=" p-t-20 text-center"><strong>秒账创始人--翁浦益、王斌先生</strong></p>
+		            </div>
+		            
+	            </div>
+	            
+	            <div>
+	            	<div class="p-t-40">
+		            	<p class="p-t-10">2016年，他直接组建了一个技术团队，然后三个月后又组建了一批销售团队，配合意愿成为秒账代理的代理商，帮他们做好销售推广工作，每天不断推广就有客户咨询和下单。</p>
+		            	<p class="p-t-10">甚至很多代理商原本是在公司做上班族的，因为看到了市场的曙光，都纷纷加入成为秒账线上推广代理商，很快就做到盈利，不亦乐乎。</p>
+		            	<p class="p-t-10">所以我通过雪艳的介绍，找到了秒账创始人了解这个行业的情况，没有想到的是，王先生现在已经成为众多月销百万的代理商的提供方了。</p>
+		            	<p class="p-t-10">于是，就让我更加好奇了！</p>
+		            	<p class="p-t-10">接着，他给我看了过去三个月的销售数据，每月都是200%的增长，我发现他的模式太牛逼了，于是，我就把他介绍给了一家销售外包团队。</p>
+		            	<p class="p-t-10">外包团队一看这项目好，刚好跟他的另外一个企业财务培训的项目可以深入结合，于是外包团队就到苏州连续与王先生谈了三天，开启了线上推广业务。</p>
+		            </div>
+		            <div class="p-t-40" >
+		            	<span style="max-width: 100%; color: rgb(141, 132, 29); box-sizing: border-box !important; word-wrap: break-word !important;">
+		            	<span style="max-width: 100%; font-weight: bold; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+		            	<span style="max-width: 100%; font-weight: 700; opacity: 0.7; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+		            	<span style="max-width: 100%; font-weight: 700; opacity: 0.5; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span><span style="max-width: 100%; font-weight: 700; opacity: 0.3; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span></span>
+		            </div>
+	            </div>
+	            
+	            <div>
+	            	<div class="p-t-40">
+		            	<span style="color: rgb(141, 132, 29);">项目外包销售公司老板的眼光都是最犀利的，于是我就对【秒账】的项目更加好奇了，不但解了他们的产品销售形成的思路和模式，我还成为了【秒账】一员，我现在将秒账模式下面分享给大家，希望想赚钱的朋友一起加入我们：</span>
+		            </div>
+	            </div>
+	            
+	            <div class="p-t-20 text-center">
+	            	<p><strong>销售到了一定阶段之后，</strong></p>
+	            	<p><strong>就遇到了瓶颈。瓶颈在哪里呢？</strong></p>
+	            </div>
+	            
+	            <div>
+	            	<div class="text-center p-t-40">
+            			<section class="radiusBorder">
+	            			<span style="color: rgb(141, 132, 29);">成本</span>
+            			</section>
+	            		<section class="triangle"></section>
+		            </div>
+	            </div>
+	            
+	            <div>
+	            	<div class="p-t-20">
+	            		<strong>1、场地入驻困难，资源 “匮乏”</strong>
+	            		<p>推广人最头疼的也许就是商场、校园做地推进驻困难，没有渠道或者花费过大，其实只懂花钱，永远做不到效率推广。懂得置换，才能将推广资源最大化。</p>
+	            	</div>
+	            	
+	            	<div class="p-t-20">
+	            		<strong>2、人力资源成本</strong>
+	            		<p>线下活动一般是周末节假日进行，周末加班工资2倍，国假3倍，咱就按照周末算，假设正式员工平时平均一天200元工资，活动期间就是每天400元。</p>
+	            	</div>
+	            	
+	            	<div class="p-t-20">
+	            		<strong>3、品牌和APP激活难以兼得，推广效果不好跟踪</strong>
+	            		<p>常用的纸质广告露出、二维码扫码下载或者关注微信后的二次转化，无法满足当前APP推广的需求。究其原因，在于对网络的依赖。</p>
+	            	</div>
+	            </div>
+	            
+	            <div>
+		            <section class="leftBorderWrap">
+	            		<section class="leftBorder">
+			            	<p>于是，【秒账】就安排技术团队开发了一个bss系统。</p>
+	            		</section>
+	            	</section>
+	            	<p class="p-t-20">这个bss系统是不对外公开的，只对合作的商户老板和代理渠道伙伴用，<span class="highlightBg">只要将这条内容一键转发出去就OK了，系统自动产生个人代理二维码。</span></p>
+	            </div>
+	            
+	           	<div class="p-t-20">
+	           		<section class="radiusBorder">
+            			<span style="color: rgb(141, 132, 29);">bss系统有了，推广如何搞呢？</span>
+           			</section>
+            		<section class="triangle"></section>
+	            </div>
+	            
+	            <div>
+	            	<p class="p-t-20">在秒账品牌推广和广告的基础上，代理商可以借助秒账的广告力量给市场推广，提供更多业务渠道。</p>
+	            	<p class="p-t-20">秒账bss系统功能也很强大，代理商可以一键转发此条链接文案，然后到朋友圈销售，成交之后，自动获得佣金。</p>
+	            	<p class="p-t-20">我做过一段时间的推广测试，尤其是针对于诸如义乌市场的特定人群推广，没有想到，收入远远超过了自己上门做推广。</p>
+	            	<p class="p-t-20">更精彩的是，我接着让商铺老板、外贸老板、服装老板等有圈子的群体测试，<strong>没想到他们在对【秒账】一无所知的情况下，居然也成为了我的【下级代理】只要他们有了销售业绩，我就会获得相应的分佣。</strong></p>
+	            	<p class="p-t-20">事实上，他们之中月销十万的非常多，月销几万的更是普遍，其中<span style="color: rgb(255, 76, 0);">最厉害的一个19岁房地产销售人员也代理了秒账月销做到了50万，</span>而产生如此销量的，竟然只靠一部手机。</p>
+	            </div>
+	            
+	            <section class="leftBorderWrap">
+            		<section class="leftBorder">
+		            	<p>并不是这些人多么优秀，也不是【秒账】多么厉害，只不过是他们顺应了智能科技时代的趋势，所以他们稍微努力，就会获得意想不到的收获！</p>
+            		</section>
+            	</section>
+            	<p class="p-t-20">为什么这些门外汉与bss系统推广的结合，能干过一些投资几百万企业的销售额呢？</p>
+	            
+	            <div class="p-t-40 text-center">
+	            	<section class="radiusBorder">
+            			<span style="color: rgb(141, 132, 29);">接下来，让我给你揭密【秒账】的成功之道…………..</span>
+           			</section>
+            		<section class="triangle"></section>
+	            </div>
+	            
+	            <div class=" p-t-40">
+		            <section class="line_boreder">
+			            <section  class="line_boreder">
+			            	<section  class="line_boreder">
+		            			<section  class="line_boreder">
+		            				<section  class="line_boreder">
+			            				<section  class="line_boreder" style="padding-top:0;">
+			            				</section>
+		            				</section>
+		            			</section>
+		            		</section>
+			            </section>
+		            </section>
+		            
+		            <section class="text-center" style=" margin-top: -51px;">
+			            <section class="bg_title">
+			            	<span class="text-center" style="color: rgb(141, 132, 29);">1. 上千家代理商提供商产品</span>
+			            </section>
+		            </section>
+	           </div>
+	            
+	            <p class="p-t-20">经过10年智能技术研究行业的积累，【秒账】已经拥有众多合作代理商。</p>
+	            
+	            <div class="p-t-40" >
+	            	<span style="max-width: 100%; color: rgb(141, 132, 29); box-sizing: border-box !important; word-wrap: break-word !important;">
+	            	<span style="max-width: 100%; font-weight: bold; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+	            	<span style="max-width: 100%; font-weight: 700; opacity: 0.7; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+	            	<span style="max-width: 100%; font-weight: 700; opacity: 0.5; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span><span style="max-width: 100%; font-weight: 700; opacity: 0.3; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span></span>
+	            </div>
+	            
+	            <div>
+	            	<p class="p-t-20" style="color: rgb(141, 132, 29);">【秒账商户版】功能十分强大，聚焦所有商户痛点，其中包含销售单一键录入  、数据不丢失 、实时查询、销售单打印，四大功能，有效支持商户完成从销售业务管理。</p>
+	            	<p class="p-t-20">从而，让商家买到真正能解决问题的产品之后，他们很乐意把好产品告诉自己熟悉的人，自然地就成为继续找代理成为下级商买货，形成良性循环。</p>
+	            </div>
+	            
+	            <div class=" p-t-40">
+		            <section class="line_boreder">
+			            <section  class="line_boreder">
+			            	<section  class="line_boreder">
+		            			<section  class="line_boreder">
+		            				<section  class="line_boreder">
+			            				<section  class="line_boreder" style="padding-top:0;">
+			            				</section>
+		            				</section>
+		            			</section>
+		            		</section>
+			            </section>
+		            </section>
+		            
+		            <section class="text-center" style=" margin-top: -51px;">
+			            <section class="bg_title">
+			            	<span class="text-center" style="color: rgb(141, 132, 29);">2. 秒账bss推广模式简单</span>
+			            </section>
+		            </section>
+	           </div>
+	            
+	            <p class="p-t-20">秒账bss设计的非常人性化，它代劳了所有文案等繁琐的工作，分佣系统自动结算。</p>
+	            
+	            <div class="p-t-40" >
+	            	<span style="max-width: 100%; color: rgb(141, 132, 29); box-sizing: border-box !important; word-wrap: break-word !important;">
+	            	<span style="max-width: 100%; font-weight: bold; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+	            	<span style="max-width: 100%; font-weight: 700; opacity: 0.7; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span>
+	            	<span style="max-width: 100%; font-weight: 700; opacity: 0.5; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span><span style="max-width: 100%; font-weight: 700; opacity: 0.3; box-sizing: border-box !important; word-wrap: break-word !important;">&gt;</span></span>
+	            </div>
+	            
+	           	<p class="p-t-20" style"color: rgb(141, 132, 29);">根据你的圈子，只需动动手指就可以分享到朋友圈，这点工作量<span style="color: rgb(255, 76, 0);">利用碎片时间就可以轻松搞定</span>，收益却是巨大的。</p>
+	            
+	            <div class=" p-t-40">
+		            <section class="line_boreder">
+			            <section  class="line_boreder">
+			            	<section  class="line_boreder">
+		            			<section  class="line_boreder">
+		            				<section  class="line_boreder">
+			            				<section  class="line_boreder" style="padding-top:0;">
+			            				</section>
+		            				</section>
+		            			</section>
+		            		</section>
+			            </section>
+		            </section>
+		            
+		            <section class="text-center" style=" margin-top: -51px;">
+			            <section class="bg_title">
+			            	<span class="text-center" style="color: rgb(141, 132, 29);">3. 轻松创建自己的代理团队</span>
+			            </section>
+		            </section>
+	           </div>
+	           <p class="p-t-20"> 你的微信粉丝主要分为两类，客户和代理商。对于想购买秒账的朋友，你可以把他变成秒账用户，直接成交；对于想成为代理的朋友，你就可以把他变成一名你的代理商，而且这些代理商不需要交付任何费用，出单了你就获得提成。</p>
+	           
+	            <div class="p-t-40 text-center">
+	            	<p>一起见证秒账成长荣誉</p>
+	            </div>
+	            
+	            <div class="p-t-40 text-center">
+	            	<section class="radiusBorder">
+            			<span style="color: rgb(141, 132, 29);">一起见证秒账成长荣誉</span>
+           			</section>
+            		<section class="triangle"></section>
+            		<section class="triangle p-t-10"></section>
+	            </div>
+	            
+	            <div>
+	            	<img class="wd" src="images/phone/BSS25.png">
+	            	<section class="triangle m-t-10"></section>
+	            	<p class="p-t-20" style="font-size: 14px;">2017年1月5日，秒账荣获中国网授予秒账“2017年文明中华科技创新示范单位”奖</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS26.png">
+	            	<p class="p-t-20"  style="font-size: 14px;">2017年1月5日，秒账创始人翁浦益先生，荣获中国网“文明中华科技创新领军人”奖</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS27.jpg">
+	            	<p class="p-t-20"  style="font-size: 14px;">2017年1月5日，秒账参加由中国国际文化传播中心和中国互联网新闻中心指导，中国网文明中华频道和中国网公益中国联合主办的“文明中华大型外宣系列活动”各界领导、专家、企业家、华人华侨及媒体记者200余人出席参加</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS23.jpg">
+	            	<p class="p-t-20"  style="font-size: 14px;">秒账创始人王斌荣获创见·未来”全球CEO梦创盛典“未来独角兽"奖</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS28.jpg">
+	            	<p class="p-t-20"  style="font-size: 14px;">2016年12月22日，秒账参加山东省陕西商会、企业家、淄博市政府领导举行的秦商发展高峰论坛</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS29.jpg">
+	            	<p class="p-t-20"  style="font-size: 14px;">2016年12月10日-12日，全球商协会会长峰会暨开放·分享·融合大会,在北京人民大会堂盛大召开， 秒账作为中国首创智能财务管理软件企业兼峰会战略合作伙伴举行峰会，创始人翁浦益先生接受采访</p>
+	            </div>
+	            
+	            <div class="p-t-40">
+	            	<img class="wd" src="images/phone/BSS24.jpg">
+	            	<p class="p-t-20"  style="font-size: 14px;">2017年CCTV-4 针对秒账创始人翁浦益与王斌进行了专属一对一的电视采访</p>
+	            </div>
+	            
+	            <img id="imgs" class="text-center" style="padding:30px; display:block; width:20em; margin:0 auto; position:relative; z-index:999;"  src=""/>
+	            <div class="text-center p-t-0" style="position:relative;">
+                    <p style="font-size:20px" class="cr">扫一扫&nbsp;成为商户版用户</p>
+                    <!-- <a class="blog-reg" id="aHref" href="http://web.ydcfo.com/page/reg/register.html" target="_blank">立即注册</a> -->
+                    <!-- <a class="blog-reg" id="aHref" href="http://192.168.0.30:8090/AccountingCloud/page/reg/register.html" target="_blank">立即注册</a> -->
+	            </div>
+	            <div id="js_pc_qr_code" class="qr_code_pc_outer" >
+	            	<div class="qr_code_pc_inner">
+			            <div class="qr_code_pc">
+			            	<img src="images/common/QR_XS.jpg" style="width: 102px; height:auto;">
+			            	<p style="font-size: 14px; line-height: 20px;">
+			            		微信扫一扫<br>
+			            		关注秒账公众号
+			            	</p>
+			            </div>
+		            </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var flag = false;
+	var userAgentInfo = navigator.userAgent;
+	var Agents = ["Android", "iPhone",
+	            "SymbianOS", "Windows Phone",
+	            "iPad", "iPod"];
+	for (var v = 0; v < Agents.length; v++) {
+	    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+	        flag = true;
+	        break;
+	    }
+	}
+	
+	if(!flag){
+		$('#promotePage').addClass('col-sm-4 col-sm-offset-4');
+	}
+
+    window.onload=function(){
+    	var agentCode=null;
+        var employeeCode=null;
+        var salesType=null;
+        var salesId=null;
+        var parentAgentCode = null;
+        var customerId = null;
+        
+        var parameter=window.document.location.search;
+        var regagentCode=/agentCode=(\w+)&?/;
+        var regemployeeCode=/employeeCode=(\w+)&?/;
+        var regsalesType=/salesType=(\w+)&?/;  
+        var regsalesId=/salesId=(\w+)&?/;  
+        var regparentAgentCode=/parentAgentCode=(\w+)&?/;
+        var regcustomerId=/customerId=(\w+)&?/;
+
+        if(regagentCode.test(parameter)){
+            agentCode=regagentCode.exec(parameter)[1];
+        }   
+        if(regemployeeCode.test(parameter)){
+            employeeCode=regemployeeCode.exec(parameter)[1];
+        }   
+        if(regsalesType.test(parameter)){
+            salesType=regsalesType.exec(parameter)[1];
+        }
+        if(regsalesId.test(parameter)){
+            salesId=regsalesId.exec(parameter)[1];
+        } 
+        if(regparentAgentCode.test(parameter)){
+            parentAgentCode=regparentAgentCode.exec(parameter)[1];
+        }
+        if(regcustomerId.test(parameter)){
+        	customerId=regcustomerId.exec(parameter)[1];
+        }
+        console.log(agentCode,employeeCode,salesType,salesId,customerId);
+        
+        var pathname = window.location.pathname,url='',btnUrl='';
+        if(pathname.indexOf('SimpleBss')>-1){
+        	url=" http://qr.liantu.com/api.php?text=http://192.168.1.3:8080/SimpleAC/page/reg/register.html?";
+            btnUrl="http://192.168.1.3::8080/SimpleAC/page/reg/register.html?";
+        } else if(pathname.indexOf('.cn')>-1){
+        	url=" http://qr.liantu.com/api.php?text=http://xs.ydcfo.com/page/reg/register.html?";
+            btnUrl="http://xs.ydcfo.com/page/reg/register.html?";
+        }else{
+        	url = "http://qr.liantu.com/api.php?text=http://xs.ydcfo.com/page/reg/register.html?";
+            btnUrl = " http://xs.ydcfo.com/page/reg/register.html?";
+        }
+
+
+        var i=true;
+        if(agentCode!=null){
+            i=false;
+            btnUrl+='agentCode='+agentCode+'&';
+            url+='agentCode='+agentCode+'%26';
+        }
+        if(employeeCode!=null){
+            i=false;
+            btnUrl+='employeeCode='+employeeCode+'&';
+            url+='employeeCode='+employeeCode+'%26';
+        }
+        if(salesType!=null){
+            i=false;
+            btnUrl+='salesType='+salesType+'&';
+            url+='salesType='+salesType+'%26';
+        }
+        if(salesId!=null){
+            i=false;
+            btnUrl+='salesId='+salesId+'&';
+            url+='salesId='+salesId+'%26';
+        }
+        if(parentAgentCode!=null){
+            i=false;
+            btnUrl+='parentAgentCode='+parentAgentCode+'&';
+            url+='parentAgentCode='+parentAgentCode+'%26';
+        }
+        if(customerId!=null){
+            i=false;
+            btnUrl+='customerId='+customerId+'&';
+            url+='customerId='+customerId+'%26';
+        }
+        if(i){
+            btnUrl=btnUrl.substring(0,btnUrl.length-1);
+            url=url.substring(0,url.length-1);
+        }else{
+            btnUrl=btnUrl.substring(0,btnUrl.length-1);
+            url=url.substring(0,url.length-3);
+        }
+        var imgsUrl=document.getElementById('imgs');
+        /* var aHrefUrl=document.getElementById('aHref');
+        aHrefUrl.href=btnUrl; */
+        imgsUrl.src=url;
+        
+        console.log(agentCode,employeeCode,salesType,salesId,parentAgentCode,customerId,url);
+        
+        if($(window).width()<1024){
+        	$('.cr').html('长按识别二维码<br/> 成为商户版用户');
+        }
+    }
+    /*************************************************
+	*
+    *	 用户推广
+	*		销售		salesType/salesId/employeeCode
+	*		客服		salesType/customerId/employeeCode
+	*		代理商	salesType/agentCode
+	*		admin	
+	*	
+	*	代理商推广
+	*		销售		salesId
+	*		客服		customerId
+	*		代理商	parentAgentCode
+	*		admin
+	*
+	**************************************************
+	*/
+</script>	
+</body>
+</html>

@@ -1,0 +1,207 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="customersLog-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="customersLog-show" style="display:none">  
+		<!--  -->
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">日期</label>
+						<div class="col-sm-8">
+							<div id="customersLog-date"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-5">
+							<div id="customersLog-sDate"></div>
+						</div>
+						<span class="float-left m-t-10">至</span>
+						<div class="col-sm-5">
+							<div id="customersLog-eDate"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">电话号码</label>
+						<div class="col-sm-8 p-r-0">
+							<input type="text" class="form-control" id="customersLog-phone" placeholder="请输入电话号码查找">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">用户名</label>
+						<div class="col-sm-8 p-r-0">
+							<input type="text" class="form-control" id="customersLog-username" placeholder="请输入用户名">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">客服</label>
+						<div class="col-sm-8">
+							<div id="customersLog-cust"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+	<div id="remarkLogWin" style="display:none;">
+		<div style="font-size: 18px;">
+			<i class="icon-plus-3"></i>添加备注
+		</div>
+		<div id="">
+			<div class="modal-body">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-12">
+								<div id="customersLogRemarkTbody"></div>
+								<!-- <table class="table table-bordered">
+									<tr>
+										<th class="text-797979" style="width:50%">更新时间</th>
+										<th class="text-797979" style="width:50%">备注</th>
+									</tr>
+									<tbody id="userRemarkTbody"></tbody>
+								</table> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row p-t-20">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-2 p-t-0">备注</label>
+							<div class="col-sm-10">
+								<textarea id="customersLogRemark" type="text" class="form-control" placeholder="100字以内" style="resize:none;width:99.4%"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success" id="customersLogRemarkSaveBtn">保存</button>
+				<button class="btn btn-success" id="customersLogRemarkCancleBtn">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="addChatContentWin" style="display:none;">
+		<div style="font-size: 18px;">
+			<i class="icon-plus-3"></i>添加聊天内容
+		</div>
+		<div id="">
+			<div class="modal-body">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-12">
+								<div id="addChatContentTbody"></div>
+								<!-- <table class="table table-bordered">
+									<tr>
+										<th class="text-797979" style="width:50%">更新时间</th>
+										<th class="text-797979" style="width:50%">备注</th>
+									</tr>
+									<tbody id="userRemarkTbody"></tbody>
+								</table> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row p-t-20">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-2 p-t-0">聊天内容</label>
+							<div class="col-sm-10">
+								<textarea id="addChatContentRemark" type="text" class="form-control" placeholder="100字以内" style="resize:none;width:99.4%"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success" id="addChatContentSaveBtn">保存</button>
+				<button class="btn btn-success" id="addChatContentCancelBtn">取消</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="deleteCustomerLogWin">
+		<div style="font-size: 18px;">
+			<i class="icon-plus-3"></i>提示
+		</div>
+		<div id="deleteCustomerLogForm">
+			<div class="modal-body">
+				<div class="row p-t-20">
+					<div class="col-md-12 p-t-10">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="row" style="text-align:center;">
+									<span class="col-sm-12" style="font-size:20px;font-weight:600;padding-top:5px">确认要删除吗？</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="modal-footer" style="padding-top:90px">
+				<button class="btn btn-success" id="customerLogConfirmBtn">确认</button>
+				<button class="btn btn-success" id="customerLogCancelBtn">取消</button>
+			</div>
+		</div>
+	</div>
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="customersLog"></div>
+    </div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/spm/customersLog.js";
+		$.loadScript(
+					js,
+					function(){
+						var customersLogMgt = new CustomersLogMgt();
+							customersLogMgt.initInput();
+			    	
+				    	var customersLogBindModel = new CustomersLogBindModle(customersLogMgt);
+					    	customersLogBindModel.unbindAll();
+					    	customersLogBindModel.bind();
+					});
+	});
+</script>

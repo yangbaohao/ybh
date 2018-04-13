@@ -1,0 +1,103 @@
+<meta charset="utf-8">
+<div class="content p-20" id="viewVouChersPage">
+	<div class="row p-b-20">
+		<div class="col-md-12 p-r-0">
+			<div class="col-md-6 p-b-10">
+				<span id="viewVou-name" style="font-size:25px;font-weight:600;color:#3B85FF"></span>
+			</div>
+		</div>
+	  	<div class="col-md-12 p-r-0">
+	  		<div class="col-md-6 p-t-10">
+	  			<span id="viewVou-time"></span>
+	  		</div>
+			<button class="btn btn-success wd100 float-right searchBtn" type="button" id="viewVou-search">
+				搜&nbsp;&nbsp;&nbsp;索
+			</button>
+			
+			<button class="btn btn-success wd100 float-right m-r-15" type="button" id="viewVou-import">
+				导&nbsp;&nbsp;&nbsp;出
+			</button>
+		</div>
+	</div>
+
+	<div class="row card-box m-b-0 p-b-0" id="viewVou-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">编号</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="viewVou-code" placeholder="输入编号查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">用户类型</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="viewVou-type" placeholder="输入类型查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">代理商</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="viewVou-agent" placeholder="输入代理商查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="viewVou-username" placeholder="输入用户名查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>	
+	
+	
+	<!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="viewVouGrid"></div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/vou/viewVouChers.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewVou = new ViewVou();
+						viewVou.initInput();
+				    	
+				    	var viewVouBindModel = new viewVouBindModle(viewVou);
+				    	viewVouBindModel.unbindAll();
+				    	viewVouBindModel.bind();
+					});
+	});
+</script>
+
+
+
+

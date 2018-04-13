@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="agentStnMgtPage">
+	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="agentStn-cancle">
+				&nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;消
+			</button>
+			
+			<button class="btn btn-success wd100 float-right m-r-15" type="button" id="agentStn-save">
+				&nbsp;&nbsp;保&nbsp;&nbsp;&nbsp;存
+			</button>
+		</div>
+	</div>	
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="agentStnGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/spm/agentStnMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var agentStnMgt = new AgentStnMgt();
+						agentStnMgt.initInput();
+				    	
+				    	var agentStnBindModel = new AgentStnBindModle(agentStnMgt);
+				    	agentStnBindModel.unbindAll();
+				    	agentStnBindModel.bind();
+					});
+	});
+</script>

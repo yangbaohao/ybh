@@ -1,0 +1,229 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="mesMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-l-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="mes-add">
+				新&nbsp;&nbsp;&nbsp;增
+			</button>
+			<button class="btn btn-success wd100 float-left searchBtn" type="button" id="mes-search">
+				搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="mes-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="mes-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="mes-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="mes-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">编号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="mes-code" placeholder="输入编号查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">短信主题</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="mes-batchNum" placeholder="输入短信主题查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">发送用户数</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="mes-sc">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="mes-ec">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">写信人</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="mes-person" placeholder="输入写信人查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+	<div style="display:none">
+		<div id="mesWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>新增短信
+			</div>
+			<div id="mesForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">编号</label>
+									<div class="col-sm-7">
+										<input type="text" readonly="readonly" class="form-control" id="meswin-code"/>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">短信主题</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="meswin-zt"/>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row col-md-offset-1">
+						<div class="col-md-10 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">短信内容</label>
+									<textarea id="meswin-mes" class="form-control" style="resize:none;width:85%;margin-left:17.5%" phaceholder="编辑内容"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="addMesSaveBtn">保存</button>
+					<button class="btn btn-success" id="cancelMesBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="mesEditWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑短信
+			</div>
+			<div id="mesEditForm">
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">编号</label>
+									<div class="col-sm-7">
+										<input type="text" readonly="readonly" class="form-control" id="meswin-editcode"/>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">短信主题</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="meswin-editzt"/>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row col-md-offset-1">
+						<div class="col-md-10 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">短信内容</label>
+									<textarea id="meswin-editmes" class="form-control" style="resize:none;width:85%;margin-left:17.5%" phaceholder="编辑内容"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="addMesSaveEditBtn">保存</button>
+					<button class="btn btn-success" id="cancelMesEditBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="mesMgtGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/mesMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var mesMgt = new MesMgt();
+						mesMgt.initInput();
+				    	
+				    	var mesBindModel = new MesBindModle(mesMgt);
+				    	mesBindModel.unbindAll();
+				    	mesBindModel.bind();
+					});
+	});
+</script>

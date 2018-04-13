@@ -1,0 +1,905 @@
+<meta charset="UTF-8">
+<div class="content" id="addSO">
+	<div id="addSO-Form" class="p-20 p-t-0">
+		<div class="row p-b-20">
+			<!-- <div class="col-md-4 hide">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="col-md-4">
+							<div class="adpt8" style="left:11%">
+								<input id="addFastSo" class="float-left" type="checkbox">
+								<label for="addFastSo" class="pointer">快捷开单</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="col-md-4 col-md-offset-8">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label col-sm-3 leftlabel">
+								销售单号：</label>
+							<div class="col-sm-9 ab95">
+								<input id="addSO-addOrderNumber" readonly class="form-control b-0 p-l-0"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row p-b-30">
+			<div class="col-md-8" id="addSO-addCustomerId-span">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<label class="control-label col-sm-3 leftlabel" style="left:1.6%">
+								<img class="soimg" src='images/common/so/socust.png'>客户名称</label>
+								<!-- <i class="md-account-circle iconImg"></i> -->
+							<div class="col-sm-11 ab95" style="padding-right:5px">
+								<div id="addSO-addCustomerId" class="col-sm-11 p-0 easyGridClientId"></div>
+								<div class="addSomeBtnEdit editBtna"><!-- <a><img src='images/common/so/edit.png'></a> --></div>
+								<div class="addclientlable" id="addSO-customerLabel"></div>
+								<!-- <div class="addSomeBtnx"><a data-toggle="modal" data-target="#addSOCustomer"><i class="icon-plus"></i></a></div> -->
+							</div>
+						</div>
+						<div class="hide standPhone">
+							<label class="control-label col-sm-3 labelphone">
+								<img class="soimg" src='images/common/so/sophone.png'>电话号码</label>
+		
+							<div class="col-sm-9 ab95">
+								<input id="standbyPhone" type="text" class="form-control abphone"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4 fileorderhide" >
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="control-label col-sm-3 leftlabel">
+								<div class="adpt8 p-t-0">
+									<input id="addSO-otherpay" class="float-left" type="checkbox">
+									<label id="addOtherPay" class="pointer">非产品费用</label> <!-- id="addOtherPay" -->
+								</div>
+							</div>
+							<div class="col-sm-9 ab95" id="addSOshowOtherpay" style="display:none">
+								<input type="text" style="width:90%;height:35px" class="form-control" value="0.00" id="addSO-otherpayInput" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<div class="row p-b-30">
+            <div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<label class="control-label col-sm-3 leftlabel">
+								<img class="soimg" src='images/common/so/sodate.png'>销售日期</label>
+								<!-- <i class="md-today iconImg"></i> -->
+
+							<div class="col-sm-9 ab95">
+								<div id="addSO-saleTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<label class="control-label col-sm-4 leftlabel p-r-0" style="left:-3%">
+								<img class="soimg" src='images/common/so/sodate.png'>计划收款日期</label>
+								<!-- <i class="md-today iconImg"></i> -->
+							<div class="col-sm-9 ab95">
+								<div id="addSO-recTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div class="col-md-4 fileorderhide" id="addSO-sendTime-span"> -->
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<label class="control-label col-sm-3 leftlabel">
+								<img class="soimg" src='images/common/so/sodate.png'>送货日期</label>
+								<!-- <i class="md-today iconImg"></i> -->
+							<div class="col-sm-9 ab95">
+								<div id="addSO-sendTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-b-10">
+			<div class="col-md-8">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label col-sm-3 leftlabel" style="left:1.6%">
+								<img class="soimg" src='images/common/so/soaddress.png'>送货地址</label>
+								<!-- <i class="md-subject iconImg"></i> -->
+							<div class="col-sm-11 ab95">
+								<div class="col-sm-11 p-0" id="addSO-addReceiverAddress"></div>
+								<div class="addSomeBtn addSomeaddBtn"><a id="addSO-ress" data-toggle="modal" data-target="#addSOAddress"><i class="icon-plus"></i></a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- <div class="col-md-4 fileorderhide"> -->
+			<!-- <div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label col-sm-3 leftlabel" style="left:3.3%">
+								<img class="soimg" src='images/common/so/remark.png'>备注</label>
+							<div class="col-sm-9 ab95">
+								<input placeholder="打印时显示" id="addSO-remarkPrint" maxlength="1000" class="form-control" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<!-- <div class="row p-b-10 p-t-10" style="display:none;" id="addSO-send-span"  data-id="undelivered">
+			<div class="col-md-8" id="addSO-addOrderNum-span">
+				<div class="row">
+					<div class="form-horizontal">
+						<label class="control-label col-sm-3 leftlabel" style="left: 3%; padding-top: 15px;"> 
+							送货信息<i class="soIconSend ti-car addSoIcons" style="display:none;"></i> </label>
+							
+						<div class="col-sm-11 ab95">
+							<div class="col-md-3" style="padding-left: 0px;">
+								<div class="m-t-10 relative proTypeLabel addSuccImg proTypeLabel2" data-id="undelivered"
+									style="width: 150px; margin-left: 0px;">
+									<div class="text-center selfDefine">暂不送货</div>
+									<img alt="" src="images/common/success.png" class="succImg">
+								</div>
+							</div>
+							<div class="col-md-3 p-l-0">
+								<div class="m-t-10 relative proTypeLabel addSuccImg proTypeLabel2" data-id="alldelivered"
+									style="width: 150px; margin-left: 0px;">
+									<div class="text-center selfDefine">全部送货</div>
+									<img alt="" src="images/common/success.png" style="display:none;" class="succImg">
+								</div>
+							</div>
+							<div class="col-md-3 p-l-0">
+								<div class="m-t-10 relative proTypeLabel addSuccImg proTypeLabel2"
+									data-id="partialdelivered" style="width: 150px; margin-left: 0px;">
+									<div class="text-center selfDefine">部分送货</div>
+									<img alt="" src="images/common/success.png"
+										style="display: none;" class="succImg">
+								</div>
+								<div id="addSO-send-num" style="display: none;">
+									<input id="addSO-addOrderNum" class="form-control"
+										placeholder="送货金额"
+										style="position: absolute; top: 10px; height: 36px; width: 150px; left: 160px;">
+								</div>
+							</div>
+							<div class="col-md-3" id="addSO-send-num" style="display: none;">
+								<div class="m-t-10 relative proTypeLabel"
+									style="width: 150px">
+									<input id="addSO-addOrderNum" class="form-control"
+										placeholder="送货金额" style="height: 40px; border: none;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="row plr">
+			<h4 class="m-b-5">订单信息</h4>
+			<hr class="bthr">
+		</div>
+
+		<!-- <div class="row" style="display:none;" id="addFastSo-list">
+			<style>
+			.imgDetailRowImgCell {
+				/* width: 150pt; */
+				height: 100pt;
+				margin: 0 auto;
+				border: 4px solid #eee;
+				position: relative;
+			}
+			
+			#addFastSo-list .wu-example:after {
+				content: '文件快捷开单' !important;
+			}
+			
+			.imgFile {
+				padding-bottom: 5px;
+			}
+			
+			.addimg {
+				width: 100%;
+				height: 125px;
+				background: #dadada;
+				color: #fff;
+				line-height: 22px;
+			}
+			
+			.addimg div {
+				height: 25px;
+				padding: 50px 0;
+				font-size: 17px;
+			}
+			
+			.addimg div span {
+				font-size: 22px;
+			}
+			#addSO-send-num .jqx-validator-error-label{
+				 position: relative !important;
+   				 left: 160px !important;
+			}
+			</style>
+
+			<div class="col-md-6 " id="imgDetailRow">
+				<div class="imgDetailRowList"></div>
+				<div class="col-md-4 "
+					id='imgDetailRowListAddBtn'>
+					<div class="col-md-12" style="text-align: center;">
+						<div style="margin: 0 auto; position: relative;">
+							<img src="images/common/detailimg/prodcoloradd.png" title="新增颜色"
+								alt="新增颜色" style="width: 100%;height:125px;">
+							<div class="addimg">
+								<div>
+									<span>+</span>图片快捷开单
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 ">
+				<div id="addSO-attachment-span"></div>
+
+			</div>
+		</div> -->
+	<form name="addSelectForm">
+		<div class="row p-b-20 fileorderhide">
+			<div class="col-md-1 priseInfoFlag">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="col-sm-12 leftlabel">
+								<div class="adpt8">
+									<input id="addSO-box" class="float-left" type="checkbox" name="addbox">
+									<label for="addSO-box" class="pointer">货品装箱</label>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-1 priseInfoFlag">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="col-sm-12 leftlabel">
+								<div class="adpt8">
+									<input id="addSO-productMeasFlag" class="float-left" type="checkbox" name="addbox1">
+									<label for="addSO-productMeasFlag" class="pointer">外箱尺寸</label>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-1">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="col-sm-12 p-l-0 leftlabel">
+								<div class="adpt8">
+									<input id="addSO-boxflag" class="float-left" type="checkbox" name="addbox2">
+									<label for="addSO-boxflag" class="pointer">客户货号</label>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="form-horizontal">
+							<label class="control-label col-sm-3">
+								<img class="soimg " src='images/common/so/sotax.png'>税率</label>
+								<!-- <i class="md-swap-vert iconImg"></i> -->
+							<div class="col-sm-9">
+								<div id="addSO-addTax"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3" id="addSOtaxLimit" style="display:none">
+					<div class="row">
+						<div class="form-horizontal">
+							<label class="control-label col-sm-3">
+								<img class="soimg " src='images/common/so/sotax.png'>税额</label>
+								<!-- <i class="md-swap-vert iconImg"></i> -->
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="addSO-addTaxLimit" style="width:90%">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3" id="addSO-orderOverReceive-span">
+					<div class="row">
+						<div class="form-horizontal">
+							<label class="control-label col-sm-5">
+								<img class="soimg " src='images/common/so/sotax.png'>优惠金额</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="addSO-preferMoney" value="0" style="width:90%">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3" id="addSO-orderMoney-span">
+					<div class="row">
+						<div class="form-horizontal">
+							<label class="control-label col-sm-5">
+								合同金额<i class="soIconMoney md-attach-money addSoIcons" style="display: none;"></i></label>
+							<div class="col-sm-7">
+								<input id="addSO-orderPartMoney" readonly class="form-control b-0 hide" value="0.00" style="width:90%;height:35px"/>
+								<input id="addSO-orderMoney" readonly class="form-control b-0 " value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+		
+		<!-- 新增地址 -->
+		<div id="addSOAddress" class="modal fade"
+			tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog ">
+				<div class="modal-content">
+					<!--模态框头部-->
+					<div class="modal-header">
+						<div class="quotation-nav">
+							<div class="row">
+								<div class="quotation-nav-left" style="">
+									<b style="margin-left: 20px;">添加地址</b>
+								</div>
+								<div class="quotation-nav-right">
+									<button type="button" class="close-modal btn-r"
+										data-dismiss="modal" aria-hidden="true">
+										<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--模态框body-->
+					<div class="modal-body">
+						<input id="addSOAddressTableType"
+							style="display: none;" type="text" /> <input
+							id='addSOAddressTableId' type="text"
+							style='display: none;' />
+						<div class="row container">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-2">简称</label>
+											<div class="col-sm-4">
+												<input id='addSOAddressTableSn' type="text"
+													class="form-control">
+												<!-- input-group -->
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3 addrss">
+									   <div class="relative addressLabel">
+											<div class="text-center">公司地址</div>
+										</div>
+									</div>
+									
+									<div class="col-md-3 addrss2">
+									   <div class="relative addressLabel">
+											<div class="text-center">送货地址</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-2">地址</label>
+											<div class="col-md-10">
+												<div id='addSOAddressTableArs' class="addRessTableSelect"></div>
+												<label class="addressMustWord mustword">*</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-2">详细地址</label>
+											<div class="col-sm-8">
+												<input id='addSOAddressTableSt' type="text"
+													class="form-control">
+											</div>
+											<label class="mustword">*</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-2">邮编</label>
+											<div class="col-sm-4">
+												<input id='addSOAddressTableZc' type="text"
+													class="form-control">
+												<!-- input-group -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-2">备注</label>
+											<div class="col-sm-8">
+												<textarea id='addSOAddressTableRm'
+													class="form-control" rows="1" style="width: 100%;"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--模态框脚页-->
+					<div class="modal-footer" style="padding: 20px;">
+						<button type="button" class="btn btn-success cancleBtn" data-dismiss="modal">取消</button>
+						<button type="button" id='addSOAddressBtn'
+							class="btn btn-success">确认</button>   <!-- data-dismiss="modal" -->
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		
+		<!-- 新增客户 -->
+		<!-- <div id="addSOCustomer" class="modal fade"
+			tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog ">
+				<div class="modal-content">
+					模态框头部
+					<div class="modal-header">
+						<div class="quotation-nav">
+							<div class="row">
+								<div class="quotation-nav-left" style="">
+									<b style="margin-left: 20px;">新建客户</b>
+								</div>
+								<div class="quotation-nav-right">
+									<button type="button" class="close-modal btn-r"
+										data-dismiss="modal" aria-hidden="true">
+										<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					模态框body
+					<div class="modal-body">
+						<input id="addSOCustomerType"style="display: none;" type="text" /><input id='addSOCustomerId' type="text" style='display: none;' />
+						<div class="row container">
+							<div class="col-sm-offset-2 col-sm-8 p-t-30">
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">客户名称</label>
+											<div class="col-sm-8">
+												<input data-blacklist=' ' id='addSOCustomerName' type="text"
+													class="form-control">
+												input-group
+											</div>
+											<label class="mustword">*</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-offset-2 col-sm-8 p-t-10">
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">电话</label>
+											<div class="col-sm-8">
+												<input id='addSOCustomerPhone' type="text"
+													class="form-control">
+												input-group
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-offset-2 col-sm-8 p-t-10">
+								<div class="row">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">备用电话</label>
+											<div class="col-sm-8">
+												<input id='addSOCustomerPhone2' type="text"
+													class="form-control">
+												input-group
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-offset-9 col-sm-3 p-t-10 text-right">
+								<a class="junpclientInfo hoverspan" data-dismiss="modal" data="addSO-addCustomerId">详情设置》</a>
+							</div>
+						</div>
+					</div>
+					模态框脚页
+					<div class="modal-footer p-t-10" style="padding: 20px;">
+						<button type="button" class="btn btn-success cancleBtn" data-dismiss="modal">取消</button>
+						<button type="button" id='addSOCustomerBtn'
+							class="btn btn-success" style="width:75px">保存</button>  data-dismiss="modal"
+					</div>
+				</div>
+			</div>
+			/.modal-dialog
+		</div> -->
+
+		<div class="row fileorderhide marginlf25">
+			<div class="col-md-12" id="addSaleOrder_grid"></div>
+		</div>
+		
+		<div class="row">
+			<!-- <div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="col-sm-4 receiveMes">
+								<input id="addSO-receiveRecord" type="checkbox" class="float-left" style="margin-top:6px">
+                              	<label for="addSO-receiveRecord" class="pointer ft18 float-left m-b-0">收款信息</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-8">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="float-right">
+							<label class="control-label col-sm-5">总额:</label>
+							<div class="col-sm-7 p-l-0">
+								<input readonly type="text" class="form-control p-l-0 b-0" id="addSO-sum"/>
+							</div>
+						</div>
+					</div>
+				</div>		
+			</div> -->
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="">
+							<div class="col-sm-6 receiveMes">
+                              	<label class="ft18 float-left m-b-0">收款信息</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 m-t-5">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label ml28 col-sm-5 leftlabel">已送货</label>
+							<div class="col-sm-9 ab65">
+								<input id="addSO-orderDeliver" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 m-t-5">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label ml28 col-sm-5 leftlabel">已收款</label>
+							<div class="col-sm-9 ab65">
+								<input id="addSO-orderReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 m-t-5">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label ml28 col-sm-5 leftlabel">未收款</label>
+							<div class="col-sm-9 ab65">
+								<input id="addSO-orderNoReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 m-t-5">
+				<div class="row hide" id="">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label ml28 col-sm-3 leftlabel">超收款</label>
+							<div class="col-sm-9 ab65">
+								<input id="addSO-orderOverReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-md-2 m-t-5" id="addSO-orderMoney-span">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class=""> 
+							<label class="control-label m-l-15 col-sm-5 leftlabel">
+								订单金额<i class="soIconMoney md-attach-money addSoIcons"  style="display:none;"></i></label>
+							<div class="col-sm-9 ab65">
+								<input id="addSO-orderMoney" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		
+		<div class="row plr m-t-10">
+			<hr class="m-0 realhr">
+		</div>
+		
+		<div class="row p-t-20" id="addSO-receiveTable-span">
+			<div class="col-sm-12">
+				<!-- <div class="card-box m-b-0 p-b-0 p-t-0"> -->
+					<!-- <div class="row p-t-20 p-b-20 p-r-10"> -->
+						<!-- <div class="col-md-3">
+							<div class="row">
+								<div class="form-horizontal">
+									<div class=""> 
+										<label class="control-label m-l-10 col-sm-3 leftlabel">订单金额</label>
+										<div class="col-sm-9 ab65">
+											<input id="addSO-orderMoney" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="row">
+								<div class="form-horizontal">
+									<div class=""> 
+										<label class="control-label ml28 col-sm-3 leftlabel">已收款</label>
+										<div class="col-sm-9 ab65">
+											<input id="addSO-orderReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="row">
+								<div class="form-horizontal">
+									<div class=""> 
+										<label class="control-label ml28 col-sm-3 leftlabel">未收款</label>
+										<div class="col-sm-9 ab65">
+											<input id="addSO-orderNoReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 hide">
+							<div class="row">
+								<div class="form-horizontal">
+									<div class=""> 
+										<label class="control-label ml28 col-sm-3 leftlabel">超收款</label>
+										<div class="col-sm-9 ab65">
+											<input id="addSO-orderOverReceive" readonly class="form-control b-0" value="0.00" style="width:90%;height:35px"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- <div class="col-md-5">
+						    <div class="row">
+						    	<div class="form-horizontal">
+						      		<div class="form-group">
+						          		<div class="p-t-10" style="font-size: 14px;">
+							          		<span>订单金额：</span>
+									  		<span id="addSO-orderMoney" class="m-r-20">0.00</span>	
+									  		<span>已收款：</span>
+									  		<span id="addSO-orderReceive" class="m-r-20">0.00</span>
+									  		<span>未收款：</span>
+									  		<span id="addSO-orderNoReceive">0.00</span>
+						  		  		</div>
+						  	  		</div>
+						    	</div>
+						  	</div>
+						</div> -->
+					<!-- </div> -->
+				
+					<div class="row p-l-20 p-r-10" id="addSO-receiveTable">
+						<div class="bootstrap-table">
+							<div class="fixed-table-toolbar"></div>
+							<div class="fixed-table-container" style="padding-bottom: 0px;">
+								<div class="fixed-table-header" style="display: none;">
+									<table></table>
+								</div>
+								<div class="fixed-table-body">
+									<table id="addSO-receiveRecordTable"
+										class="table user-table table-striped m-b-0 table-hover"
+										data-toggle="table" style="cursor: pointer;">
+										
+										<thead id="addSO-receiveRecordThead">
+										<th class="border-rightlast">
+											<span class="colorspan">操作</span>
+										</th>
+										<th class="border-right">
+											<span class="colorspan">收款日期</span>
+										</th>
+										<th class="border-right">
+											<span class="colorspan">收款金额</span>
+										</th>
+										<th class="border-right">
+											<span class="colorspan">收款方式</span>
+										</th>
+										<th class="border-right br0">
+											<span class="colorspan">备注</span>
+										</th>
+											
+										</thead>
+										<tbody style="border-bottom:1px solid #EEEEEE" class="bg-white" id="addSO-receiveRecordTbody">
+											
+										</tbody>
+										<!-- <tfoot id="addSO-receiveRecordTfoot">
+											<tr style="background:#F8F9F9;border-bottom:1px solid #CCCCCC">
+												<td colspan="6" style="height:37px;"></td>
+											</tr>
+										</tfoot> -->
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix" style="background-color: #FFFFFF"></div>
+					</div>
+				<!-- </div> -->
+			</div>
+		</div>
+
+		 <div class="row card-box m-b-0 p-b-0">
+			<div class="col-md-12">
+				<h4 class="h4_head">
+					<img class="soimg" src='images/common/so/remark.png'>备注：（打印时显示）
+				</h4>
+				<textarea id="addSO-remarkPrint" class="form-control" rows="5"></textarea>
+			</div>
+			<!-- <div class="col-md-6">
+				<h4 class="h4_head">
+					<i class="md-event-note" style="position:relative;top:3px;margin-right:6px;"> </i>备注：（打印时不显示）
+				</h4>
+				<textarea id="addSO-remark" class="form-control" rows="3"></textarea>
+			</div> -->
+		</div>
+		<div class="row p-t-20" id="addSO-attachment">
+			<!-- <h4 class="h4_head">
+				<i class="md-style"></i>&nbsp;附件：（单一文件最大容量：25MB）
+			</h4>
+			<textarea class="form-control" rows="8"></textarea> -->
+		</div>
+	</div>
+
+	<!-- <div class="container">
+		<div class="card-box row p-t-0">
+			<div class="col-md-10 col-md-push-2">
+				
+				
+				
+			</div>
+		</div>
+	</div> -->
+	<div class="p-t-fixedBtn"></div>
+	<div class="fixedBtn">
+		<!-- <div class="col-md-10 col-md-push-2"> -->
+			<button type="button" class="btn btn-success float-right mg10"
+				id="saveAddSaleOrderBtn">提交</button>
+			<button type="button" class="btn btn-success float-right mg10 m-r-20"
+				id="addOcrOrderReject">驳回</button>
+			<button type="button" class="btn btn-success float-right mg10 hide"
+				id="saveAddSaleSaveSubmit">再次提交</button>
+		<!-- </div> -->
+	</div>
+	
+		<!-- 额外费用 -->
+	<div id="addOtherPayWindow" class="addCoverdiv" style="display:none">
+		<div class="addWindowdiv p-20 p-t-0">
+			<div class="row p-b-10" style="border-bottom:1px solid #d6c2c2">
+				<h4 class="m-b-0">请选择</h4>
+				<span class="md-clear cancleAddPay"></span>
+			</div>
+			
+			<!-- <div class="row p-t-20">
+				
+			</div> -->
+			
+			<div class="row p-t-20" id="addpayInput">
+				
+			
+				<!-- <div class="col-md-4 addpay">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<ul>
+								<li>
+									<input class="m-t-10" type="checkbox">
+									<input type="text" class="form-control float-right" style="width:87%" placeholder="添加">								
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>	 -->
+			</div>
+			
+			<div class="row p-t-30">
+				<div class="col-md-offset-5">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<button class="btn btn-success float-right" id="cau-addSave">保存</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <script type="text/javascript" src="js/common/setWindow.js"></script> -->
+<!-- <script type="text/javascript" src="js/common/address.js"></script> -->
+<script type="text/javascript">
+	/* showSpec('addSOProductSepc-show'); */
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/biz/addSaleOrder.js";
+		//$.loadScript("js/common/mindmup-editabletable.js", function() {
+			$.loadScript(js, function() {
+
+				var addSaleOrderMgt = new AddSaleOrderMgt();
+				addSaleOrderMgt.initInput();
+
+				var addSaleOrderBindModle = new AddSaleOrderBindModle(
+						addSaleOrderMgt);
+				addSaleOrderBindModle.unbindAll();
+				addSaleOrderBindModle.bind();
+
+			});
+		//});
+	});
+</script>

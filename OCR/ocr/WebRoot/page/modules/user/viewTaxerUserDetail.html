@@ -1,0 +1,280 @@
+<meta charset="UTF-8">
+<div class="content p-20 p-t-0" id="viewTaxerUser">
+
+	<div class="row">  
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">用户名：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-username" 
+						style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden; text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+			
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">报税人：</label>
+					<label class="control-label col-sm-10" style="text-align:left" id="viewTaxerUser-taxer"></label>
+				</div>
+			</div>
+		</div>
+	</div>	
+			
+	<div class="row">		
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">合同开始日期：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-stime"
+						style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden; text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">合同结束日期：</label>
+					<label class="control-label col-sm-10" style="text-align:left" id="viewTaxerUser-etime"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">公司名称：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-name"
+						style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;  text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">增值税率：</label>
+					<label class="control-label col-sm-10" id="viewTaxerUser-taxrate" style=" text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">纳税人性质：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-taxType"
+						style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden; text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">纳税人识别号：</label>
+					<label class="control-label col-sm-10" id="viewTaxerUser-owerTaxCode" style="text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">收款周期：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-period" style="text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">收款金额/月：</label>
+					<label class="control-label col-sm-10" id="viewTaxerUser-money" style="text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">邮箱：</label>
+					<label class="control-label col-sm-8" id="viewTaxerUser-email" style="text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">联系电话：</label>
+					<label class="control-label col-sm-10" id="viewTaxerUser-phone" style="text-align:left;"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div id="editPaymentMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑催款信息
+			</div>
+			<div class='form-horizontal' id="editPaymentForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label for="editPayment-username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editPayment-loginId"  readonly="readonly"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="editPayment-username" class="col-sm-2 control-label">客户名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"  id="editPayment-name"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add-password" class="col-sm-2 control-label">收款周期</label>
+						<div class="col-sm-9">
+							<div id="editPayment-period"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">	
+						<label for="add-taxpayer" class="col-sm-2 control-label">收款日期</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editPayment-amount" />
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2">收款区间</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="editPayment-sTime">
+						</div>
+						<span class="float-left m-t-10 col-sm-1">至</span>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="editPayment-eTime">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="editPayment-name" class="col-sm-2 control-label">收款金额</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editPayment-money">
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="editPaymentSubmitBtn">确认</button>
+					<button class="btn btn-success" id="editPaymentMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="editReceiptMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑收款信息
+			</div>
+			<div class='form-horizontal' id="editReceiptForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label for="editReceipt-username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editReceipt-loginId"  readonly="readonly"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="editReceipt-username" class="col-sm-2 control-label">客户名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"  id="editReceipt-name" readonly="readonly"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add-password" class="col-sm-2 control-label">收款周期</label>
+						<div class="col-sm-9">
+							<div id="editReceipt-period"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">	
+						<label for="add-taxpayer" class="col-sm-2 control-label">收款日期</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editReceipt-amount" />
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2">收款区间</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="editReceipt-sTime">
+						</div>
+						<span class="float-left m-t-10 col-sm-1">至</span>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="editReceipt-eTime">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="editReceipt-name" class="col-sm-2 control-label">收款金额</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="editReceipt-money">
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="editReceiptSubmitBtn">确认</button>
+					<button class="btn btn-success" id="editReceiptMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+		<span style="font-size:20px">收款记录</span>    	
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12" id="viewTaxerUserReceipt"></div>
+    </div>
+    <!-- 催款记录 -->
+    <!--grid-->
+    <div class="row p-t-40" style="overflow:hidden; ">
+		<span style="font-size:20px;">催款记录</span>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12" id="viewTaxerUserPayment"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/viewTaxerUserDetail.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewTaxerUserMgt = new ViewTaxerUserMgt();
+							viewTaxerUserMgt.initInput();
+					});
+	});
+</script>

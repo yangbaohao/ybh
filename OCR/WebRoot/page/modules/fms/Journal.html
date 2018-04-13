@@ -1,0 +1,175 @@
+<meta charset="UTF-8">
+<div class="content">
+	<div class="container">
+		<!--查询条件区和按钮组件 start-->
+		<div class="row p-b-20 p-t-20">
+			<div class="col-md-12 p-r-0">
+				
+				
+				<div class="float-right p-l-20">
+					<button type="button" id="addpingzheng"
+						class="btn btn-success wd100 float-right float-right addbtn"
+						data-btn="fms:journal:create">
+						<span class="btn-label"><i class="ion-plus-round"></i> </span>创建凭证
+					</button>
+				</div>
+				<div class="float-right p-l-20">
+					<button type="button" onclick="downloadTemplate()"
+						class="btn btn-success wd100">下载模板</button>
+				</div>
+				<div class="float-left p-l-20">
+					<button class="btn btn-success wd100 searchBtn" type="button"
+						id="jouralSearchBtn">搜&nbsp;&nbsp;&nbsp;索</button>
+				</div>
+
+				<div class="float-right p-l-20">
+					<button class="btn btn-success wd100" type="button"
+						id="jouralPrintBtn">批&nbsp;量&nbsp;打&nbsp;印</button>
+				</div>
+				<div class="float-right p-l-20">
+					<button type="button" id="importJournal"
+						class="btn btn-success wd100">导&nbsp;&nbsp;&nbsp;入</button>
+				</div>
+				<div class="float-right">
+					<button class="btn btn-success wd100" type="button"
+						id="jouralExportBtn">导&nbsp;&nbsp;&nbsp;出</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" id="joural-show">
+
+			<div class="row p-t-10">
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group">
+							<label class="control-label col-sm-3">摘要</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="journaldescription">
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group">
+							<label class="control-label col-sm-3">科目</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="journalCoa">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group">
+							<label class="control-label col-sm-3">凭证号</label>
+							<div class="col-sm-8">
+								<input type="text" id='journalNumber' class="form-control"
+									value="">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row p-t-20 p-b-20">
+
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group">
+							<label class="control-label col-sm-3">会计日期</label>
+							<div class="col-sm-8">
+								<div id="JournalSelectTime"></div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group col-md-12 input-daterange">
+							<!-- <label class="control-label col-sm-3"></label> -->
+							<div class="col-sm-5">
+								<div id="journalTm1" class="jouralSearchtime timeStartEnd"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="journalTm2" class="jouralSearchtime timeStartEnd"></div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-4">
+					<form action="#" class="form-horizontal">
+						<div class="from-group">
+							<label class="control-label col-sm-3">金额</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="journalMn1" />
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="journalMn2" />
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+			</div>
+
+			<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+		</div>
+
+		<!--用户界面的table-->
+		<div class="row">
+			<div class="col-md-12 zqw_refreshGrid" id="Journal"></div>
+		</div>
+	</div>
+	       <div id="journalmgt-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<!-- <div class="col-sm-12">
+							<div class="fixed-table-container " style="padding-bottom: 0px;"> -->
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12 m-top"></div>
+							<div class="col-md-12" id="journalmgt-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/Journal.js";
+		//$.getScript( js,function(){
+		$.loadScript(js, function() {
+		});
+	});
+</script>

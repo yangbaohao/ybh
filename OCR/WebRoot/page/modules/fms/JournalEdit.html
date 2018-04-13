@@ -1,0 +1,452 @@
+<meta charset="UTF-8">
+<style>
+.jornalBox {
+	border: 1px solid #E3E3E3;
+	padding-top: 20px;
+	border-radius: 4px;
+	padding-bottom: 20px;
+}
+
+.jornalBox_title {
+	font-size: 17px;
+}
+</style>
+<div class="content" id="JournalEdit_Page">
+	<div class="container">
+		<div class="row  p-t-40">
+			<div class="col-sm-12">
+				<div class="">
+					<div class="row">
+						<input type="text" id='journalEditid' style='display: none;'>
+						<div class="col-md-4"></div>
+
+						<div class="col-md-8"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<div class="row">
+
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-5">匹配通用单据</label>
+
+							<div class="col-sm-6">
+								<div id="JournalEdit_type"></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-4">日期</label>
+
+							<div class="col-sm-6">
+								<div id="datepickerEdit"></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">记字第</label>
+
+							<div class="col-sm-6">
+								<input type="text" id='journalEditNumber' readonly="readonly"
+									class="form-control" placeholder="单号">
+							</div>
+							<label class="control-label col-sm-3" style="text-align: left;">号</label>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">附单</label>
+
+							<div class="col-sm-6">
+								<input type="text" class="form-control"
+									id="journalEditnoteNumber" placeholder="0">
+							</div>
+							<label class="control-label col-sm-3" style="text-align: left;">页</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card-box table-responsive">
+					<div class="bootstrap-table">
+						<div class="fixed-table-toolbar"></div>
+						<div class="fixed-table-container" style="padding-bottom: 0px;">
+							<div class="fixed-table-header" style="display: none;">
+								<table></table>
+							</div>
+							<div class="fixed-table-body">
+								<!-- <div class="fixed-table-loading" style="top: 37px;">Loading,
+										please wait...</div> -->
+								<table class="table  user-table table-hover" data-toggle="table"
+									id="JournalEditTable">
+									<thead>
+										<tr>
+											<th style="width: 15%;"><div class="th-inner ">摘要</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 45%;"><div class="th-inner ">会计科目</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">借方金额</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">贷方金额</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 15%;"><div
+													class="th-inner category1_name p-l-30" style="float: left">分类一</div>
+												<div class="col-sm-1 p-0 p-t-10">
+													<a href="javascript:void(0)" data="category1"
+														id="JournalEdit-addCategory1Btn" style="color: white">
+														<i class="icon-plus"></i>
+													</a>
+												</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 15%;"><div
+													class="th-inner category2_name p-l-30" style="float: left">分类二</div>
+												<div class="col-sm-1 p-0 p-t-10" style="color: white">
+													<a href="javascript:void(0)" data="category2"
+														id="JournalEdit-addCategory2Btn" style="color: white">
+														<i class="icon-plus"></i>
+													</a>
+												</div>
+												<div class="fht-cell"></div></th>
+											<th style="width: 5%;"><div class="th-inner ">删除</div>
+												<div class="fht-cell"></div></th>
+										</tr>
+
+									</thead>
+
+									<tbody style="background-color: #ffffff">
+										<tr data-index="0">
+											<td style=""><input
+												class='JournalEditChart form-control' type="text"></td>
+											<td style="">
+												<div class='JournalEditSelect'></div> <!-- <select class='JournalEditSelect'>
+												<option>科目</option>
+												<option value="1">1001现金</option>
+												<option value="2">1002银行存款</option>
+												<option value="3">1101交易性金融资产</option>
+												<option value="4">1121应收票据</option>
+												<option value="5">1122应收账款</option>
+												<option value="6">100901其它货币资金—外埠存款</option>
+												<option value="7">100902其它货币资金-银行本票</option>
+										</select> -->
+											</td>
+											<td style=""><input
+												class='JournalEditNum numBorrow2 form-control' type="text"></td>
+											<td style=""><input
+												class='JournalEditNum numLoad2 form-control' type="text"></td>
+											<td style=""><div class='JournalEdittp1'></div></td>
+											<td style=""><div class='JournalEdittp2'></div></td>
+											<td class="del_icon" style=""><i
+												class="    md-cancel     JournalEditDel"></i></td>
+										</tr>
+
+									</tbody>
+									<tfoot>
+
+										<tr style="background: #56C5F0; color: #ffffff">
+											<td>合计：</td>
+											<td id='JournalEditNumSumCn'></td>
+											<td><b id='JournalEditNumSum1'>0</b></td>
+											<td><b id='JournalEditNumSum2'>0</b></td>
+											<td colspan="3"></td>
+										</tr>
+
+									</tfoot>
+								</table>
+							</div>
+							<div class="fixed-table-footer" style="display: none;">
+								<table>
+									<tbody>
+										<tr></tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="fixed-table-pagination" style="display: none;"></div>
+						</div>
+					</div>
+					<div class="clearfix" style="background-color: #FFFFFF"></div>
+					<div class="row p-t-20 p-r-20">
+
+						<div class="col-md-6">
+							<div class="col-md-6">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">制单人</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='journalEditcreateBy'
+													class="form-control" value="" readonly="readonly">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 jornalBox hide" id="JournalEdit_pipiEdit">
+							<div class="col-md-12 p-b-20">
+								<span class="control-label  jornalBox_title"
+									style="float: left;">请完善单据信息：</span>
+								<div class="col-md-6">
+									<div class="row m-l-r-10 p-t-5">
+										<div action="#" class="form-horizontal">
+											<div class="">
+												<label class="col-sm-1"> <input
+													id="JournalEdit_returnFlag" type="checkbox">
+												</label>
+												<div class="col-sm-7">
+													<label for="JournalEdit_returnFlag"
+														class="pointer JournalEdit_returnFlag">供应商退款</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-md-6 hide" style="float: left"
+							id="pipiEditallclient">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">公司名称</label>
+
+										<div class="col-sm-8">
+											<div id='JournalEdit_allclient'></div>
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</div> -->
+							<div class="col-md-6 hide" style="float: left"
+								id="pipiEditclinet">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">客户</label>
+
+											<div class="col-sm-8">
+												<div id='JournalEdit_clinet'></div>
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" style="float: left"
+								id="pipiEditvendor">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">供应商</label>
+
+											<div class="col-sm-8">
+												<div id='JournalEdit_vendor'></div>
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" style="float: left"
+								id="pipiEdittermValue">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">账期</label>
+
+											<div class="col-sm-8">
+												<input type="text" id="JournalEdit_termValue"
+													class="form-control" value="">
+											</div>
+											<!-- <label class="mustword">*</label> -->
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="col-md-6 hide" id="pipiEditusers">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">员工</label>
+
+											<div class="col-sm-8">
+												<div id='JournalEditusers'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide" id="pipiEditusers_mon">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">预支金额</label>
+
+											<div class="col-sm-8">
+												<!-- <div id='JournalEditusers_mon'></div> -->
+												<input type="text" disabled="disabled"
+													id='JournalEditusers_mon' class="form-control" value="">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipiEdit">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">发票类型</label>
+
+											<div class="col-sm-8">
+												<div id='JournalEdit_receiptType'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipiEdit JournalEdit_receiptType_show" style="display:none;">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">税率</label>
+
+											<div class="col-sm-8">
+
+												<div id='JournalEdit_tax'></div>
+
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 hide pipiEdit JournalEdit_receiptType_show" style="display:none;">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">发票号码</label>
+
+											<div class="col-sm-8">
+												<input type="text" id='JournalEdit_receiptNum'
+													class="form-control" value="">
+											</div>
+											<label class="mustword">*</label>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- <div class="col-md-6 hide pipiEdit">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">发票金额</label>
+
+										<div class="col-sm-8">
+											<input type="text" id='JournalEdit_receiptmon' readonly="readonly"
+												class="form-control" value="">
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</div> -->
+							<!-- <div class="col-md-6" style="float: right">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">凭证制单人</label>
+
+										<div class="col-sm-8">
+											<input type="text" id='JournalEditcreateby'
+												class="form-control" value="" readonly="readonly">
+												<input type="text" class="form-control" value="" readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div> -->
+							<div class="col-md-6 hide" id="pipiEditcreateby">
+								<div class="row">
+									<form action="#" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">单据制单人</label>
+
+											<div class="col-sm-8">
+												<div id='JournalEdit_ordercreateby'></div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<div class="row p-t-20 p-r-20" id=""></div>
+		<!--备注打印部分-->
+		<div class="row card-box">
+			<div class="col-md-6">
+				<h4>备注：（打印时显示）</h4>
+				<textarea class="form-control" id='JournalEditRemark' rows="3"></textarea>
+			</div>
+			<div class="col-md-6">
+				<h4>备注：（打印时不显示）</h4>
+				<textarea class="form-control" id='JournalEditRemarkPrint' rows="3"></textarea>
+			</div>
+		</div>
+		<div class="row row-vp card-box" id="JournalEditattachment"></div>
+		<!--底部-->
+		<div class="container">
+			<div class="card-box row p-r-0">
+				<!-- <div class="row" id="editJournal_jqxgridComment"></div> -->
+				<div class="col-md-10 col-md-push-2">
+					<!-- <button id="editJournal_auditBtn" class="btn btn-success float-right">提交</button>
+		<button type="button"
+					class="btn btn-success float-right mg10 probtn" data-btn="Journal"
+					id="JournalEditTableAddAndSubmit">提交</button> -->
+					<button type="button" class="btn btn-success float-right mg10"
+						id='JournalEditTableAdd'>保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/JournalEdit.js";
+		$.loadScript(js,function(){
+			
+		});
+	});
+</script>

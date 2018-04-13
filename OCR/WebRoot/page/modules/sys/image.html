@@ -1,0 +1,149 @@
+<meta charset="UTF-8">
+<style>
+	#process{
+		height:10px;
+		width:0;
+		background:green;
+	}
+</style>
+<div class="content p-20">
+	<div id="fileLoad" style="width:262px;height:168px">
+		<img src="images/test/photo_icon2.png" id="fileImg" style="width:262px;height:168px"/>
+	</div>
+	<input type="file" name="file" id="file" class="hide">
+    <div id="container"></div>
+    
+    <!-- 测试上传进度 -->
+    <!-- <div class="row">
+    	<button class="btn btn-success wd100" id="fileLoad">选择文件</button>
+	    <button class="btn btn-success wd100" id="fileStart">开始上传</button>
+	    <input type="file" name="file" id="file" class="hide">
+    </div> -->
+    <div class="row">
+    	<div class="col-md-4">
+    		<div id="file_text"></div>
+    	</div>
+    	<div class="col-md-4">
+    		<div>等待上传...</div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4">
+    		<div id="process"></div>
+    	</div>
+    </div>
+    
+    <!-- 拖拽上传 -->
+    <div class="row" id="drop">
+    	<div class="col-md-12">
+    		<img class="imgs" style="width:300px;height:300px;border:1px solid grey"/>
+    		<!-- <img class="imgs" style="width:300px;height:300px;border:1px solid grey"/> -->
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-4">
+    		<button id="addBtn" class="btn btn-success">增加元素</button>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4">
+    		<button id="delBtn" class="btn btn-success">删除元素</button>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-4">
+    		<button id="abcd" class="btn btn-success">测试</button>
+    	</div>
+    </div>
+    
+    <!-- <script type="text/javascript">
+	    $(function(){
+	        $('#file').on('change',function(){
+	            var file=this.files[0];
+	            photoCompress(file,50,$('#container')[0])
+	
+	        });
+	        
+	        function photoCompress(file,w,objDiv){
+	            var ready=new FileReader();
+	                /*开始读取指定的Blob对象或File对象中的内容. 当读取操作完成时,readyState属性的值会成为DONE,如果设置了onloadend事件处理程序,则调用之.同时,result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容.*/
+                ready.readAsDataURL(file);
+                ready.onload=function(){
+                    var result=this.result;
+                    canvasDataURL(result,w,objDiv);
+                }
+	        }
+	        
+	        function canvasDataURL(result,w,objDiv){debugger
+	        	var newImg=new Image();
+	            newImg.src=result;
+	            var imgWidth,imgHeight,offsetX=0,offsetY=0;
+	            newImg.onload=function(){
+	                var img=document.createElement("img");
+	                img.src=newImg.src;
+	                imgWidth=img.width;
+	                imgHeight=img.height;
+	                var canvas=document.createElement("canvas");
+	                canvas.width=w;
+	                canvas.height=w;
+	                var ctx=canvas.getContext("2d");
+	                ctx.clearRect(0,0,w,w);
+	                if(imgWidth>imgHeight){
+	                    imgWidth=w*imgWidth/imgHeight;
+	                    imgHeight=w;
+	                    offsetX=-Math.round((imgWidth-w)/2);
+	                }else{
+	                    imgHeight=w*imgHeight/imgWidth;
+	                    imgWidth=w;
+	                    offsetY=-Math.round((imgHeight-w)/2);
+	                }
+	                ctx.drawImage(img,offsetX,offsetY,imgWidth,imgHeight);
+	                var base64=canvas.toDataURL("image/png",0.7);
+	                if(typeof objDiv == "object"){
+	                	newImg.src=base64;
+	                	atob(base64); //对用base-64编码过的字符串进行解码
+	                	return newImg; //返回压缩之后的图片
+	                    objDiv.appendChild(canvas);
+	                }else if(typeof objDiv=="function"){
+	                    objDiv(base64);
+	                }
+	            }
+	        }
+	        
+	       	// 使用FormData对象上传文件
+	       	var fd = new FormData(document.querySelector("form"));
+			fd.append("CustomField", "This is some extra data");
+			$.ajax({
+			  url: "stash.php",
+			  type: "POST",
+			  data: fd,
+			  processData: false,  // 不处理数据
+			  contentType: false   // 不设置内容类型
+			});
+	        
+	        //对 用base64编码的图片 进行解码
+	        function dataURLtoBlob(dataurl) {
+                try {
+                    var arr = dataurl.split(','),
+                        mime = arr[0].match(/:(.*?);/)[1],
+                        bstr = atob(arr[1]),
+                        n = bstr.length,
+                        u8arr = new Uint8Array(n);
+                } catch (e) {
+                    Core.alert({ message: '图片上传失败，请重新上传' });
+                    throw new Error('图片上传失败，请重新上传');
+                }
+                while (n--) {
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                return new Blob([u8arr], { type: mime });
+            }
+            //test:
+            var blob = dataURLtoBlob(content);
+            
+            
+	    })
+    </script> -->
+</div>
+<script type="text/javascript" src="js/modules/sys/image.js"></script>

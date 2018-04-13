@@ -1,0 +1,92 @@
+<meta charset="UTF-8">
+<div class="content p-20 p-t-0" id="viewUserPage">
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label m-r-5" id="viewuser-name"></label>/
+					<label class="control-label" id="viewuser-company"></label>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+	<div class="row">  
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">本月购买金额：</label>
+					<label class="control-label" id="viewsuer-monthamt"></label>
+				</div>
+			</div>
+		</div>
+			
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">本月购买模块：</label>
+					<label class="control-label col-sm-10" style="text-align:left" id="viewuser-monthmodule"></label>
+				</div>
+			</div>
+		</div>
+	</div>	
+			
+	<div class="row">		
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4">累计购买金额：</label>
+					<label class="control-label" id="viewuser-totalamt"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-2">累计购买模块：</label>
+					<label class="control-label col-sm-10" style="text-align:left" id="viewuser-totalmodule"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+    <!--grid-->
+    <div class="row m-t-20">
+		<span style="font-size:20px">购买历史</span>    	
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12" id="viewUserHaveBuy"></div>
+    </div>
+    <!-- 浏览历史 -->
+    <!--grid-->
+    <div class="row p-t-40" style="overflow:hidden; ">
+		<span style="font-size:20px; float:left;">最近浏览历史</span>
+		<span><a class="hoverspan viewMoreVist" style="float:right;">查看更多浏览>></a></span>	
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12" id="viewUserHaveVisit"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/viewUser.js";
+		$.loadScript(
+					js,
+					function(){
+						var vuMgt = new VuMgt();
+						vuMgt.initInput();
+				    	
+				    	var vuBindModel = new VuBindModle(vuMgt);
+				    	vuBindModel.unbindAll();
+				    	vuBindModel.bind();
+					});
+	});
+</script>

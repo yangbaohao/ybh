@@ -1,0 +1,197 @@
+.col-md-4-addpro {
+	width: 31.33333333%;
+	margin-right: 30px;
+}
+.col-sm-8-addpro {
+	padding-left: 0px;
+}
+.col-sm-3-addpro {
+	padding-left: 10px;
+}
+.form-control-equip {
+   display: block;
+   width: 100%;
+   height: 36px;
+   padding: 6px 12px;
+   font-size: 14px;
+   line-height: 1.42857143;
+   color: #555;
+   background-color: #fff;
+   background-image: none;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   border-bottom-right-radius: 0;
+   border-top-right-radius: 0;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+.jqx-button-equip {
+	cursor: pointer;
+}
+.btn-equip {
+	font-size: 14px;
+}
+.input-group-addon-equip{
+	width: 18%;
+}
+.btn-btn-equip {
+   display: inline-block;
+   padding: 7px 12px;
+   margin-bottom: 0;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 1.42857143;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   -ms-touch-action: manipulation;
+   touch-action: manipulation;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   background-image: none;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   width:140px;
+}
+.btn-btn-pro {
+   display: inline-block;
+   padding: 7px 12px;
+   margin-bottom: 0;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 1.42857143;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   -ms-touch-action: manipulation;
+   touch-action: manipulation;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   background-image: none;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   width:140px;
+}
+.btn-pro {
+	font-size: 14px;
+}
+.input-group-addon-pro{
+	width: 18%;
+}
+.jqx-button-pro {
+	cursor: pointer;
+}
+.form-control-resou {
+   height: 36px;
+   padding: 6px 12px;
+   font-size: 14px;
+   line-height: 1.42857143;
+   color: #555;
+   background-color: #fff;
+   background-image: none;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+.form-control-resou:focus {
+	border: 1px solid #AAAAAA;
+}
+.btn-btn-resou {
+   padding: 7px 12px;
+   margin-bottom: 0;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 1.42857143;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: middle;
+   -ms-touch-action: manipulation;
+   touch-action: manipulation;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   background-image: none;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   width: 140px;
+}
+.col-md-4-resou {
+	width: 27.77777777%;
+}
+.input-resou {
+	 border-radius: 3px;
+	 border: 1px solid grey;
+	 display: none;
+	 padding-left: 4px;
+}
+.edit-resou {
+	width: 25%;
+	display: inline-block;
+}
+.m-l-12 {
+	margin-left: 12px;
+}
+.jqx-window-header-resou {
+	padding: 0px;
+	background-color: #34495E;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+	background-image:linear-gradient(to bottom, #34495E, #34495E)
+}
+.m-t-50 {
+	margin-top: 50px;
+}
+.m-l-50 {
+	margin-left: 50px;
+}
+.m-t-30 {
+	margin-top: 30px;
+}
+.m-l-60 {
+	margin-left: 60px;
+}
+.m-l-48 {
+	margin-left: 48px;
+}
+.m-t-150 {
+	margin-top: 150px;
+}
+.m-r-80 {
+	margin-right: 80px;
+}
+.m-r-5 {
+	margin-right: 5px;
+}
+.m-t-5 {
+	margin-top: 5px;
+}
+@media (min-width: 992px) {
+	.col-md-6-equip {
+		width: 48%;
+	}
+}
+.jqx-window-header-resou>div:nth-child(2) {
+	position: absolute;
+	top: 8px;
+	right: 10px !important;
+}
+
+
+

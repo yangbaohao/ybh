@@ -1,0 +1,173 @@
+<meta charset="UTF-8">
+<div id="comn_modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel"
+		aria-hidden="true" style="display: none;">
+	<div class="modal-dialog ">
+		<div class="modal-content">
+			<!--模态框头部-->
+			<div class="modal-header">
+				<div class="quotation-nav">
+					<div class="row">
+						<div class="quotation-nav-left" style="">
+							<b id="comn_text" style="margin-left: 20px;">提取佣金</b>
+						</div>
+						<div class="quotation-nav-right">
+							<button type="button" class="close-modal btn-success"
+								data-dismiss="modal" aria-hidden="true">
+								<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框body-->
+			<div class="modal-body">
+				<div class="row container">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="form-horizontal">
+								<table class="table table-bordered" id="comn_table">
+									<tbody>
+										<tr><th class="text-797979" style="width:3%"><input type="checkbox" class="selectAll"></th>
+											<th class="text-797979" style="width:32%">购买金额</th>
+											<th class="text-797979" style="width:32%">应提佣金</th>
+											<th class="text-797979" style="width:33%">本次提取</th>
+										</tr>
+									<!-- <tr><td class="text-center" colspan="4">暂无可提取佣金</td></tr> -->
+									</tbody>
+								</table>
+								<table class="table table-bordered hide" id="comn_tableView">
+									<tbody>
+										<tr><th class="text-797979" style="width:25%">审批时间</th>
+											<th class="text-797979" style="width:25%">审批人</th>
+											<th class="text-797979" style="width:25%">审批结果</th>
+											<th class="text-797979" style="width:25%">备注</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 5px; padding-left: 10%;">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+									<div class="col-sm-9"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框脚页-->
+			<div class="modal-footer" style="padding: 20px;">
+				<button type="button" class="btn btn-success" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" id='saveComnBtn'>保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var comn=''; //佣金
+	
+	var addLine=function(data){
+		if(data.length==0){
+			var line = 
+				'<tr><td class="text-center" colspan="4">暂无可提取佣金</td></tr>';
+			$('#comn_table').find('tbody').append(line);
+			$('#comn_table').find('.selectAll').prop('disabled',true);
+			return false;
+		}
+		
+		var tb = $('#comn_table').find('tbody');
+		$.each(data,function(i){
+			var line = '<tr><td><input type="checkbox" class="select"></td>'+
+					   '<td class="hidden">'+data[i].id+'</td>'+
+					   '<td>'+data[i].totalAmt+'</td>'+
+					   '<td>'+data[i].fee+'</td>'+
+					   '<td><input type="text" readonly value="0.00"></td>'+'</tr>';
+			
+			tb.append(line);
+		});
+	}
+
+	Core.AjaxRequest({
+		url:_global_settings.service.url+'/agentrevenue/agentrevenueall',
+		type:'GET',
+		showMsg:false,
+		async:false,
+		callback:function(data){
+			$('#comn_table').find('tbody').find('tr:gt(0)').remove();
+			comn=data;
+			addLine(data);
+		},
+		failure:function(){
+			
+		}
+	});
+
+	$('#comn_table').on('click','.selectAll',function(){
+		var checked = $(this).is(':checked');
+		selectOrNot(checked);
+	});
+	
+	$('#comn_table').on('click','.select',function(){
+		var checked = $(this).is(':checked');
+		selectClick($(this),checked);
+	});
+	
+	var selectOrNot=function(checked){
+		var tr = $('#comn_table').find('tr:gt(0)');
+		$.each(tr,function(i,v){
+			if(checked){
+				$(this).children().eq(0).children()[0].checked=true;
+				var value = $(this).children().eq(3).text();
+				$(this).children().eq(4).children().val(money(value));
+			}else{
+				$(this).children().eq(0).children()[0].checked=false;;
+				$(this).children().eq(4).children().val(money(0));
+			}
+		});
+	}
+	
+	var selectClick=function(t,checked){
+		$('.selectAll')[0].checked=false;
+		if(!checked){
+			t[0].checked=false;
+			t.parent().parent().children().eq(4).children().val(money(0));
+		}else{
+			t[0].checked=true;
+			var value = t.parent().parent().children().eq(3).text();
+			t.parent().parent().children().eq(4).children().val(money(value));
+		}			
+	}
+	
+	//保存
+	$('#saveComnBtn').on('click',function(){
+		if(comn.length==0){
+			Core.alert({message:'没有可提取佣金！'});
+			return false;
+		}
+		
+		var arr=[];
+		var tr = $('#comn_table').find('tbody').find('tr:gt(0)');
+		$.each(tr,function(i,v){
+			if($(this).children().eq(4).children().val()!=0){
+				arr.push(parseInt($(this).children().eq(1).text()));
+			}
+		});
+		
+		console.log(arr);
+		Core.AjaxRequest({
+			url:_global_settings.service.url+'/agentrevenue/updateagentrevenueapply',
+			type:'POST',
+			params:arr,
+			async:false,
+			callback:function(res){
+				/* console.log(res); */
+				$('#comnMgtGrid').jqxGrid('updatebounddata','cells');
+			},
+			failure:function(){
+				
+			}
+		});
+	});
+</script>

@@ -1,0 +1,379 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="custAndsupMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-5">
+	  		<div class="input-group">
+				<input type="text" class="form-control" placeholder="输入客户/供应商名称查找" id="cau-name">			
+				<span class="input-group-addon btn btn-success" id="cau-searchBtn"><i class="fa fa-search text-white"></i></span>	  		
+	  		</div>
+		</div>
+		<div class="col-md-7">
+			<button type="button" class="btn btn-success float-right" id="cau-add">
+				<span class="btn-label"><i class="ion-plus-round"></i> </span>新增客户
+			</button>
+			<button class="btn btn-success float-right m-r-15" type="button" id="cau-import">
+				导入客户
+			</button>
+			<button class="btn btn-success float-right m-r-15" type="button" id="cau-download">
+				下载模板
+			</button>		
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div id="cauGrid"></div>
+		</div>
+	</div>
+	
+	<!-- 点击导入 -->
+    <div id="cau-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12 m-top"></div>
+							<div class="col-md-12" id="cau-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+</div>	
+
+<!-- 新增窗口 -->
+<div id="addWindow" class="addCoverdiv">
+	<div class="addWindowdiv p-20">
+		<div class="row text-center p-b-20">
+			<h4>新增客户/供应商</h4>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">请选择类型</label>
+						<div class="col-sm-8">
+							<div id="cau-addType"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4"></label>
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-addCust"/>
+							<label class="abLabel">客户</label>
+						</div>
+						
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-addSup"/>
+							<label class="abLabel">供应商</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">编号</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-addCode"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">名称</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-addName"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">简称</label>
+						<div class="col-sm-8">
+							<input class="form-control" placeholder="类型为个人不需要填写" type="text" id="cau-addJc"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">账期</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-addDate"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="row p-t-100">
+			<div class="col-md-offset-5">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<button class="btn btn-success" id="cau-addCancle" style="margin-right:50px;">取消</button>
+						<button class="btn btn-success" id="cau-addSave">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 编辑窗口 -->
+<div id="editWindow" class="addCoverdiv">
+	<div id="editWindowY" class="addWindowdiv p-20">
+		<div class="row text-center p-b-20">
+			<h4>编辑客户/供应商</h4>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">请选择类型</label>
+						<div class="col-sm-8">
+							<div id="cau-editType"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4"></label>
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-editCust"/>
+							<label class="abLabel">客户</label>
+						</div>
+						
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-editSup"/>
+							<label class="abLabel">供应商</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">编号</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-editCode"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">名称</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-editName"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">简称</label>
+						<div class="col-sm-8">
+							<input class="form-control" placeholder="类型为个人不需要填写" type="text" id="cau-editJc"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">账期</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" id="cau-editDate"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="row p-t-100">
+			<div class="col-md-offset-5">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<button class="btn btn-success" id="cau-editCancle" style="margin-right:50px;">取消</button>
+						<button class="btn btn-success" id="cau-editSave">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 查看窗口 -->
+<div id="viewWindow" class="addCoverdiv">
+	<div id="viewWindowY" class="addWindowdiv p-20">
+		<div class="row text-center p-b-20">
+			<h4>查看客户/供应商</h4>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">类型</label>
+						<div class="col-sm-8">
+							<input type="text" readonly class="form-control" id="cau-viewType"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4"></label>
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-viewCust" disabled/>
+							<label class="abLabel">客户</label>
+						</div>
+						
+						<div class="col-sm-4 p6">
+							<input class="m-r-5" type="checkbox" id="cau-viewSup" disabled/>
+							<label class="abLabel">供应商</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">编号</label>
+						<div class="col-sm-8">
+							<input class="form-control" readonly type="text" id="cau-viewCode"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">名称</label>
+						<div class="col-sm-8">
+							<input class="form-control" readonly type="text" id="cau-viewName"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-t-20">
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-3">简称</label>
+						<div class="col-sm-8">
+							<input class="form-control" readonly type="text" id="cau-viewJc"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="form-horizontal col-md-11">
+					<div class="form-group">
+						<label class="control-label col-sm-4">账期</label>
+						<div class="col-sm-8">
+							<input class="form-control" readonly type="text" id="cau-viewDate"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row p-t-100">
+			<div class="col-md-11 p-r-0">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<button class="btn btn-success float-right" id="cau-viewCancle">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/modules/fms/setWindow.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/custAndsup.js";
+		$.loadScript(js, function() {
+			var cauMgt = new CauMgt();
+			cauMgt.initInput();
+
+			var cauBindModel = new CauBindModle(cauMgt);
+			cauBindModel.unbindAll();
+			cauBindModel.bind();
+		});
+	});
+</script>

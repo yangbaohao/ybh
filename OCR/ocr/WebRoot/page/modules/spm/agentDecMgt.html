@@ -1,0 +1,203 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="agentDecMgtPage">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="agentDec-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="agentDec-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入用户名查找" id="agentDec-username" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">编号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入编号查找" id="agentDec-code" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">负责人</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入负责人查找" id="agentDec-headname" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">负责客户</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5 p-l-0">
+									<input type="text" class="form-control" id="agentDec-su">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5 p-r-0">
+									<input type="text" class="form-control" id="agentDec-eu">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">佣金</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5 p-l-0">
+									<input type="text" class="form-control" id="agentDec-sa">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5 p-r-0">
+									<input type="text" class="form-control" id="agentDec-ea">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">状态</label>
+							<div class="col-sm-8">
+								<div id="agentDec-status"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="agentDec-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="agentDec-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="agentDec-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+	<div style="display:none">
+		<div id="agentDecLockedWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>禁用
+			</div>
+			<div id="agentDecLockedForm" >
+				<div class="modal-body">
+					<div class="row p-b-20">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">禁用</label>
+									<div class="col-sm-8">
+										<div id="agentDec-locked"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="row">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">用户名</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" readonly="readonly" id="agentDec-name"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="agentDecLockedSaveBtn">保存</button>
+					<button class="btn btn-success" id="agentDecLockedCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="agentDecGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/spm/agentDecMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var agentDecMgt = new AgentDecMgt();
+						agentDecMgt.initInput();
+				    	
+				    	var agentDecBindModel = new AgentDecBindModle(agentDecMgt);
+				    	agentDecBindModel.unbindAll();
+				    	agentDecBindModel.bind();
+					});
+	});
+</script>

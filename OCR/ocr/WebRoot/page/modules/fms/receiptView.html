@@ -1,0 +1,211 @@
+<meta charset="UTF-8">
+<!-- Start content -->
+<div class="content p-20" id="rcptView-addForm">
+	<!--搜索条件组-->
+	<div class="row p-t-20 p-t-20">
+		<!-- <div class="col-md-8">
+			<button type="button" id="rcptView-btn"
+				class="btn btn-success m-l-10" style="float: right;">
+				<i class="md-star text-white p-l-0" style="font-size: 16px;"></i> 收
+				藏
+			</button>
+
+		</div> -->
+		
+	</div>
+	<div class="backgroup  m-t-10" style="background: #f7f7f7; padding-top: 30px !important; padding-bottom: 20px !important;">
+		<div class="row  m-b-20">
+			<div class="col-md-6">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-2"></label>
+						<div class="col-sm-8">
+							<div class="radio radio-info radio-inline col-md-5 ">
+								<input type="radio" id="receiptView-radioOut" value="option1"
+									name="radioInline" class="radioY" > <label for="receiptView-radioOut">
+									开票（销项） </label>
+							</div>
+							<div class="radio radio-info radio-inline col-md-5">
+								<input type="radio" id="receiptView-radioIn" value="option1"
+									name="radioInline" class="radioN"> <label for="receiptView-radioIn">
+									收票（进项）</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-3">发票类型</label>
+						<div class="col-sm-8">
+							<input class="form-control" readonly="readonly" type="text"
+								id="rcptView-category">
+							<!-- <div id="rcptView-category"></div> -->
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div class="col-md-4">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-3">发票事由</label>
+						<div class="col-sm-8">
+							<!-- <input class="form-control" readonly="readonly" type="text"
+									id="rcptView-reasons"> -->
+							<div id="rcptView-reasons"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<div class="col-md-4">
+				<form action="#" class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-sm-3">收款账户</label>
+						<div class="col-sm-8">
+							<!-- <input class="form-control" readonly="readonly" type="text"
+								id="rcptView-account"> -->
+							<div id="rcptView-account"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-t-20">
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">公司名称</label>
+					<div class="col-sm-8">
+						<input class="form-control" readonly="readonly" type="text"
+							id="rcptView-clientName">
+							<!-- <div id="rcptView-clientName"></div> -->
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">发票号码</label>
+					<div class="col-sm-8">
+						<input class="form-control" readonly="readonly" type="text"
+							id="rcptView-num">
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">税率</label>
+					<div class="col-sm-8">
+						<input class="form-control" readonly="readonly" type="text"  id="rcptView-tax">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row p-t-20">
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">发票日期</label>
+					<div class="col-sm-8">
+						<input class="form-control" readonly="readonly" type="text"
+							id="rcptView-time">
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">发票金额</label>
+					<div class="col-sm-8">
+						<input class="form-control text-right" readonly="readonly" type="text"
+							value="0.00" id="rcptView-sum">
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="col-md-4">
+			<form action="#" class="form-horizontal">
+				<div class="from-group">
+					<label class="control-label col-sm-3">未匹配金额</label>
+					<div class="col-sm-8">
+						<input type="text" value="0.00" readonly="readonly"
+							class="form-control" id="rcptView-nosum">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!--用户界面的table-->
+	<div class="row p-t-20 p-l-r-10">
+		<div class="col-md-12" id="rcptView-GridS"></div>
+		<div class="col-md-12" id="rcptView-GridR"></div>
+	</div>
+
+	<div class="row p-t-20">
+		<div class="col-md-6">
+			<h4>
+				<i class="md-event-note"
+					style="position: relative; top: 3px; margin-right: 6px;"> </i>备注：（打印时显示）
+			</h4>
+			<textarea id="rcptView-addremarkPrint" readonly="readonly"
+				class="form-control" rows="1"></textarea>
+		</div>
+		<div class="col-md-6">
+			<h4>
+				<i class="md-event-note"
+					style="position: relative; top: 3px; margin-right: 6px;"> </i>备注：（打印时不显示）
+			</h4>
+			<textarea id="rcptView-addremark" readonly="readonly"
+				class="form-control" rows="1"></textarea>
+		</div>
+	</div>
+
+	<div class="row p-t-20" id="rcptView-addattachment"></div>
+
+	<div class="row p-t-20">
+
+		<div class="col-md-10 col-md-push-2">
+			<!-- <button type="button" class="btn btn-success float-right mg10" id="saveAndSubmitViewReceiptBtn">保存并提交</button> -->
+			<!-- <button type="button" id="rcptView-addsave"
+				class="btn btn-success float-right mg10">保存</button> -->
+			<button type="button" id="rcptView-editsave" style="float: right;"
+				class="btn btn-success float-right mg10 editbtn"
+				data-btn="fms:receipt:update">编辑</button>
+			<button type="button" id="rcptView-delsave" style="float: right;"
+				class="btn btn-success float-right mg10 delbtn"
+				data-btn="fms:receipt:delete">删除</button> 
+			<button type="button" class="btn btn-success float-right mg10 " style="float: right;"
+				id="rcptView-addsaveprint">打印</button>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript"">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/receiptView.js";
+		$.loadScript(js, function() {
+			var receiptView = new ReceiptView();
+				receiptView.initInput();
+		});
+	});
+</script>

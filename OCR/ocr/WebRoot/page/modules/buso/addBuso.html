@@ -1,0 +1,229 @@
+<meta charset="utf-8">
+<div class="content p-20" id="addBuso">
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">潜在客户</label>
+						<div class="col-sm-9">
+							<input id="addBuso-cust" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">代理商</label>
+						<div class="col-sm-9">
+							<div id="addBuso-sale"></div>
+						</div>
+					</div>
+				</div>
+				<!-- <label class="mustword">*</label> -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">公司名称</label>
+						<div class="col-sm-9">
+							<input id="addBuso-compName" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">销售负责人</label>
+						<div class="col-sm-9">
+							<div id="addBuso-headname"></div>
+						</div>
+					</div>
+				</div>
+				<!-- <label class="mustword">*</label> -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">预计成交日期</label>
+						<div class="col-sm-9">
+							<div id="deal-date"></div>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+	
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">联系电话</label>
+						<div class="col-sm-9">
+							<input id="addBuso-phone" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				<label class="mustword">*</label>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+	
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">邮箱</label>
+						<div class="col-sm-9">
+							<input id="addBuso-email" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">职位</label>
+						<div class="col-sm-9">
+							<input id="addBuso-work" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">微信</label>
+						<div class="col-sm-9">
+							<input id="addBuso-wx" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3">qq</label>
+						<div class="col-sm-9">
+							<input id="addBuso-qq" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10" style="margin-left:1%">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-12">
+						<label class="control-label col-sm-1 p-t-0">备注</label>
+						<div class="col-sm-10">
+							<textarea id="addBuso-remark" type="text" class="form-control" style="width:99.4%"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-9">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-11">
+						<label class="control-label col-sm-2">地址：</label>
+						<div class="table-responsive">
+							<table class="table m-0 bg-white" id="addBuso-address">
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-2">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-11 float-right">
+						<label class="control-label col-sm-3"></label>
+						<div class="col-sm-9">
+							<button type="button" id="busoAddress-btn" class="btn btn-success float-right"
+								data-toggle="modal" data-target="#addBusoAddress">
+								<span class="btn-label"><i class="ion-plus-round"></i> </span>添加地址
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-t-20">
+	  	<div class="col-md-6 col-md-offset-6">
+	  		<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-3"></label>
+						<div class="col-sm-9">
+							<button class="btn btn-success wd100 float-right" type="button" id="addBusoBtn">
+								保存
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/addBuso.js";
+		$.loadScript(js,function(){
+				var addBusoMgt = new AddBusoMgt();
+				addBusoMgt.initInput();
+		    	
+		    	var addBusoBindModel = new AddBusoBindModle(addBusoMgt);
+		    	addBusoBindModel.unbindAll();
+		    	addBusoBindModel.bind();
+			});
+	});
+</script>

@@ -1,0 +1,238 @@
+<meta charset="utf-8">
+<div class="content p-20" id="reporTable">
+	<div class="tab-content bg-white card-box">
+		<!-- 所有报表 -->
+		<div class="card-box" id="all-reportBox">
+			<!-- <div class="row">
+				<div class="col-md-12">
+					<div class="card-box m-b-0">					
+						<span class="mustword">*除三大基本报表外，目前您可以免费使用所有报表增值服务哦！</span>
+					</div>
+				</div>
+			</div> -->
+	
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card-box m-b-0">
+						<div id="reportBox_cwbb">
+							<h4 id="report-FinancialTitle" class="color-report hoverspan">财务报表</h4>
+						</div>
+						<h4 id="report-FinancialMsg">这些报表显示您企业运营的运营情况。</h4>
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="card-box m-b-0">
+						<div id="reportBox_ysyffx">
+							<h4 id="report-reciveTitle" class="color-report hoverspan">应收、应付分析</h4>
+						</div>
+						<h4 id="report-reciveMsg">这些报表显示您企业的往来账款、账期的详情。</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row p-t-10" id="go_all-reportBox" style="display: none;">
+			<div class="col-md-4 hoverspan" id="go_all-reportBox_btn"
+				style="font-size: 16px;">
+				<i class="glyphicon glyphicon-chevron-right"></i>返回所有报表
+			</div>
+		</div>
+
+
+		<!-- 财务报表 -->
+		<div class="reportBox" id="reportBox_cwbbBox" style="display: none;">
+			<div class="row">
+				<div class="col-md-6 p-l-20 p-t-0" style="cursor: pointer;">
+					<h4 id="financial-Statements">财务报表</h4>
+				</div>
+			</div>
+			<div class="row p-t-30">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/profit.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn"
+									data-btn="fms:report:profit" id="profit_table">利润表</a>
+							</h4>
+							<p  class="reportP" id="profit_table_msg">显示您赚来的钱(收入)和钱，您花(费用)，所以您可以看到您是如何盈利。也称为损益表。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/cash_flow.png" alt=""
+								style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn"
+									data-btn="fms:report:cashflow" id="cashFlow_table">现金流量表</a>
+							</h4>
+							<p  class="reportP" id="cashFlow_table_msg">显示您的业务（经营活动）所产生的现金，现金花在您的业务投资和现金或从股票和债券（融资）</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/asset_liabilitie.png" alt=""
+								style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn"
+									data-btn="fms:report:liabilities" id="assetLiabilitie_table">资产负债表</a>
+							</h4>
+							<p  class="reportP" style="white-space:nowrap; overflow:hidden;text-overflow:ellipsis;" id="assetLiabilitie_table_msg">反映企业在某一特定日期（如月末、季末、年末）全部资产、负债和所有者权益情况的会计报表，是企业经营活动的静态体现，根据“资产=负债+所有者权益”这一平衡公式，依照一定的分类标准和一定的次序，将某一特定日期的资产、负债、所有者权益的具体项目予以适当的排列编制而成。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row p-t-30">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/profitQuoater.png" alt=""
+								style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn"
+									data-btn="fms:report:liabilities" id="profitQuoater_table">利润表季报</a>
+							</h4>
+							<p  class="reportP" id="profitQuoater_table_msg">反映的是您一个季度的经营成果的报表，各项金额均为季度三个月合计数。</p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/presidentAnalysis.png" alt=""
+								style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn"
+									data-btn="fms:report:liabilities" id="presidentAnalysis_table">运营分析</a>
+							</h4>
+							<p  class="reportP" id="presidentAnalysis_table_msg">反映的是您一个季度的经营成果的报表，各项金额均为季度三个月合计数。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 应收应付分析 -->
+		<div class="reportBox" id="reportBox_ysyffxBox" style="display: none;">
+			<div class="row">
+				<div class="col-md-6 p-l-20 p-t-0" style="cursor: pointer;">
+					<h4 id="report-AR-analysis">应收应付分析</h4>
+				</div>
+			</div>
+			<div class="row p-t-10">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/ARaging.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn reportView"
+									data-btn="fms:report:araging" id="ARaging_table" data-type="billing:product:basicreport">应收账龄表</a>
+							</h4>
+							<p  class="reportP" id="ARaging_table_msg">显示应收款项在账期内和逾期三十，六十和九十天以上的详情，所以你可以看到客户超期多久没有付款。有利于评价销售部门的经营绩效, 加快货款回笼,减少坏账损失。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/APaging.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn reportView"
+									data-btn="fms:report:apaging" id="APaging_table" data-type="billing:product:basicreport">应付账龄表</a>
+							</h4>
+							<p  class="reportP" id="APaging_table-msg">反映企业购买材料、商品和接受劳务供应等经营活动应支付的款项在账面上存在的时间分析。</p>
+						</div>
+					</div>
+				</div>
+                <!-- <div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/otherReceiveAnalyses.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn reportView"
+									data-btn="fms:report:apaging" id="otherReceiveAnalyse_table" data-type="billing:product:basicreport">其他应收款分析</a>
+							</h4>
+							<p  class="reportP">反映企业应收款项的另一重要组成部分，通常包括暂付款等，是指企业在商品交易业务以外发生的各种应收、暂付款项的报表。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/otherReceiveDet.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn reportView"
+									data-btn="fms:report:apaging" id="otherReceiveDet_table" data-type="billing:product:basicreport">其他应收款明细</a>
+							</h4>
+							<p  class="reportP">反映企业中每个员工，预支报销、预支工资等其他应收款项的明细的报表。</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-4">
+							<img src="images/common/otherPayAnalyses.png" alt="" style="width: 100%;">
+						</div>
+						<div class="col-md-8">
+							<h4>
+								<a class="color-report hoverspan viewbtn reportView"
+									data-btn="fms:report:apaging" id="otherPayAnalyse_table" data-type="billing:product:basicreport">其他应付款分析</a>
+							</h4>
+							<p  class="reportP">反映企业在商品交易业务以外发生的应付和暂收款项。具体为除应付票据、应付账款等以外的应付、暂收其他单位或个人的款项的报表。</p>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="row p-20">
+				<div class="col-md-12" style="border-bottom: 1px solid grey"></div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/report.js";
+		$.loadScript(js, function() {
+			var reportMgt = new ReportMgt();
+			reportMgt.initInput();
+
+			var reportBindModel = new ReportBindModle(reportMgt);
+			reportBindModel.unbindAll();
+			reportBindModel.bind();
+		});
+	});
+</script>
+
+
+
+
+

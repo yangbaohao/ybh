@@ -1,0 +1,221 @@
+<meta charset="utf-8">
+<div class="content p-20" id="useVouchersPage">
+	<div class="row p-b-20">
+		<button class="btn btn-success wd100 float-left searchBtn" type="button" id="useVou-search">
+			搜&nbsp;&nbsp;&nbsp;索
+		</button>
+		
+		<button class="btn btn-success wd100 float-right" type="button" id="useVou-import">
+			导&nbsp;&nbsp;&nbsp;入
+		</button>
+	</div>
+
+	<div class="row card-box m-b-0 p-b-0" id="useVou-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">使用券编码</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="useVou-code" placeholder="输入使用券编码查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">免费模块</label>
+						<div class="col-sm-9">
+							<div id="useVou-module"></div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">免费期间</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="useVou-date" placeholder="输入免费期间查找"/>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">状态</label>
+						<div class="col-sm-9">
+							<div id="useVou-status"></div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">使用用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="useVou-name" placeholder="输入使用用户名查找">
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>	
+	
+	<div style="display:none">
+		<div id="useVouWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑使用券
+			</div>
+			<div id="useVouForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-3">使用券编码</label>
+									<div class="col-sm-9">
+										<input type="text" readonly="true" class="form-control" id="editusevou-code"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">	
+						<div class="col-md-10 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-3">免费模块</label>
+									<div class="col-sm-9">
+										<div id="editusevou-modules"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">免费期间(月)</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="editusevou-time"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="saveUseVouBtn">保存</button>
+					<button class="btn btn-success" id="cancelUseVouBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="useVou-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<!-- <div class="col-sm-12">
+							<div class="fixed-table-container " style="padding-bottom: 0px;"> -->
+							
+						<div class="row row-vp form-horizontal p-b-20">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-3">免费模块</label>
+											<div class="col-sm-9">
+												<input type="text" class="form-control" readonly="true" value="基础模块">
+											</div>
+										</div>
+									</div>							
+								</div>
+								
+								<div class="col-md-6">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-sm-4">免费期间(月)</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control" readonly="true" value="3">
+											</div>
+										</div>
+									</div>							
+								</div>
+							</div>
+						</div>
+								
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12" id="useVou-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+	<!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="useVouGrid"></div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/vou/useVouchers.js";
+		$.loadScript(
+					js,
+					function(){
+						var useVou = new UseVou();
+						useVou.initInput();
+				    	
+				    	var useVouBindModel = new UseVouBindModle(useVou);
+				    	useVouBindModel.unbindAll();
+				    	useVouBindModel.bind();
+					});
+	});
+</script>
+
+
+
+

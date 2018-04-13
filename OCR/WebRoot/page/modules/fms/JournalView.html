@@ -1,0 +1,402 @@
+<meta charset="UTF-8">
+<div class="content">
+
+
+	<div class="row card-box">
+		<div class="col-sm-12">
+			<div class="">
+				<div class="row">
+
+					<div class="col-md-4"></div>
+
+					<div class="col-md-8">
+
+						<!-- <button type="button" id="journal-btn"
+							class="btn btn-success m-l-10" style="float: right;">
+							<i class="md-star text-white p-l-0" style="font-size: 16px;"></i>
+							收 藏
+						</button> -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row card-box">
+		<div class="col-md-3">
+			<div class="row">
+
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-5">匹配通用单据</label>
+
+						<div class="col-sm-6">
+							<input type="text" class="form-control" value=""
+								id="JournalView_type" readonly="readonly">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-4">日期</label>
+
+						<div class="col-sm-8">
+							<div class="input-group">
+								<input type="text" class="form-control" value=""
+									id="JournalViewdatepicker" readonly="readonly">
+							</div>
+							<!-- input-group -->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">记</label>
+
+						<div class="col-sm-6">
+							<input type="text" id='JournalViewjournalNumber'
+								class="form-control" value="" readonly="readonly">
+						</div>
+						<label class="control-label col-sm-3" style="text-align: left;">号</label>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">附单</label>
+
+						<div class="col-sm-6">
+							<input type="text" class="form-control"
+								id='JournalViewjournalnoteNumber' readonly="readonly">
+						</div>
+						<label class="control-label col-sm-3" style="text-align: left;">页</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card-box table-responsive">
+				<div class="bootstrap-table">
+					<div class="fixed-table-toolbar"></div>
+					<div class="fixed-table-container" style="padding-bottom: 0px;">
+						<div class="fixed-table-header" style="display: none;">
+							<table></table>
+						</div>
+						<div class="fixed-table-body">
+							<table class="table  user-table table-hover" data-toggle="table">
+								<thead>
+									<tr>
+										<th style=""><div class="th-inner ">摘要</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">会计科目</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">借方金额</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">贷方金额</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner category1_name">分类一</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner category2_name">分类二</div>
+											<div class="fht-cell"></div></th>
+									</tr>
+
+								</thead>
+
+								<tbody style="background-color: #ffffff" id="JournalViewTable">
+
+								</tbody>
+								<tfoot>
+
+									<tr style="background: #56C5F0; color: #ffffff">
+										<td>合计：</td>
+										<td id="JournalViewNumSumcn"></td>
+										<td><b id='JournalViewNumSum1'>￥ 10 100 000.00</b></td>
+										<td><b id='JournalViewNumSum2'>￥ 10 100 000.00</b></td>
+										<td colspan="2"></td>
+									</tr>
+
+								</tfoot>
+							</table>
+						</div>
+						<div class="fixed-table-footer" style="display: none;">
+							<table>
+								<tbody>
+									<tr></tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="fixed-table-pagination" style="display: none;"></div>
+					</div>
+				</div>
+				<div class="clearfix" style="background-color: #FFFFFF"></div>
+				<div class="row p-t-20 p-r-20">
+					<div class="col-md-6">
+						<div class="col-md-6">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">制单人</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control"
+												id='journalViewcreateBy' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 jornalBox hide" id="JournalView_pipiView">
+						<div class="col-md-12 p-b-20">
+							<span class="control-label jornalBox_title"  style="float: left;">单据信息：</span>
+							<div class="col-md-6">
+								<div class="row m-l-r-10 p-t-5">
+									<div action="#" class="form-horizontal">
+										<div class="">
+											<label class="col-sm-1"> <input disabled
+												id="JournalView_returnFlag" type="checkbox">
+											</label>
+											<div class="col-sm-7">
+												<label for="JournalView_returnFlag"
+													class="pointer JournalView_returnFlag">供应商退款</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-md-6 hide" style="float: left"
+							id="pipiViewallclient">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">公司名称</label>
+
+										<div class="col-sm-9">
+											<div id='JournalView_allclient'></div>
+											<input type="text" class="form-control" value=""
+												readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div> -->
+						<div class="col-md-6 hide" style="float: left" id="pipiViewclinet">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">客户</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												id='JournalView_clinet' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div class="col-md-6 hide" style="float: left" id="pipiViewvendor">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">供应商</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												id='JournalView_vendor' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+						<div class="col-md-6 hide" style="float: left" id="pipiViewtermValue">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">账期</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												id='JournalView_termValue' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div class="col-md-6 hide" id="pipiViewusers">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">员工</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												readonly="readonly" id='JournalViewusers'>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-6 hide" id="pipiViewusers_mon">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">预支金额</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												id='JournalViewusers_mon' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-6 hide pipiView">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">发票类型</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control" value=""
+												id='JournalView_receiptType' readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-6 hide pipiView JournalView_receiptType_show">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">税率</label>
+
+										<div class="col-sm-9">
+											<input type="text" id='JournalView_tax' class="form-control"
+												value="" readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-6 hide pipiView JournalView_receiptType_show">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">发票号码</label>
+
+										<div class="col-sm-9">
+											<input type="text" id='JournalView_receiptNum'
+												class="form-control" value="" readonly="readonly">
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- <div class="col-md-6 hide pipiView">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">发票金额</label>
+
+										<div class="col-sm-9">
+											<input type="text" id='JournalView_receiptmon'
+												class="form-control" value="" readonly="readonly">
+
+										</div>
+									</div>
+								</form>
+							</div>
+						</div> -->
+						<div class="col-md-6 hide" id="pipiViewcreateby">
+							<div class="row">
+								<form action="#" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-sm-3">单据制单人</label>
+
+										<div class="col-sm-9">
+											<input type="text" class="form-control"
+												id='JournalView_ordercreateby' value="" readonly="readonly">
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!--备注打印部分-->
+	<div class="row card-box">
+		<div class="col-md-6">
+			<h4>备注：（打印时显示）</h4>
+			<textarea class="form-control" readonly="readonly"
+				id="JournalViewremarkPrint" rows="3"></textarea>
+		</div>
+		<div class="col-md-6">
+			<h4>备注：（打印时不显示）</h4>
+			<textarea class="form-control" readonly="readonly"
+				id="JournalViewPrint" rows="3"></textarea>
+		</div>
+	</div>
+	<div class="row row-vp card-box" id="JournalViewattachment"></div>
+
+
+
+	<!--底部-->
+	<div class="container">
+		<div class="card-box row p-r-0">
+			<!-- <div class="row" id="JournalView_jqxgridComment"></div> -->
+			<div class="col-md-10 col-md-push-2">
+				<!-- <button id="JournalView_auditBtnSP" class="btn btn-success float-right">审批</button>
+		<button id="JournalView_auditBtn" class="btn btn-success float-right">提交</button>
+		<button type="button"
+					class="btn btn-success float-right mg10 probtn" data-btn="Journal"
+					id="JournalViewTableAddAndSubmit">提交</button> -->
+				<button type="button" class="btn btn-success float-right mg10"
+					id="JournalView-btn-print">打印</button>
+
+
+			</div>
+		</div>
+
+
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/fms/JournalView.js";
+		$.loadScript(js,function(){
+			
+		});
+	});
+</script>

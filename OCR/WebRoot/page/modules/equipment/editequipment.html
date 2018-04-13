@@ -1,0 +1,313 @@
+<!-- 编辑固定资产界面 -->
+<div class="content p-r-20" id="editEquipmentPage">
+	<div>
+		<div class="container p-l-0">
+			<div class="card-box m-b-10 p-b-0 backgroup">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="">
+								<label class="col-md-4 control-label">资产编码</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										id="editequip-assetRef">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>					
+				</div>
+			</div>
+		<div class="backgroup">
+			<div class="card-box m-b-0 p-b-0">
+			   <div class="row">
+				 <div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">资产名称</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										id="editequip-assetName">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">购买日期</label>
+								<div class="col-md-8">
+									<div class="" disabled="disabled" id="editequip-purchaseDate"></div>
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+				</div>		
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+			   <div class="row">
+				    <div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">数量</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control editequipment" value=""
+										id="editequip-ininum">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+			    	<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">单价</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control editequipment" value=""
+										id="editequip-iniprice">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">原值</label>
+								<div class="col-md-8">
+									<input type="text" readonly="readonly"  class="form-control" value=""
+										id="editequip-iniValue">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+				
+				</div>
+			
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">残值率%</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control editequipment" value=""
+										id="editequip-scrapValueRatio">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">预计净残值</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										readonly="readonly" id="editequip-sumExpectVal">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<div action="#" class="form-horizontal col-md-11">
+							<div class="form-group">
+								<label class="control-label col-md-4">累计折旧科目</label>
+								<div class="col-md-8">
+									<div id="editequip-coaDepreciate" class=""></div>								
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+						<div action="#" class="form-horizontal col-md-11">
+							<div class="form-group">
+								<label class="control-label col-md-4"">费用科目</label>
+								<div class="col-md-8">
+									<div id="editequip-coaExpense" class=""></div>								
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+					<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧方法</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" readonly="readonly"
+										value="平均年限法" id="">
+								</div>
+							</div>
+						</div></div>
+				</div>
+			</div>
+			
+
+			
+
+			<!-- <div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<div action="#" class="form-horizontal col-md-11">
+							<div class="form-group">
+								<label class="control-label col-md-4">现在折旧</label>
+								<div class="col-md-8">
+									<div class=" col-sm-3 p-l-0">
+										<div class="radio radio-info radio-inline">
+											<input type="radio" checked value="option1"
+												name="radioInline" id="editequip-inlineRadio1"> <label
+												for="editequip-inlineRadio1">是</label>
+										</div>
+									</div>
+									<div class=" col-sm-3">
+										<div class="radio radio-info radio-inline">
+											<input type="radio" value="option1" name="radioInline"
+												id="editequip-inlineRadio2"> <label
+												for="editequip-inlineRadio2">否 </label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<div action="#" class="form-horizontal col-md-11">
+						<div class="col-md-4"></div>
+							<div class="form-group">
+								<input id="editequip-stop" class="pointer" type="checkbox">
+								<label class="control-label pointer" for="editequip-stop">停止折旧</label>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-box m-b-0 p-b-0" id="editequip-dateshow_hide2"
+				style="display: block;">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="control-label col-md-4">折旧期间</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control editequipment" value=""
+										id="editequip-expectTime" placeholder="默认为月份">
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label pdrt0">月折旧/摊销额</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										readonly="readonly" id="editequip-assetMonth">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+					
+					</div>
+				</div>
+				<div class="row p-t-20">
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="control-label col-md-4">折旧开始日期</label>
+								<div class="col-md-8">
+									<div class="" id="editequip-startTime"></div>
+								</div>
+							</div>
+						</div>
+						<label class="mustword">*</label>
+					</div>
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧结束日期</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										readonly="readonly" id="editequip-endTime">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">累计折旧额</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="editequip-totalDepreciatedValue"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">资产余额</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" value=""
+										readonly="readonly" id="editequip-assetBal"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--底部-->
+			<div class="card-box">
+				<div class="row col-md-12">
+					<button type="button" 
+						class="btn btn-inverse waves-effect waves-light float-right"
+					 	id="editequip-button">保&nbsp;&nbsp;&nbsp;存</button>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	//加载本页面的javascript，并执行回调函数
+	var js = "js/modules/equipment/editequipment.js";
+	$.loadScript(
+					js,
+					function(){
+						var equipmenteditBssMgt = new EquipmenteditBssMgt();
+						equipmenteditBssMgt.initInput();
+				    	
+				    	var equipmenteditBssBindModel = new EquipmenteditBssBindModle(equipmenteditBssMgt);
+				    	equipmenteditBssBindModel.unbindAll();
+				    	equipmenteditBssBindModel.bind();
+					});
+		});
+</script>
+
+
+

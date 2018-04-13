@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="copMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12">
+	  		<ul id="cop-ul" class="p-0"></ul>
+		</div>
+	</div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/cop/copMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var copMgt = new CopMgt();
+						copMgt.initInput();
+				    	
+				    	var copBindModel = new CopBindModle(copMgt);
+				    	copBindModel.unbindAll();
+				    	copBindModel.bind();
+					});
+	});
+</script>

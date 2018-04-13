@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="copAgentMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12">
+	  		<ul id="copagent-ul" class="p-0"></ul>
+		</div>
+	</div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/cop/copAgentMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var copAgentMgt = new CopAgentMgt();
+						copAgentMgt.initInput();
+				    	
+				    	var copAgentBindModel = new CopAgentBindModle(copAgentMgt);
+				    	copAgentBindModel.unbindAll();
+				    	copAgentBindModel.bind();
+					});
+	});
+</script>

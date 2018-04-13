@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="registerCustMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="rscust-search">
+				用户匹配
+			</button>
+		</div>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="rsCustMgtGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/buso/viewRegisterCust.js";
+		$.loadScript(
+					js,
+					function(){
+						var rscustMgt = new RscustMgt();
+						rscustMgt.initInput();
+				    	
+				    	var rscustBindModel = new RscustBindModle(rscustMgt);
+				    	rscustBindModel.unbindAll();
+				    	rscustBindModel.bind();
+					});
+	});
+</script>

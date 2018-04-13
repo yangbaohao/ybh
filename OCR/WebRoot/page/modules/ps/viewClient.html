@@ -1,0 +1,112 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewClientMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+	  		<span id="viewClient-code"></span>/
+	  		<span id="viewClient-company"></span>
+	  	
+			<button class="btn btn-success wd100 float-right" type="button" id="viewClient-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="viewClient-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="viewClient-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="viewClient-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="viewClient-eTime"></div>
+							</div>								
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入用户名查找" id="viewClient-name">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">电话号码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入电话号码查找" id="viewClient-phone">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入公司名称查找" id="viewClient-companyName">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="viewClientGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/ps/viewClient.js";
+		$.loadScript(
+					js,
+					function(){
+						var vcMgt = new VcMgt();
+						vcMgt.initInput();
+				    	
+				    	var vcBindModel = new VcBindModle(vcMgt);
+				    	vcBindModel.unbindAll();
+				    	vcBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="coopAgentMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+	  		<button class="btn btn-success wd100 float-right" type="button" id="cpa-add">
+				新增合作商
+			</button>
+	  	
+			<button class="btn btn-success wd100 float-right m-r-15" type="button" id="cpa-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="cpa-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="cpa-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="cpa-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="cpa-eTime"></div>
+							</div>								
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">合作商编码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入合作商查找" id="cpa-code">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入用户名查找" id="cpa-user">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入公司名称查找" id="cpa-company">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">电话号码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" placeholder="输入电话号码查找" id="cpa-phone">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="coopAgentGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/ps/coopAgentMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var cpaMgt = new CpaMgt();
+						cpaMgt.initInput();
+				    	
+				    	var cpaBindModel = new CpaBindModle(cpaMgt);
+				    	cpaBindModel.unbindAll();
+				    	cpaBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,8 @@
+[
+	{"name":"西瓜","type":"小","price":"2.4","weight":"1.8","length":"0.3","color":"红","number":"16","cost":"1.0","inventory":"200","photo":"红色","saletotal":""},
+	{"name":"葡萄","type":"中","price":"3.2","weight":"0.6","length":"1.1","color":"黄","number":"30","cost":"1.5","inventory":"150","photo":"黄色","saletotal":""},
+	{"name":"柚子","type":"大","price":"2.7","weight":"2.2","length":"2.3","color":"橙","number":"23","cost":"1.1","inventory":"180","photo":"橙色","saletotal":""},
+	{"name":"西瓜","type":"小","price":"2.4","weight":"1.8","length":"0.3","color":"红","number":"16","cost":"1.0","inventory":"200","photo":"红色","saletotal":""},
+	{"name":"葡萄","type":"中","price":"3.2","weight":"0.6","length":"1.1","color":"黄","number":"30","cost":"1.5","inventory":"150","photo":"黄色","saletotal":""},
+	{"name":"柚子","type":"大","price":"2.7","weight":"2.2","length":"2.3","color":"橙","number":"23","cost":"1.1","inventory":"180","photo":"橙色","saletotal":""}
+]

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="10 seconds">
+	<property name="LOG_PATTERN" value="%date{ISO8601} %-5level [%thread] %class{36}.%method\\(%line\\) - %msg%n" />
+	<property name="LOG_FILENAME" value="/var/shanghulog/ydcfo-ocr.log" />
+	<property name="LOG_FILENAME_ELK" value="/var/shanghulog/ydcfo-ocr-4elk.log" />
+	
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="RFA" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILENAME}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_FILENAME}.%d{yyyy-MM-dd}</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+	</appender>
+	
+	<appender name="RFA_ELK" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILENAME_ELK}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_FILENAME_ELK}.%d{yyyy-MM-dd}</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%msg%n</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+	</appender>
+	
+	<logger name="requestresponse" level="INFO" additivity="false" >
+		<appender-ref ref="RFA_ELK" />
+	</logger>
+	
+	<logger name="org.apache.catalina" level="ERROR" />
+	<logger name="org.apache.commons" level="ERROR" />
+	<logger name="org.springframework.aop" level="ERROR" />
+	<logger name="org.hibernate.SQL" level="ERROR" /><!-- if DEBUG, will print SQL to log file in addition to the console (hibernate.show_sql and/or hibernate.format_sql should be set to true at the same time) -->
+	<logger name="org.hibernate.type" level="ERROR" /><!-- if TRACE, will print parameter value for SQL and result from SQL -->
+	<logger name="org.hibernate.engine" level="ERROR" /><!-- if DEBUG, will print connection, transaction info -->
+	<logger name="org.apache.cxf" level="INFO" /><!-- if INFO, will print inbound and outbound messages -->
+	<logger name="org.apache.shiro.web.servlet.SimpleCookie" level="ERROR" /><!-- if DEBUG, will print session ID -->
+	<logger name="org.apache.shiro.AcWebSessionManager" level="WARN" /><!-- if WARN, will print session logout info -->
+
+	<logger name="com.zqw" level="WARN" />
+	<logger name="com.zqw.account.util.security.shiro.redis.RedisCache" level="INFO" /><!-- if DEBUG, will print the name of the redis key being accessing -->
+	<!-- add more loggers below with name pointing to the specifc class
+		 to adjust the log level for that class individually -->
+	<logger name="com.zqw.account.util.ActionLogOutInterceptor" level="INFO" /><!-- if INFO, will print request/response information -->
+	
+	
+	<root level="ERROR">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="RFA" />
+	</root>
+	
+</configuration>

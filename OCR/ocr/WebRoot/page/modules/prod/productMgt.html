@@ -1,0 +1,431 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="productMgt">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-l-r-0">
+			<button class="btn btn-success wd100 float-left searchBtn" type="button" id="prod-search">
+				搜&nbsp;&nbsp;&nbsp;索
+			</button>
+			<button type="button" id="addprod-btn" class="btn btn-success float-right">
+				<span class="btn-label"><i class="ion-plus-round"></i> </span>新增
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="prod-show" style="display:none">  
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">产品模块</label>
+							<div class="col-sm-8 p-l-0">
+								<div id="prod-module"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-5">
+				<div class="form-horizontal">
+					<div class="from-group">
+						<label class="control-label col-md-2">产品价格</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" id="prod-sp">
+						</div>
+						<span class="float-left m-t-10">至</span>	
+						<div class="col-md-4">	
+							<input type="text" class="form-control" id="prod-ep">
+						</div>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+	<div style="display:none">
+		<div id="addProdWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>新增产品
+			</div>
+			<div id="addProdForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<form action="" method="post" class="form-horizontal" id="addprod-form">	
+								<div class="form-group">
+									<label class="control-label col-sm-4"></label>
+									<div class="col-sm-7">
+										<img id="addprod-photo" src='images/common/photo_icon2.png' style="width:100%">
+										<!-- <i class="md-cancel close-lab"></i> -->
+										<input type="file" name="file" style="display:none" class="file0" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品编号</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="addprod-number"/>
+									</div>
+								</div>
+							</div>
+						</div>
+							
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">产品模块</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="addprod-module"/>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品价格</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="addprod-price"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">单位</label>
+									<div class="col-sm-7">
+										<select id="addprod-unit" style="width:100%;height:34px">
+											<option value="month">月</option>
+											<option value="year">年</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">产品简介</label>
+									<textarea id="addprod-int" class="form-control"
+										 style="resize:none;width:77%;margin-left:17.5%"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="addProdSubmitBtn">保存</button>
+					<button class="btn btn-success" id="cancelAddProdBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="fpAgentWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>代理商
+			</div>
+			
+			<div id="fpAgentForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">代理商</label>
+									<div class="col-sm-7">
+										<div id="fpAgent-agent"></div>
+									</div> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row p-t-10">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">免费期间(月)</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="fpAgent-time"/>
+									</div> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="fpAgentSaveBtn">保存</button>
+					<button class="btn btn-success" id="cancelFpAgentBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="viewProdWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>查看产品
+			</div>
+			
+			<div id="viewProdForm" >
+				<div class="modal-body">
+					<div class="modal-footer p-r-0">
+						<button class="btn btn-success" id="editprod-btn">编辑</button>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4"></label>
+									<div class="col-sm-7">
+										<img id="viewprod-photo" style="width:100%">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">产品编号</label>
+									<div class="col-sm-7">
+										<input type="text" readonly class="form-control" id="viewprod-number"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">产品模块</label>
+									<div class="col-sm-7">
+										<input type="text" readonly class="form-control" id="viewprod-module"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品价格</label>
+									<div class="col-sm-7">
+										<input type="text" readonly class="form-control" id="viewprod-price"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">单位</label>
+									<div class="col-sm-7">
+										<input type="text" readonly class="form-control" id="viewprod-unit"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">产品简介</label>
+									<textarea id="viewprod-int" class="form-control" style="resize:none;width:77%;margin-left:17.5%"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="cancelViewProdBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="editProdWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑产品
+			</div>
+			<div id="editProdForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<form action="" method="post" class="form-horizontal" id="editprod-form">	
+								<div class="form-group">
+									<label class="control-label col-sm-4"></label>
+									<div class="col-sm-7">
+										<img id="editprod-photo" style="width:100%">
+										<i class="md-cancel close-lab"></i>
+										<input type="file" name="file" style="display:none" class="file0" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品编号</label>
+									<div class="col-sm-7">
+										<input type="text" readonly class="form-control" id="editprod-number"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">产品模块</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="editprod-module"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-20">
+						<div class="col-md-5 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品价格</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" id="editprod-price"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-5">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">单位</label>
+									<div class="col-sm-7">
+										<select id="editprod-unit" style="width:100%;height:34px">
+											<option value="month">月</option>
+											<option value="year">年</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1 p-t-20">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label p-t-0 float-left" style="width:14%">产品简介</label>
+									<textarea id="editprod-int" class="form-control" style="resize:none;width:77%;margin-left:17.5%"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="editProdSubmitBtn">保存</button>
+					<button class="btn btn-success" id="cancelEditProdBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="disableProdWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>禁用
+			</div>
+			<div id="disableProdForm" >
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-4">是否禁用</label>
+									<div class="col-sm-7">
+										<div id="disableProd-yn"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					<div class="row p-t-10">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品编号</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" readonly id="disableProd-code">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row p-t-10">
+						<div class="col-md-9 col-md-offset-1">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-4 control-label">产品模块</label>
+									<div class="col-sm-7">
+										<input type="text" class="form-control" readonly id="disableProd-module">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" id="disableProdBtn">保存</button>
+					<button class="btn btn-success" id="cancelDisableProdBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="prodGrid"></div>
+    </div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/prod/productMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var prodMgt = new ProdMgt();
+						prodMgt.initInput();
+				    	
+				    	var prodBindModel = new ProdBindModle(prodMgt);
+				    	prodBindModel.unbindAll();
+				    	prodBindModel.bind();
+					});
+	});
+</script>

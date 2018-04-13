@@ -1,0 +1,115 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="comnHistory">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+	  		
+			<button class="btn btn-success wd100 float-right" type="button" id="comnH-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="comnH-show" style="display:none">  
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">代理商编码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="comnH-number" placeholder="输入代理商编码查找" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">应提佣金</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="comnH-sa">
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="comnH-ea">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">成功客户</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="comnH-sc">
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="comnH-ec">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">代理商用户名</label>
+							<div class="col-sm-8">
+								<div id="comnH-name"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+	<!-- <div id="viewComnHistoryWin">
+		<div style="font-size: 18px;">
+			<i class="icon-plus-3" id="viewComnHistory-head"></i>
+		</div>
+		<div id="viewComnHistoryForm" >
+			<div class="modal-body">
+				<div class="row p-t-20" id="viewComnHistoryGrid"></div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success" id="viewComnHistoryBackBtn">返回</button>
+			</div>
+		</div>
+	</div> -->
+
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="comnHistoryGrid"></div>
+    </div>
+        
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/comn/comnHistory.js";
+		$.loadScript(
+					js,
+					function(){
+						var comnhMgt = new ComnhMgt();
+						comnhMgt.initInput();
+				    	
+				    	var comnhBindModel = new ComnhBindModle(comnhMgt);
+				    	comnhBindModel.unbindAll();
+				    	comnhBindModel.bind();
+					});
+	});
+</script>

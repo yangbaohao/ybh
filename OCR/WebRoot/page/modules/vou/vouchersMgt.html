@@ -1,0 +1,152 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="vouMgtPage">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-l-r-0">
+	  		
+			<button class="btn btn-success wd100 float-left searchBtn" type="button" id="vou-search">
+				搜&nbsp;&nbsp;&nbsp;索
+			</button>
+			<button type="button" id="vou-send" class="btn btn-success float-right">
+				<span class="btn-label"><i class="ion-plus-round"></i> </span>推送
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="vou-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="vou-name" placeholder="输入名称查找"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">总金额</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="vou-sc">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="vou-ec">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">总数量</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="vou-sm">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="vou-em">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="vou-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="vou-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="vou-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-4">发放类型</label>
+							<div class="col-sm-8">
+								<div id="vou-type"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-4">代金券类型</label>
+							<div class="col-sm-8">
+								<div id="vou-stype"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="vouGrid"></div>
+    </div>
+        
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/vou/vouchersMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var vouMgt = new VouMgt();
+						vouMgt.initInput();
+				    	
+				    	var vouBindModel = new VouBindModle(vouMgt);
+				    	vouBindModel.unbindAll();
+				    	vouBindModel.bind();
+					});
+	});
+</script>

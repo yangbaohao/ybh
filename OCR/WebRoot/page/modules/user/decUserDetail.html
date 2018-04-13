@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="userbMgtContent">
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="userDeltailMgtGrid"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/decUserDetail.js";
+		$.loadScript(
+					js,
+					function(){
+						var userDeltailMgt = new UserDeltailMgt();
+						userDeltailMgt.initInput();
+				    	
+				    	/* var userDeltailBindModel = new UserDeltailBindModle(userbMgt);
+				    	userDeltailBindModel.unbindAll();
+				    	userDeltailBindModel.bind(); */
+					});
+	});
+</script>

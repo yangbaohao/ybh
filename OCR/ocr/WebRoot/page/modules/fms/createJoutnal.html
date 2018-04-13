@@ -1,0 +1,201 @@
+<meta charset="UTF-8">
+
+<div class="content">
+
+
+	<div class="row card-box">
+		<div class="col-sm-12">
+			<div class="">
+				<div class="row">
+					<input type="text" id='createJoutnalid' style='display: none;'>
+					<div class="col-md-4"></div>
+
+					<div class="col-md-8">
+						<!-- <button type="button" class="btn btn-success m-l-10"
+							style="float: right;">
+							<i class="md-star text-white p-l-0" style="font-size: 16px;"></i>
+							收 藏
+						</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row card-box">
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-4">匹配通用单据</label>
+						<div class="col-sm-6">
+							<div id='createJournalCurrency'></div>
+							<!-- <select id='createJournalCurrency'
+								class="form-control select2 col-sm-8">
+								<option value="RMB">人民币</option>
+							</select> -->
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+			
+		<div class="col-md-3">
+				<label class="control-label col-md-4 text-34495E text-center p-t-10">日期</label>
+				<div class="col-md-8">
+					<div class="input-daterange input-group" id="createjournaldate">
+						<!-- <input type="text" class="form-control" name=""> -->
+					</div>
+				</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">记字第</label>
+						<div class="col-sm-6">
+							<input type="text" id='createJournalNumber' readonly="readonly" class="form-control"
+								placeholder="单号">
+						</div>
+						<label class="control-label col-sm-3" style="text-align: left;">号</label>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">附单</label>
+						<div class="col-sm-6">
+							<input type="text" id="createJournaljournalnoteNumber" class="form-control" placeholder="0">
+						</div>
+						<label class="control-label col-sm-3" style="text-align: left;">页</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card-box table-responsive">
+				<div class="bootstrap-table">
+					<div class="fixed-table-toolbar"></div>
+					<div class="fixed-table-container" style="padding-bottom: 0px;">
+						<div class="fixed-table-header" style="display: none;">
+							<table></table>
+						</div>
+						<div class="fixed-table-body">
+							<!-- <div class="fixed-table-loading" style="top: 37px;">Loading,
+										please wait...</div> -->
+							<table class="table  user-table table-hover" data-toggle="table"
+								id="createJoutnalTable">
+								<thead>
+									<tr>
+										<th style=""><div class="th-inner ">摘要</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">会计科目</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">借方金额</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">贷方金额</div>
+											<div class="fht-cell"></div></th>
+										<th style=""><div class="th-inner ">删除</div>
+											<div class="fht-cell"></div></th>
+									</tr>
+								</thead>
+
+								<tbody style="background-color: #ffffff">
+									<tr data-index="0">
+										<td style="width: 15%;"><input class='createJoutnalChart form-control' type="text"></td>
+										<td style="width: 50%;">
+											<div class='createJoutnalSelect'>
+												
+											</div>   
+										</td>
+										<td style="width: 15%;"><input class='createJoutnalNum numBorrow3 form-control' type="text"></td>
+										<td style="width: 15%;"><input class='createJoutnalNum numLoad3 form-control' type="text"></td>
+										<td class="del_icon" style="width: 10%;"><i
+											class="md-cancel   createJoutnalDel"></i></td>
+									</tr>
+
+								</tbody>
+								<tfoot>
+									<tr style="background: #56C5F0; color: #ffffff">
+										<td>合计：</td>
+										<td id='createJoutnalNumSumCn'></td>
+										<td><b id='createJoutnalNumSum1'>0</b></td>
+										<td><b id='createJoutnalNumSum2'>0</b></td>
+										<td colspan="3"></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<div class="fixed-table-footer" style="display: none;">
+							<table>
+								<tbody>
+									<tr></tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="fixed-table-pagination" style="display: none;"></div>
+					</div>
+				</div>
+				<div class="clearfix" style="background-color: #FFFFFF"></div>
+				<div class="row p-t-20 p-r-20">
+					<div class="col-md-9"></div>
+					<div class="col-md-3">
+						<div class="row">
+							<form action="#" class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-3">制单人</label>
+
+									<div class="col-sm-9">
+										<input type="text" id='createJoutnalcreateBy'
+											class="form-control" value="" readonly="readonly">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!--备注打印部分-->
+	<div class="row card-box">
+		<div class="col-md-6">
+			<h4>备注：（打印时显示）</h4>
+			<textarea class="form-control" id='createJoutnalRemark' rows="1"></textarea>
+		</div>
+		<div class="col-md-6">
+			<h4>备注：（打印时不显示）</h4>
+			<textarea class="form-control" id='createJoutnalRemarkPrint' rows="1"></textarea>
+		</div>
+	</div>
+	<div class="row row-vp card-box" id="createJoutnalDetailattachment">
+		</div>
+
+
+	<!--底部-->
+	<div class="row bottomnav">
+		<div class="col-md-4 p-l-30">
+			<!-- <button type="button" class="btn btn-success float-left">取消</button> -->
+		</div>
+		<div class="col-md-4 text-center">
+				
+		</div>
+		<div class="col-md-4 p-r-30">
+			<button type="button" class="btn btn-success float-right" id='createJoutnalTableAdd'>保存</button>			
+		</div>
+	</div>
+
+
+</div>
+<script type="text/javascript" src="js/modules/fms/createJournal.js"></script>

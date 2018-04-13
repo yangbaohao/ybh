@@ -1,0 +1,78 @@
+<meta charset="UTF-8">
+<div id="disabled_user" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog ">
+		<div class="modal-content">
+			<!--模态框头部-->
+			<div class="modal-header">
+				<div class="quotation-nav">
+					<div class="row">
+						<div class="quotation-nav-left" style="">
+							<b style="margin-left: 20px;">禁用</b>
+						</div>
+						<div class="quotation-nav-right">
+							<button type="button" class="close-modal btn-success"
+								data-dismiss="modal" aria-hidden="true">
+								<i class="glyphicon glyphicon-remove close-btn" style="padding: 0;"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框body-->
+			<div class="modal-body">
+				<div class="row container">
+					<input type="text" class="hide" id="disabled_user_id"/>
+					<div class="col-sm-12 p-t-10">
+						<div class="row">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-10">
+										<label class="control-label col-sm-5">是否禁用</label>
+										<div class="col-sm-6">
+											<div id="disabled_true"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-10">
+										<label class="control-label col-sm-5">用户名</label>
+										<div class="col-sm-6">
+											<input id="disabled_username" type="text" class="form-control" readonly/>														
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框脚页-->
+			<div class="modal-footer" style="padding:20px;padding-top:0px">
+				<button type="button" class="btn btn-success close-btn" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal"
+					id='save_disabledUserBtn'>保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$('#save_disabledUserBtn').off('click').on('click',function(){
+		var id = $('#disabled_user_id').val();
+		var locked = $('#disabled_true').val();
+		Core.AjaxRequest({
+			url:_global_settings.service.url+'/user/lock/'+id+'/'+locked,
+			type:'PUT',
+			async:false,
+			callback:function(){
+				$('#agentGrid').jqxGrid('updatebounddata','cells');
+			},
+			failure:function(){
+				
+			}
+		});
+	});
+</script>

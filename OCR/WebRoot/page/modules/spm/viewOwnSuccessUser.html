@@ -1,0 +1,125 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewOwnSuccessUser">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success wd100 float-right" type="button" id="viewOwnSuccessUser-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+			<span id="viewOwnSuccessUserName" class="float-left" style="font-size: 20px; line-height: 33px;"></span>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="viewOwnSuccessUser-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-2" id="viewOwnSuccessUserTm">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">日期</label>
+							<div class="col-sm-8">
+								<div id="viewOwnSuccessUser-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4" id="viewOwnSuccessUserChoTm">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="viewOwnSuccessUser-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="viewOwnSuccessUser-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3" id="viewOwnSuccessUserName">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label id="viewOwnSuccessUserNameLabel" class="control-label col-sm-3 p-r-0">用户名</label>
+							<div class="col-sm-8 p-r-0">
+								<div id="viewOwnSuccessUser-name"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-3 ">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">电话号码</label>
+							<div class="col-sm-8 p-r-0">
+								<input type="text" class="form-control" id="viewOwnSuccessUser-phone" placeholder="请输入电话号码查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="viewOwnSuccessUserGrid"></div>
+    </div>
+    
+    <div id="viewOwnSuccessUserRemarkWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>查看备注
+			</div>
+			<div id="addOwnSuccessUserRemakForm">
+				<div class="modal-body">
+					<div class="row">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+								<div id="ownSuccessUserRemarkTbody"></div>
+									<!-- <table class="table table-bordered">
+										<tr>
+											<th class="text-797979" style="width:30%">更新时间</th>
+											<th class="text-797979" style="width:70%">备注</th>
+										</tr>
+										<tbody id="ownSuccessUserRemarkTbody"></tbody>
+									</table> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button class="btn btn-success" id="SuccessSuccessUserRemarkSaveBtn">确定</button> -->
+					<button class="btn btn-success" id="ownSuccessUserRemarkCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+        
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/spm/viewOwnSuccessUser.js";
+		$.loadScript(
+					js,
+					function(){
+						var viewOwnSuccessUser = new ViewOwnSuccessUser();
+						viewOwnSuccessUser.initInput();
+				    	
+				    	var viewOwnSuccessUserBindModel = new ViewOwnSuccessUserBindModle(viewOwnSuccessUser);
+				    	viewOwnSuccessUserBindModel.unbindAll();
+				    	viewOwnSuccessUserBindModel.bind();
+					});
+	});
+</script>

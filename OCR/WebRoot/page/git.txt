@@ -1,0 +1,64 @@
+git
+
+//当前工作目录下
+//
+git status                //查看是否有未push到远程master的文件
+
+git clone url             //从url download代码
+
+git add filePath  //添加需要提交的文件
+git commit -m 'message'     //提交文件到分支
+git push origin branchName //推送到远程分支
+git checkout branchName      //切换分支
+
+
+//合并分支前，先把远程代码pull下来
+git checkout master  
+git pull origin master  //pull
+
+//合并分支到master
+git merge branchName
+
+
+//新建分支
+git branch branchName
+git checkout -b branchName
+//新建分支即为本地分支，发布到远程分支
+git push origin branchName
+
+//删除本地分支
+git branch -d/-D branchName
+
+//删除远程分支
+git push origin :branchName
+
+//两个远程分支合并
+//比如把分支A合并到分支B
+
+1:先把分支A的修改提交到远程分支
+2:切换到分支B
+3:git merge A
+4:把合并的分支B提交到远程分支
+
+
+//ssh  C:\Users\Administrator\.ssh
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSFFz3fUcFYE7Fsj5cZp8VSSkBVVB28xa3U1l2J876OWPJlaaBIakBrtUgWJNILv5Y9czTkyfW9rNriauqZkeXriMrbrnj6oGdzW+OHYSo4SKDj9IJbqgspSsLY3lsdVtvxktlSMrbpK1AhUM4dTvvb1M0Jc/N7lAcPZbPyS5xTX5+sEx65uAiRcOnK/P4NLfDq3LyQAl6fRSEZ8Vl0froe7+xchS5zOtLCuneEoOY4Na++ZArlpKy5WUq3r4SlrtecfNcFb1bnovApWAVHqyxrPGWWg41Efmr5hnHJu8634Qbli9tu5Lw88tRXn9adIABViqTI1ZeoDslEOISsMND 616632069@qq.com
+
+
+
+//addsale
+addoredit: 'add',
+saleorbuy: 'sale',
+
+//editsale
+addoredit: 'edit',
+saleorbuy: 'sale',
+
+//addpurchse
+addoredit: 'add',
+saleorbuy: 'buy',
+
+//editpurchase
+addoredit: 'edit',
+saleorbuy: 'buy',

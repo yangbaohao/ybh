@@ -1,0 +1,380 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="addAgentMgt">
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">代理商类型</label>
+						<div class="col-sm-6">
+							<select id="addAgent-type" style="width:50%;height:32px">
+								<option value="enterprise">企业</option>
+								<option value="person">个人</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentSex" style="display:none">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">性别</label>
+						<div class="col-sm-6">
+							<select id="addAgent-sex" style="width:50%;height:32px">
+								<option value="nan">男</option>
+								<option value="nv">女</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">编码</label>
+						<div class="col-sm-9">
+							<input id="addAgent-number" readonly type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">销售负责人</label>
+						<div class="col-sm-9">
+							<div id="addAgent-head"></div>
+						</div>
+					</div>
+					<!-- <label class="mustword">*</label> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6 col-md-offset-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">客服</label>
+						<div class="col-sm-9">
+							<div id="addAgent-cust"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">用户名</label>
+						<div class="col-sm-9">
+							<input id="addAgent-userName" type="text" class="form-control"/>
+						</div>
+					</div>
+					<label class="mustword">*</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentComp">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">公司名称</label>
+						<div class="col-sm-9">
+							<input id="addAgent-compName" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentName" style="display:none">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">姓名</label>
+						<div class="col-sm-9">
+							<input id="addAgent-name" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">密码</label>
+						<div class="col-sm-9">
+							<input id="addAgent-pw" type="password" class="form-control"/>
+						</div>
+					</div>
+					<label class="mustword">*</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">确认密码</label>
+						<div class="col-sm-9">
+							<input id="addAgent-apw" type="password" class="form-control"/>
+						</div>
+					</div>
+					<label class="mustword">*</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6" id="addAgentBusi">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">营业执照号</label>
+						<div class="col-sm-9">
+							<input id="addAgent-busi" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentTax">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">纳税人识别号</label>
+						<div class="col-sm-9">
+							<input id="addAgent-tax" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentCert-type" style="display:none">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">证件类型</label>
+						<div class="col-sm-6">
+							<select id="addAgent-certType" style="width:50%;height:32px">
+								<option value="IDENTITY_CARD">身份证</option>
+								<option value="PASSPORT">护照</option>
+								<option value="SOLDIER_CARD">军官证</option>
+								<option value="TAIWAN_COMPATRIOTS_CARD">台胞证</option>
+								<option value="LICENSE">许可证</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6" id="addAgentCert-number" style="display:none">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">证件号码</label>
+						<div class="col-sm-9">
+							<input id="addAgent-certNumber" type="text" class="form-control"/>
+						</div>
+					</div>
+					<label class="mustword">*</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">开户银行</label>
+						<div class="col-sm-9">
+							<input id="addAgent-bank" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">开户银行账号</label>
+						<div class="col-sm-9">
+							<input id="addAgent-bankNumber" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">联系电话</label>
+						<div class="col-sm-9">
+							<input id="addAgent-phone" type="text" class="form-control"/>
+						</div>
+					</div>
+					<label class="mustword">*</label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3">邮箱</label>
+						<div class="col-sm-9">
+							<input id="addAgent-eamil" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3" id="entryprise-qq">企业qq</label>
+						<label class="control-label col-sm-3" id="person-qq" style="display:none">qq</label>
+						<div class="col-sm-9">
+							<input id="addAgent-qq" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3" id="entryprise-wx">企业微信</label>
+						<label class="control-label col-sm-3" id="person-wx" style="display:none">微信</label>
+						<div class="col-sm-9">
+							<input id="addAgent-wx" type="text" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10" style="margin-left:2.7%">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-1 p-t-0">备注</label>
+						<div class="col-sm-11">
+							<textarea  rows="3" id="addAgent-remark" class="form-control" style="width:94%"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-b-10">
+		<div class="col-md-9">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-md-10">
+						<label class="control-label col-sm-2">地址：</label>
+						<div class="table-responsive" style="padding-left:3%">
+							<table class="table m-0 bg-white" id="addAgent-address">
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group" style="padding-left:18%">
+						<div class="col-sm-9">
+							<button type="button" id="addaddress-btn" class="btn btn-success float-right">
+								<span class="btn-label"><i class="ion-plus-round"></i> </span>添加地址
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row p-t-20">
+		<div class="col-md-6 col-md-offset-6">
+			<div class="row">
+				<div class="form-horizontal">
+					<div class="form-group col-sm-11">
+						<label class="control-label col-sm-3"></label>
+						<div class="col-sm-9">
+							<button type="button" id="addAgentBtn" class="btn btn-success float-right">
+								保存
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/agent/addAgentMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var addAgentMgt = new AddAgentMgt();
+						addAgentMgt.initInput();
+				    	
+				    	var addAgentBindModel = new AddAgentBindModle(addAgentMgt);
+				    	addAgentBindModel.unbindAll();
+				    	addAgentBindModel.bind();
+					});
+	});
+</script>

@@ -1,0 +1,731 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="userbMgtContent">
+  	<div class="row p-b-20">
+	  	<div class="col-md-12 p-r-0">
+			<button class="btn btn-success float-right" type="button" id="userb-search">
+				&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+			</button>
+	  		
+			<button class="btn btn-success m-r-15 float-right" type="button" id="userb-add">
+				&nbsp;&nbsp;新&nbsp;&nbsp;&nbsp;增
+			</button>
+			<button class="btn btn-success m-r-15 float-right" type="button" id="userb-import">
+				&nbsp;&nbsp;导入客户
+			</button>
+			<button class="btn btn-success m-r-15 float-right" type="button" id="userb-download">
+				&nbsp;&nbsp;下载模板
+			</button>
+		</div>
+	</div>
+	<div class="row card-box m-b-0 p-b-0" id="userb-show" style="display:none">  
+		<div class="row p-b-10">
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">用户名</label>
+							<div class="col-sm-8 p-r-0">
+								<div id="userb-username"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">公司名称</label>
+							<div class="col-sm-8 p-r-0">
+								<div id="userb-buymou"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">纳税人性质</label>
+							<div class="col-sm-8">
+								<div id="userb-tax"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">账期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="userb-pday"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a>
+	</div>
+
+	<div style="display:none">
+		<div id="userbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>报税
+			</div>
+			<div id="userbMgtForm">
+				<div class="modal-body">
+					<div class="row p-t-20">
+						<div class="col-md-12 p-t-10">
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="row">
+										<span class="col-sm-5 text-right" style="font-size:20px;font-weight:600;padding-top:5px; text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" id="userb-company"></span>
+										<div class="col-sm-3">
+											<input type="text" class="form-control" id="userbMgtDate"/>
+										</div>
+										<span class="col-sm-4" style="font-size:20px;font-weight:600;padding-top:5px">已申报完成？</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="modal-footer" style="padding-top:90px">
+					<button class="btn btn-success" id="userbMgtConfirmBtn">确认</button>
+					<button class="btn btn-success" id="userbMgtCancleBtn">取消</button>
+				</div>
+			</div>
+		</div>
+	
+		<div id="addUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>新增用户
+			</div>
+			<div class='form-horizontal' id="addUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<div class="col-sm-6">
+							<label for="add-username" class="col-sm-3 control-label">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="add-loginId"
+									placeholder="请输入由字母和数字组成的用户名！" />
+							</div>
+						</div>
+						
+						<div class="col-sm-6">
+							<label for="add-companyname" class="col-sm-3 control-label">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="add-name" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="add-password" class="col-sm-3 control-label">增值税率</label>
+							<div class="col-sm-8">
+								<div id="add-vat"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="add-name" class="col-sm-3 control-label">当前账期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="addbMgtDate">
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="add-password" class="col-sm-3 control-label">纳税人性质</label>
+							<div class="col-sm-8">
+								<div id="add-taxType"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="add-taxpayer" class="col-sm-3 control-label">纳税人识别号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="add-taxpayer" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="add-password" class="col-sm-3 control-label">合同开始日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="contract-sTime">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="add-name" class="col-sm-3 control-label">合同结束日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="contract-eTime">
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="add-password" class="col-sm-3 control-label">收款周期</label>
+							<div class="col-sm-8">
+								<div id="payee-period"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="add-taxpayer" class="col-sm-3 control-label">收款金额/月</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="payee-amount" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="add-password" class="col-sm-3 control-label">邮箱</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="add-email">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="add-name" class="col-sm-3 control-label">联系电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="add-phone">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="addUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="addUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="editUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>编辑客户信息
+			</div>
+			<div class='form-horizontal' id="editUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<div class="col-md-6">
+							<label for="edit-username" class="col-sm-3 control-label">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-loginId"  readonly="readonly"/>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">
+							<label for="edit-username" class="col-sm-3 control-label">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control"  id="edit-name"/>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-md-6">
+							<label  class="col-sm-3 control-label">纳税人性质</label>
+							<div class="col-sm-8">
+								<div id="edit-taxType"></div>
+							</div>
+						</div>
+							
+						<div class="col-sm-6">
+							<label for="edit-taxpayer" class="col-sm-3 control-label">纳税人识别号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-taxpayer" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">
+							<label class="col-sm-3 control-label">增值税率</label>
+							<div class="col-sm-8">
+								<div  id="edit-vat"></div>
+							</div>
+						</div>
+							
+						<div class="col-sm-6">
+							<label class="col-sm-3 control-label">当前账期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-MgtDate" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-sTime" class="col-sm-3 control-label">合同开始日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-sTime">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-eTime" class="col-sm-3 control-label">合同结束日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-eTime">
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-period" class="col-sm-3 control-label">收款周期</label>
+							<div class="col-sm-8">
+								<div id="edit-period"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-amount" class="col-sm-3 control-label">收款金额/月</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-amount" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-email" class="col-sm-3 control-label">邮箱</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-email">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-phone" class="col-sm-3 control-label">联系电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-phone">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="editUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="editUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <div id="editUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>新增用户
+			</div>
+			<div class='form-horizontal' id="editUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<div class="col-sm-6">
+							<label for="edit-username" class="col-sm-3 control-label">用户名</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-loginId"
+									placeholder="请输入由字母和数字组成的用户名！" />
+							</div>
+						</div>
+						
+						<div class="col-sm-6">
+							<label for="edit-companyname" class="col-sm-3 control-label">公司名称</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-name" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-password" class="col-sm-3 control-label">增值税率</label>
+							<div class="col-sm-8">
+								<div id="edit-vat"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-name" class="col-sm-3 control-label">当前账期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="editbMgtDate">
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-password" class="col-sm-3 control-label">纳税人性质</label>
+							<div class="col-sm-8">
+								<div id="edit-taxType"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-taxpayer" class="col-sm-3 control-label">纳税人识别号</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-taxpayer" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-password" class="col-sm-3 control-label">合同开始日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="contract-sTime">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-name" class="col-sm-3 control-label">合同结束日期</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="contract-eTime">
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-password" class="col-sm-3 control-label">收款周期</label>
+							<div class="col-sm-8">
+								<div id="payee-period"></div>
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-taxpayer" class="col-sm-3 control-label">收款金额/月</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="payee-amount" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-sm-6">	
+							<label for="edit-password" class="col-sm-3 control-label">邮箱</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-email">
+							</div>
+						</div>
+						
+						<div class="col-sm-6">	
+							<label for="edit-name" class="col-sm-3 control-label">联系电话</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="edit-phone">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="editUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="editUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div> -->
+	
+		<div id="partUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>分配报税人员
+			</div>
+			<div class='form-horizontal' id="partUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label for="part-username" class="col-sm-2 control-label">报税人</label>
+						<div class="col-sm-9">
+							<div type="text" id="part-taxer"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="part-username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="part-username" readonly="readonly"  />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="part-username" class="col-sm-2 control-label">备注</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="part-name" readonly="readonly" />
+						</div>
+					</div>
+	
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="partUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="partUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="matchUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>匹配秒账用户提示
+			</div>
+			<div class='form-horizontal' id="matchUserForm" style="padding:0 50px 0 50px;">
+				<div class="form-group" style="padding-top:15px;">
+					<div style=" font-size:16px; line-height:22px;">
+						<span>
+							<span id="match-username">kenan</span>
+							用户已是秒账用户，继续匹配请输入验证码。
+						</span>
+					</div>
+				</div>
+				<div class="form-group" style="padding-top:10px;">
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="match-inputUserName" readonly="readonly" />
+					</div>
+					<div class="col-sm-6">
+						<button id="match-getMsg" type="button" class="btn"
+							style="width: 100%;height: 40px ; padding: 5px 0px; font-size: 12px; background-color: #5cb85c; color:#fff;">免费获取验证码</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input type="text" class="form-control" id="match-validCode" placeholder="请输入验证码" />
+					</div>
+					<div class="hint col-md-3 col-xs-12" id="form-match-code-close"
+						style="display: none; color:#f00;">
+						<i class=" md-cancel  "></i><span class="form-company-close-span">验证码不能为空</span>
+					</div>
+					<div class="hint col-md-3 col-xs-12" id="form-match-code-close1"
+						style="display: none; color:#f00;">
+						<i class="md-cancel"></i><span class="form-company-close-span">验证码不正确</span>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="matchUserSubmitBtn" disabled="disabled">确定</button>
+					<button class="btn btn-success" id="matchUserbMgtCancleBtn">返回</button>
+				</div>
+				
+				<div id='matchConfirmphone' class='text-center' style="
+					height: 174px;
+				    padding: 20px;
+				    position: absolute;
+				    left: 10%;
+				    width: 80%;
+				    top: 90px;
+				    background: white;
+				    z-index: 1;
+				    border: 1px solid #CECECE;
+				    box-shadow: 3px 4px 5px #CECECE;
+				    display:none;" >
+					<h4>
+						<strong>确认手机号码</strong>
+					</h4>
+					<h6>我们将发送短信验证码到<span id="mark_no"></span>号码</h6>
+					<p id="showphone"></p>
+					<div class='row text-center'>
+						<div class='col-sm-12'>
+							<div class="col-sm-6">
+								<button id='match_cancelPhone' class='btn' style="width:100%; color: white !important; background-color: #7CC45A; float:left; ">取消</button>
+							</div>
+							<div class="col-sm-6">
+								<button id='match_Confirmphone' class='btn' style="width:100%; color: white !important; background-color: #7CC45A; float:left;">确认</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div id="receiptUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>收款信息
+			</div>
+			<div class='form-horizontal' id="receiptUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label for="receipt-username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="receipt-loginId" readonly="readonly" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="receipt-username" class="col-sm-2 control-label">客户名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"  id="receipt-name" readonly="readonly"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add-password" class="col-sm-2 control-label">收款周期</label>
+						<div class="col-sm-9">
+							<div id="receipt-period"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">	
+						<label for="add-taxpayer" class="col-sm-2 control-label">收款日期</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="receipt-amount" />
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2">收款区间</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="receipt-sTime">
+						</div>
+						<span class="float-left m-t-10 col-sm-1">至</span>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="receipt-eTime">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="receipt-name" class="col-sm-2 control-label">收款金额</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="receipt-money">
+						</div>
+					</div>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="receiptUserSubmitBtn">保存</button>
+					<button class="btn btn-success" id="receiptUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="sendEmailUserbMgtWin">
+			<div style="font-size: 18px;">
+				<i class="icon-plus-3"></i>发送催款邮件
+			</div>
+			<div class='form-horizontal' id="sendEmailUserForm">
+				<div class="row row-vp" style="margin: 12px;">
+					<div class="form-group">
+						<label for="sendEmail-username" class="col-sm-2 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="sendEmail-loginId"  readonly="readonly"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="sendEmail-username" class="col-sm-2 control-label">客户名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control"  id="sendEmail-name"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add-password" class="col-sm-2 control-label">收款周期</label>
+						<div class="col-sm-9">
+							<div id="sendEmail-period"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">	
+						<label for="add-taxpayer" class="col-sm-2 control-label">收款日期</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="sendEmail-amount" />
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2">收款区间</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="sendEmail-sTime">
+						</div>
+						<span class="float-left m-t-10 col-sm-1">至</span>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="sendEmail-eTime">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="sendEmail-name" class="col-sm-2 control-label">收款金额</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="sendEmail-money">
+						</div>
+					</div>
+				</div>
+				<div style='float: left; padding: 10px 2px 10px;' class="form-group col-sm-8">
+					<label class="col-sm-3 control-label">邮箱</label>
+					<span id="sendEmail-email" class="col-sm-7" style="font-size:14px; padding-top:5px;"></span>
+				</div>
+				<div style='float: right; padding: 10px 2px 10px;'>
+					<button class="btn btn-success" id="sendEmailUserSubmitBtn">确认发送</button>
+					<button class="btn btn-success" id="sendEmailUserbMgtCancleBtn">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+    <!--grid-->
+    <div class="row">
+        <div class="col-md-12" id="userbMgtGrid"></div>
+    </div>
+    
+    <!-- 点击导入 -->
+    <div id="userb-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12 m-top"></div>
+							<div class="col-md-12" id="userb-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+        
+</div>
+
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/userbMgt.js";
+		$.loadScript(
+					js,
+					function(){
+						var userbMgt = new UserbMgt();
+						userbMgt.initInput();
+				    	
+				    	var userbBindModel = new UserbBindModle(userbMgt);
+				    	userbBindModel.unbindAll();
+				    	userbBindModel.bind();
+					});
+	});
+</script>

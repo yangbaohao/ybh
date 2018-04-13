@@ -1,0 +1,344 @@
+<meta charset="UTF-8">
+<div class="content" id="inventory_Detail">
+
+	<div class="container p-l-0">
+		<div class="card-box m-b-10 p-b-0">
+			<div class="col-md-12">
+				<div class="row">
+					<!-- <button type="button" class="btn btn-success float-right"
+						id="viewRC-btn">
+						<i class="md-star p-r-10" style="font-size: 15px;"></i>收 藏
+					</button> -->
+					<button id="eqmgt_viewState" style="display:none;">状态</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container p-l-0">				
+		
+			<div class="card-box m-b-10 p-b-0 backgroup">
+				<div class="row">
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="">
+								<label class="col-md-4 control-label">资产编码</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-assetRef">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+       <div class="backgroup">
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">					
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">资产名称</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-assetName">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">购买日期</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-purchaseDate">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+				<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">数量</label>
+								<div class="col-md-7">
+									<input type="text"  readonly="readonly"  class="form-control" value=""
+										id="viewequip-ininum">
+								</div>
+							</div>
+						</form>
+					</div>
+				<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">单价</label>
+								<div class="col-md-7">
+									<input type="text"  readonly="readonly"  class="form-control" value=""
+										id="viewequip-iniprice">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">原值</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-iniValue">
+								</div>
+							</div>
+						</form>
+					</div>
+				
+				</div>
+			
+			</div>
+           <div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">残值率%</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-scrapValueRatio">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">预计净残值</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-sumExpectVal">
+								</div>
+							</div>
+						</form>
+					</div>				
+				</div>	
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<form action="#" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-4">累计折旧科目</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-coaDepreciate">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form action="#" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-4">费用科目</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-coaExpense">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+					<form class="form-horizontal col-md-11" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧方法</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" readonly="readonly"
+										value="平均年限法" id="">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="card-box m-b-0 p-b-0">
+				<!-- <div class="row m-b-20">
+					<div class="col-md-4">
+						<form action="#" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-4">是否现在折旧</label>
+								<div class="col-md-7">
+									<div class=" col-sm-3 p-l-0" id="viewequip-y">
+										<div class="radio radio-info radio-inline">
+											<input type="radio" name="radioInline"
+												id="viewequip-inlineRadio1"> <label
+												for="viewequip-inlineRadio1">是</label>
+										</div>
+									</div>
+									<div class=" col-sm-3" id="viewequip-n">
+										<div class="radio radio-info radio-inline">
+											<input type="radio" name="radioInline"
+												id="viewequip-inlineRadio2"> <label
+												for="viewequip-inlineRadio2">否</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div> -->
+				
+				<div class="row m-b-10">
+					<div class="col-md-4">
+						<div action="#" class="form-horizontal col-md-11">
+						<div class="col-md-4"></div>
+							<div class="form-group">
+								<input id="viewequip-stop" class="pointer" type="checkbox">
+								<label class="control-label" for="viewequip-stop">停止折旧</label>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" id="viewequip-dateshow_hide2">
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧期间</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-expectTime">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label pdrt0">月折旧/摊销额</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-assetMonth">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+					
+					</div>
+				</div>	
+				<div class="row p-t-20" id="viewequip-dateshow_hide3">
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧开始日期</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-startTime">
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">折旧结束日期</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-endTime">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="card-box m-b-0 p-b-0">
+				<div class="row">
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">累计折旧额</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id=viewequip-totalDepreciatedValue>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">资产余额</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-assetBal">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<div class="row p-t-20 saleIncome" style="display:none;" id="eqmgt_view_sell">
+					<div class="col-md-4"></div>
+
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">出售收入</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-income">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">净损益</label>
+								<div class="col-md-7">
+									<input type="text" class="form-control" readonly="readonly"
+										id="viewequip-jsy">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			
+
+			
+			<!--底部-->
+			<button type="button"
+						class="btn btn-inverse waves-effect waves-light float-right m-r-15"
+						id="add-assetPrint">打&nbsp;&nbsp;&nbsp;印</button>
+						
+			<div class="card-box" style="display:none">
+				<div class="row col-md-12">
+					<button type="button" class="btn btn-inverse waves-effect waves-light float-right" id="viewequip-back">返&nbsp;&nbsp;&nbsp;回</button>
+				</div>
+			</div>
+			
+		</div>
+	
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/equipmentDetail.js";
+		$.loadScript(js, function() {
+			var equipmentdetMgt = new EquipmentdetMgt();
+			equipmentdetMgt.initInput();
+
+			var equipmentdetBindModel = new EquipmentdetBindModle(
+					equipmentdetMgt);
+			equipmentdetBindModel.unbindAll();
+			equipmentdetBindModel.bind();
+		});
+	});
+</script>

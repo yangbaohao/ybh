@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="../../" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>注册展示信息</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="styles/dataTable/jquery.dataTables.css">
+
+<style type="text/css" class="init">
+	td.highlight {
+	   	background-color: whitesmoke !important;
+	}
+</style>
+
+<script type="text/javascript" src="js/dataTable/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="js/dataTable/jquery.dataTables.min.js"></script>
+
+<!-- HTML代码片段中请勿添加<body>标签 --> 
+<div id="container"> 
+	<!-- 定义一个表格元素 -->
+	<div class="panel-heading">
+        <div class="panel-title" style="text-align: center;font-size: 22px;font-weight: bold;padding: 150px 0 5px 0;">
+        	注册展示信息
+        </div>
+    </div>
+	<!-- <table id="showRegister" class="table table-striped table-bordered"> -->
+	<table id="showRegister" class="row-border hover order-column" cellspacing="0" width="100%">
+	    <thead> 
+			<tr> 
+				<!-- <th>序号</th> --> 
+				<th>用户名</th> 
+				<th>公司名称</th> 
+				<th>邮箱</th>
+				<th>手机号码</th>
+				<th>注册日期</th>
+				<th>账目启用月</th>
+			</tr> 
+	    </thead> 
+	    <tbody>
+	    </tbody> 
+		<!-- tbody是必须的 --> 
+	</table> 
+</div>
+<script type="text/javascript" src="js/modules/reg/showRegister.js"></script>

@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<div class="content p-20" id="viewDetailMgt">
+	<div class="row">
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label id="vduname" style="padding-right:50px"></label>
+				<label id="vdphone"></label>
+			</div>
+		</div>	
+	</div>	
+	
+	<div class="row">
+		<div class="col-md-12 zqw_refreshGrid" id="vdGrid"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/user/viewDetail.js";
+		$.loadScript(js,function(){
+			var vd = new viewDetail();
+			vd.initInput();
+		});
+	});
+</script>

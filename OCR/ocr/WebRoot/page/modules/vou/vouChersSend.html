@@ -1,0 +1,263 @@
+<meta charset="utf-8">
+
+<div class="content p-20" id="vouChersSend">
+	<div class="row p-20 p-b-0">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">推送类型</label>
+						<div class="col-sm-9">
+							<div id="vousend-sendtype"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+
+	<div class="row p-l-20 p-b-10" id="vousendHead">
+		<div class="col-md-4">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-3">推送用户：</label>
+					<div class="col-sm-9" style="padding-top:7.4px">
+						<div id="userNumber"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<button class="btn btn-success wd100 float-right" type="button" id="vousend-search">
+			&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+		</button>
+	</div>
+	
+	<div class="row p-20" style="border:1px solid rgba(82, 67, 86, 0.29)" id="vousend-show">  
+		<div class="row p-b-10">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">日期</label>
+							<div class="col-sm-8">
+								<div id="vousend-time"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<div id="vousend-sTime"></div>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<div id="vousend-eTime"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">付费金额</label>
+							<div class="col-sm-9">
+								<div class="col-sm-5 p-l-0">
+									<input type="text" class="form-control" id="vousend-sc">
+								</div>
+								<span class="float-left m-t-10">至</span>
+								<div class="col-sm-5 p-r-0">
+									<input type="text" class="form-control" id="vousend-ec">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">用户名</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="vousend-username"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-2">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3 p-r-0">代金券</label>
+							<div class="col-sm-8">
+								<div id="vousend-vouchers"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="vousend-sVouchers"/>
+							</div>
+							<span class="float-left m-t-10">至</span>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="vousend-eVouchers"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-3">活动码</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="vousend-code" placeholder="输入活动码查找">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <a class="color-1193C5 hoverspan md-cancel hidden-aclick"></a> -->
+	</div>
+	
+	<div class="row p-20">
+		<div class="row p-b-10">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">代金券名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="vousend-name">				
+						</div>
+					</div>				
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">代金券类型</label>
+						<div class="col-sm-9">
+							<div id="vousend-type"></div>				
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+			
+		<div class="row p-b-10">	
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">代金券单价</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="vousend-price">				
+						</div>
+					</div>				
+				</div>
+			</div>
+			
+			<div class="col-md-4" id="vousendNum" style="display:none">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">代金券数量</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="vousend-num">				
+						</div>
+					</div>				
+				</div>
+			</div>
+			
+			<div class="col-md-4" id="vousendAmt">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">代金券总金额</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" readonly id="vousend-amt">				
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">开券日期</label>
+						<div class="col-sm-9">
+							<div id="vousend-startTime"></div>				
+						</div>
+					</div>				
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3 p-r-0">有效日期</label>
+						<div class="col-sm-9">
+							<div id="vousend-endTime"></div>				
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="row p-20 m-r-5">
+		<div class="row">
+			<button class="btn btn-success wd100 float-right" type="button" id="vousend-cancle">
+				&nbsp;&nbsp;取&nbsp;&nbsp;&nbsp;消
+			</button>
+			
+			<button class="btn btn-success wd100 float-right m-r-15" type="button" id="vousend-save">
+				&nbsp;&nbsp;保&nbsp;&nbsp;&nbsp;存
+			</button>
+		</div>
+	</div>
+</div> 
+
+<script type="text/javascript">
+
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/vou/vouChersSend.js";
+		$.loadScript(
+					js,
+					function(){
+						var vouSendMgt = new VouSendMgt();
+						vouSendMgt.initInput();
+				    	
+				    	var vouSendBindModel = new VouSendBindModle(vouSendMgt);
+				    	vouSendBindModel.unbindAll();
+				    	vouSendBindModel.bind();
+					});
+	});
+</script>
+
+

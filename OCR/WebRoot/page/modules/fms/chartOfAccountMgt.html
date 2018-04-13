@@ -1,0 +1,436 @@
+<meta charset="UTF-8">
+<div class="content" id="tabb24">
+
+	<div class="container">
+
+		<div class="row card-box m-b-0">
+			
+		 <button type="button"  onclick="downloadTemplate()"
+				class="btn btn-success float-right mg10">下载模板</button>
+		 <button type="button" id="importCOA"
+				class="btn btn-success float-right mg10">导入</button> 
+			<button id="submitAllBtn" type="button"
+				class="btn btn-success float-right mg10">提交保存</button>
+			<button id="computeBalanceBtn" type="button"
+				class="btn btn-success float-right mg10">试算平衡</button>
+				<button id="chartOfAccountTg" type="button"
+				class="btn btn-success float-right mg10 hide">折叠</button>
+		</div>
+
+		<div class="row p-t-30 p-l-r-10">
+
+			<ul class="nav nav-tabs tabs" style="width: 100%;"
+				id="chartOfAccountTab">
+				<li class="tab active" style="width: 20%;"><a href="#900-1"
+					data-toggle="tab" aria-expanded="true" class="p-0"> <span
+						class="visible-xs"><i class="fa fa-home"></i> </span> <span
+						class="hidden-xs" style="font-size: 25px;">资产类</span>
+				</a></li>
+				<li class="tab" style="width: 20%;"><a href="#900-2"
+					data-toggle="tab" aria-expanded="false" class="p-0"> <span
+						class="visible-xs"><i class="fa fa-user"></i> </span> <span
+						class="hidden-xs" style="font-size: 25px;">负债类</span>
+				</a></li>
+				<li class="tab" style="width: 20%;"><a href="#900-3"
+					data-toggle="tab" aria-expanded="false" class="p-0"> <span
+						class="visible-xs"><i class="fa fa-envelope-o"></i> </span> <span
+						class="hidden-xs" style="font-size: 25px;">所有者权益类</span>
+				</a></li>
+				<li class="tab" style="width: 20%;"><a href="#900-4"
+					data-toggle="tab" aria-expanded="false" class="p-0"> <span
+						class="visible-xs"><i class="fa fa-envelope-o"></i> </span> <span
+						class="hidden-xs" style="font-size: 25px;">成本类</span>
+				</a></li>
+				<li class="tab" style="width: 20%;"><a href="#900-5"
+					data-toggle="tab" aria-expanded="false" class="p-0"> <span
+						class="visible-xs"><i class="fa fa-envelope-o"></i> </span> <span
+						class="hidden-xs" style="font-size: 25px;">损益类</span>
+				</a></li>
+				<div class="indicator" style="right: 80%; left: 0%;"></div>
+			</ul>
+
+			<div class="tab-content">
+
+
+				<!-- 资产 -->
+				<div id="900-1" class="tab-pane active container p-0">
+					<div class="container m-b-10">
+						<div class="row">
+							<div class="col-md-12 chartOfAccountGrid" id="assetCOAGrid"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- 负债 -->
+				<div id="900-2" class="tab-pane container p-0">
+
+					<div class="container m-b-10">
+						<div class="row">
+							<div class="col-md-12 chartOfAccountGrid" id="liabiliyCOAGrid"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 所有者权益 -->
+				<div id="900-3" class="tab-pane container p-0">
+					<div class="container m-b-10">
+						<div class="row">
+							<div class="col-md-12 chartOfAccountGrid" id="ownershipCOAGrid"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 成本类 -->
+				<div id="900-4" class="tab-pane container p-0">
+					<div class="container m-b-10">
+						<div class="row">
+							<div class="col-md-12 chartOfAccountGrid" id="costCOAGrid"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 损益类 -->
+				<div id="900-5" class="tab-pane container p-0">
+					<div class="container m-b-10">
+						<div class="row">
+							<div class="col-md-12 chartOfAccountGrid" id="profitCOAGrid"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+	<!-- create Window start -->
+	<div class="jqxwindow row" id="addCoaWin" style="display: none">
+		<div style="height: 40px; font-size: 18px;">
+			<i class="icon-plus-3"></i>新建科目
+		</div>
+		<div class="jqxwindowbody container" id="addCoaForm"
+			style="padding-top: 15px;">
+			<div class="content">
+				<div class="container">
+					<input type="hidden" id="addCoa-coatype" /> <input type="hidden"
+						id="addCoa-level" /> <input type="hidden" id="addCoa-parentId" />
+					<input type="hidden" id="addCoa-coaClass" /> <input type="hidden"
+						id="addCoa-parentRef" />
+					<div class="form-group row">
+						<label for="addCoa-rolename"
+							class="col-sm-2 col-md-push-1 control-label">科目编码</label>
+						<div class="col-sm-8 col-md-push-1">
+							<input type="text" class="form-control" id="addCoa-ref" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="addCoa-name"
+							class="col-sm-2 col-md-push-1 control-label">科目名称</label>
+						<div class="col-sm-8 col-md-push-1">
+							<input type="text" class="form-control" id="addCoa-name"
+								placeholder="请输入科目名称" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="addCoa-debitCredit"
+							class="col-sm-2 col-md-push-1 control-label">方向</label>
+						<div class="col-sm-2 col-md-push-1">
+							<div id="addCoa-debitCredit"></div>
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="addCoa-debitCredit"
+							class="col-sm-2 col-md-push-2 control-label">是否启用</label>
+						<div class="col-sm-2 col-md-push-2">
+							<div id="addCoa-enabled"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="addCoa-iniValue"
+							class="col-sm-2 col-md-push-1 control-label">期初值</label>
+						<div class="col-sm-2 col-md-push-1">
+							<input type="text" class="form-control" id="addCoa-iniValue"
+								placeholder="请输入期初值" />
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="addCoa-debitAmt"
+							class="col-sm-2 col-md-push-2 control-label">本年累计借方</label>
+						<div class="col-sm-2 col-md-push-2">
+							<input type="text" class="form-control" id="addCoa-debitAmt"
+								placeholder="请输入本年累计借方" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="addCoa-creditAmt"
+							class="col-sm-2 col-md-push-1 control-label">本年累计贷方</label>
+						<div class="col-sm-2 col-md-push-1">
+							<input type="text" class="form-control" id="addCoa-creditAmt"
+								placeholder="请输入本年累计贷方" />
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="addCoa-balance"
+							class="col-sm-2 col-md-push-2 control-label">年初余额</label>
+						<div class="col-sm-2 col-md-push-2">
+							<input type="text" class="form-control" id="addCoa-balance"
+								placeholder="请输入年初余额" />
+						</div>
+					</div>
+
+					<div class="row card-box">
+						<div class="col-md-8 col-md-push-2">
+							<button class="btn btn-success float-right mg10"
+								id="canceladdCoaBtn">返回</button>
+							<button class="btn btn-success float-right mg10"
+								id="addCoaSubmitBtn">添加</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- create Window end -->
+
+
+	<!-- edit Window start -->
+	<div class="jqxwindow row" id="editCoaWin" style="display: none">
+		<div style="height: 40px; font-size: 18px;">
+			<i class="icon-plus-3"></i>编辑科目<span id="edit-tips"
+				style="font-size: 15px;"></span>
+		</div>
+		<div class="jqxwindowbody container" id="editCoaForm"
+			style="padding-top: 15px;">
+			<div class="content">
+				<div class="container">
+					<input type="hidden" id="editCoa-id" /> <input type="hidden"
+						id="editCoa-coatype" /> <input type="hidden" id="editCoa-level" />
+					<input type="hidden" id="editCoa-parentId" /> <input type="hidden"
+						id="editCoa-coaClass" /> <input type="hidden" id="editCoa-oldRef" />
+					<input type="hidden" id="editCoa-parentRef" />
+					<div class="form-group row">
+						<label for="editCoa-rolename"
+							class="col-sm-2 col-md-push-1 control-label">科目编码</label>
+						<div class="col-sm-8 col-md-push-1">
+							<input type="text" class="form-control" id="editCoa-ref" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="editCoa-name"
+							class="col-sm-2 col-md-push-1 control-label">科目名称</label>
+						<div class="col-sm-8 col-md-push-1">
+							<input type="text" class="form-control" id="editCoa-name"
+								placeholder="请输入科目名称" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="editCoa-debitCredit"
+							class="col-sm-2 col-md-push-1 control-label">方向</label>
+						<div class="col-sm-2 col-md-push-1">
+							<div id="editCoa-debitCredit"></div>
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="addCoa-debitCredit"
+							class="col-sm-2 col-md-push-2 control-label">是否启用</label>
+						<div class="col-sm-2 col-md-push-2">
+							<div id="editCoa-enabled"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="editCoa-iniValue"
+							class="col-sm-2 col-md-push-1 control-label">期初值</label>
+						<div class="col-sm-2 col-md-push-1">
+							<input type="text" class="form-control" id="editCoa-iniValue"
+								placeholder="请输入期初值" />
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="editCoa-debitAmt"
+							class="col-sm-2 col-md-push-2 control-label">本年累计借方</label>
+						<div class="col-sm-2 col-md-push-2">
+							<input type="text" class="form-control" id="editCoa-debitAmt"
+								placeholder="请输入本年累计借方" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="editCoa-creditAmt"
+							class="col-sm-2 col-md-push-1 control-label">本年累计贷方</label>
+						<div class="col-sm-2 col-md-push-1">
+							<input type="text" class="form-control" id="editCoa-creditAmt"
+								placeholder="请输入本年累计贷方" />
+						</div>
+						<!-- </div>
+            	<div class="form-group row"> -->
+						<label for="editCoa-balance"
+							class="col-sm-2 col-md-push-2 control-label">年初余额</label>
+						<div class="col-sm-2 col-md-push-2">
+							<input type="text" class="form-control" id="editCoa-balance"
+								placeholder="请输入年初余额" />
+						</div>
+					</div>
+
+					<div class="row card-box">
+						<div class="col-md-8 col-md-push-2">
+							<button class="btn btn-success float-right mg10"
+								id="canceleditCoaBtn">返回</button>
+							<button class="btn btn-success float-right mg10"
+								id="editCoaSubmitBtn">保存</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="computeBalanceModal" class="modal fade in" tabindex="-1"
+		role="dialog" aria-labelledby="full-width-modalLabel"
+		aria-hidden="true" style="display: none; padding-right: 17px;">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-left" style="">
+								<b style="margin-left: 20px;">试算平衡</b>（红色表示试算不平衡，需要将差额调为0）
+							</div>
+							<div class="quotation-nav-right">
+
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<div class="col-sm-12">
+							<div class="fixed-table-container " style="padding-bottom: 0px;">
+								<div class="table-responsive">
+									<div class="bootstrap-table">
+										<div class="fixed-table-container"
+											style="padding-bottom: 0px;">
+											<div class="fixed-table-body">
+												<table class="table user-table table-hover"
+													data-toggle="table" id="baojiatable">
+													<thead>
+														<tr>
+															<th><div class="th-inner ">项目</div>
+																<div class="fht-cell"></div></th>
+															<th><div class="th-inner ">借</div>
+																<div class="fht-cell"></div></th>
+															<th><div class="th-inner ">贷</div>
+																<div class="fht-cell"></div></th>
+															<th><div class="th-inner ">差额</div>
+																<div class="fht-cell"></div></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr data-index="0">
+															<td>期初值</td>
+															<td>￥ <span id="computeDebitValue"></span></td>
+															<td>￥ <span id="computeCreditValue"></span></td>
+															<td>￥ <span id="computeDeviationValue"></span></td>
+														</tr>
+														<tr data-index="1">
+															<td>累计发生值</td>
+															<td>￥ <span id="computeYearDebitValue"></span></td>
+															<td>￥ <span id="computeYearCreditValue"></span></td>
+															<td>￥ <span id="computeDeviationYearValue"></span></td>
+														</tr>
+														<tr data-index="2">
+															<td>年初余额</td>
+															<td>￥ <span id="computeDebitBalanceValue"></span></td>
+															<td>￥ <span id="computeCreditBalanceValue"></span></td>
+															<td>￥ <span id="computeDeviationBalanceValue"></span></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix" style="background-color: #EBEFF2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					<div class="row container">
+						<div class="col-sm-12">
+							<!-- <p>红色表示试算不平衡，需要将差额调为0</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+    <div id="coamgt-modal" class="modal" tabindex="-1" role="dialog"
+		aria-labelledby="full-width-modalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog wd700">
+			<div class="modal-content">
+				<!--模态框头部-->
+				<div class="modal-header">
+					<div class="quotation-nav">
+						<div class="row">
+							<div class="quotation-nav-right">
+								<button type="button" class="close-modal btn-r"
+									data-dismiss="modal" aria-hidden="true">
+									<i class="glyphicon glyphicon-remove" style="padding: 0;"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--模态框body-->
+				<div class="modal-body">
+					<div class="row container">
+						<!-- <div class="col-sm-12">
+							<div class="fixed-table-container " style="padding-bottom: 0px;"> -->
+						<div class="row row-vp form-horizontal">
+							<div class="col-md-12 m-top"></div>
+							<div class="col-md-12" id="coamgt-attachment"></div>
+						</div>
+					</div>
+				</div>
+				<!--模态框脚页-->
+				<div class="modal-footer" style="padding: 20px;">
+					
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+	$(function() {
+		var js = "js/modules/fms/chartOfAccountMgt.js";
+		//	js = "js/modules/fms/coaMgt.js";
+		$.loadScript(js, function() {
+			var chartOfAccountMgt = new ChartOfAccountMgt();
+			chartOfAccountMgt.initInput();
+
+			var chartOfAccountBindModel = new ChartOfAccountBindModle(
+					chartOfAccountMgt);
+			chartOfAccountBindModel.unbindAll();
+			chartOfAccountBindModel.bind();
+		});
+	});
+</script>

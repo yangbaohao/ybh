@@ -1,0 +1,437 @@
+<meta charset="utf-8">
+<div class="content p-20" id="assetLiabilitie">
+	<div class="row">
+		<div class="form-group p-t-30 p-l-r-20">
+			<label class="control-label col-sm-1"
+				style="color: black; text-align: right; padding-top: 10px;" id="asset-searchDate">日期</label>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="input-daterange input-group" id="date-range">
+								<input type="text" class="float-left m-l-15 form-control" name="form-company-Booked-Date" id="asset-time">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-1 p-0">
+				<button class="btn btn-success wd100 float-right" type="button" id="asset-search">
+					&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索
+				</button>
+			</div>
+
+			<div class="float-right">
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right" id="asset-out">导&nbsp;&nbsp;&nbsp;出</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="asset-sendEmail">发邮件</button>
+				<button type="button" class="btn btn-inverse waves-effect waves-light float-right m-r-15" id="assert-print">打&nbsp;&nbsp;&nbsp;印</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="m-l-r-20">
+
+		<div class="row m-l-r-20">
+			<div class="card-box bg-white">
+				<!-- 表头 -->
+				<div class="row card-box p-b-0 m-b-0">
+					<div class="col-md-3 p-l-20" style="padding-top: 60px;">
+						<div class="row">
+							<span id="asset_comname"></span>
+						</div>
+					</div>
+					<div class="col-md-6 text-center">
+						<div class="row">
+							<h3 id="asset-headMsg">资产负债表</h3>
+						</div>
+						<div class="row p-t-10">
+							<span id="assetLiabilitie_nowDate"></span>
+						</div>
+					</div>
+					<div class="col-md-3 p-t-30 text-right p-r-20">
+						<div class="row">
+							<span id="asset-table01">会小企01表</span>
+						</div>
+						<div class="row p-t-15">
+							<span id="asset_unit">单位:元</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-20 table-responsive">
+					<table
+						class="table table-bordered td2-text-center td3-text-right td4-text-right td5-text-center td6-text-right td7-text-right"
+						style="white-space: nowrap;" id="assetLiabilitieDateTable">
+
+						<thead>
+							<tr>
+								<th class="bbmt" style="width:9%">资产</th>
+								<th class="bbmt" style="width:5%">行次</th>
+								<th class="bbmt" style="width:15%">期末余额</th>
+								<th class="bbmt" style="width:15%">年初余额</th>
+								<th class="bbmt" style="width:30%">负债和所有者权益</th>
+								<th class="bbmt" style="width:5%">行次</th>
+								<th class="bbmt" style="width:10%">期末余额</th>
+								<th class="bbmt" style="width:10%">年初余额</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="p-l-0" id="assets-floating ">流动资产：</td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+								<td class="p-l-0" id="asset-liabilities"><b>流动负债：</b></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>货币资金</td>
+								<td>1</td>
+								<td></td>
+								<td></td>
+								<td>短期借款</td>
+								<td>31</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>短期投资</td>
+								<td>2</td>
+								<td></td>
+								<td></td>
+								<td>应付票据</td>
+								<td>32</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收票据</td>
+								<td>3</td>
+								<td></td>
+								<td></td>
+								<td>应付账款</td>
+								<td>33</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收账款</td>
+								<td>4</td>
+								<td></td>
+								<td></td>
+								<td>预收账款</td>
+								<td>34</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>预付账款</td>
+								<td>5</td>
+								<td></td>
+								<td></td>
+								<td>应付职工薪酬</td>
+								<td>35</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收股利</td>
+								<td>6</td>
+								<td></td>
+								<td></td>
+								<td>应交税费</td>
+								<td>36</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>应收利息</td>
+								<td>7</td>
+								<td></td>
+								<td></td>
+								<td>应付利息</td>
+								<td>37</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>其他应收款</td>
+								<td>8</td>
+								<td></td>
+								<td></td>
+								<td>应付利润</td>
+								<td>38</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>存货</td>
+								<td>9</td>
+								<td></td>
+								<td></td>
+								<td>其他应付款</td>
+								<td>39</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>其中：原材料</td>
+								<td>10</td>
+								<td></td>
+								<td></td>
+								<td>其他流动负债</td>
+								<td>40</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 5em;">在产品</td>
+								<td>11</td>
+								<td></td>
+								<td></td>
+								<td><b>流动负债合计</b></td>
+								<td>41</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 5em;">库存商品</td>
+								<td>12</td>
+								<td></td>
+								<td></td>
+								<td class="p-l-0"><b>非流动负债：</b></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 5em;">周转材料</td>
+								<td>13</td>
+								<td></td>
+								<td></td>
+								<td>长期借款</td>
+								<td>42</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>其他流动资产</td>
+								<td>14</td>
+								<td></td>
+								<td></td>
+								<td>长期应付款</td>
+								<td>43</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><b>流动资产合计</b></td>
+								<td>15</td>
+								<td></td>
+								<td></td>
+								<td style="font-size:14px">递延收益</td>
+								<td>44</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="p-l-0"><b>非流动资产：</b></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+								<td>其他非流动负债</td>
+								<td>45</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>长期债券投资</td>
+								<td>16</td>
+								<td></td>
+								<td></td>
+								<td><b>非流动负债合计</b></td>
+								<td>46</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>长期股权投资</td>
+								<td>17</td>
+								<td></td>
+								<td></td>
+								<td><b>负债合计</b></td>
+								<td>47</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>固定资产原价</td>
+								<td>18</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td style="text-indent: 3em;">减：累计折旧</td>
+								<td>19</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>固定资产账面价值</td>
+								<td>20</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>在建工程</td>
+								<td>21</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>工程物资</td>
+								<td>22</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>固定资产清理</td>
+								<td>23</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>生产性生物资产</td>
+								<td>24</td>
+								<td></td>
+								<td></td>
+								<td class="p-l-0"><b>所有者权益(或股东权益):</b></td>
+								<td class="text-center">-</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>无形资产</td>
+								<td>25</td>
+								<td></td>
+								<td></td>
+								<td>实收资本(或股本)</td>
+								<td>48</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>开发支出</td>
+								<td>26</td>
+								<td></td>
+								<td></td>
+								<td>资本公积</td>
+								<td>49</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>长期待摊费用</td>
+								<td>27</td>
+								<td></td>
+								<td></td>
+								<td>盈余公积</td>
+								<td>50</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>其他非流动资产</td>
+								<td>28</td>
+								<td></td>
+								<td></td>
+								<td>未分配利润</td>
+								<td>51</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><b>非流动资产合计</b></td>
+								<td>29</td>
+								<td></td>
+								<td></td>
+								<td class="p-l-0"><b>所有者权益(或股东权益)合计</b></td>
+								<td>52</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><b>资产合计</b></td>
+								<td>30</td>
+								<td></td>
+								<td></td>
+								<td class="p-l-0"><b>负债和所有者权益(或股东权益)总计</b></td>
+								<td>53</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<script type="text/javascript" src="js/common/jquery.monthpicker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//加载本页面的javascript，并执行回调函数
+		var js = "js/modules/equipment/assetLiabilitie.js";
+		$.loadScript(
+					js,
+					function(){
+						var assetliabilitieMgt = new AssetliabilitieMgt();
+						assetliabilitieMgt.initInput();
+						
+				    	var assetliabilitieBindModel = new AssetliabilitieBindModle(assetliabilitieMgt);
+				    	assetliabilitieBindModel.unbindAll();
+				    	assetliabilitieBindModel.bind();
+					});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
